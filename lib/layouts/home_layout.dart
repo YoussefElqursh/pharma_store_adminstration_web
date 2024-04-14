@@ -20,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _controller = SidebarXController(selectedIndex: 0, extended: true);
+  final _controller = SidebarXController(selectedIndex: 1, extended: true);
   final _key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {

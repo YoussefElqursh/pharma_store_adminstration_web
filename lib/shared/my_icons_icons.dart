@@ -14,7 +14,7 @@
 ///
 /// 
 ///
- */
+*/
 import 'package:flutter/widgets.dart';
 
 class MyIcons {
@@ -32,4 +32,5 @@ class MyIcons {
   static const IconData store = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData logout = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dashboard = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData filter = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

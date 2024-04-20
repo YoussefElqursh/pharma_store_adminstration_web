@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
+import 'package:pharma_store_administration_web/shared/my_icons_icons.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductsScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         borderSide: BorderSide(color: HexColor(primary)),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Icon(Icons.filter_list, color: Colors.white,),
+                      child: const Icon(MyIcons.filter, color: Colors.white,),
                     ),
                   ],
                 ),

@@ -110,13 +110,12 @@ class SideBarXExample extends StatelessWidget {
         SidebarXItem(icon: MyIcons.product, label: 'Products'),
         SidebarXItem(icon: MyIcons.pharmacy, label: 'Pharmacies'),
         SidebarXItem(icon: MyIcons.store, label: 'Stores'),
-      ],
-      footerItems: const [
         SidebarXItem(icon: MyIcons.order, label: 'Orders'),
         SidebarXItem(icon: MyIcons.statistics, label: 'Statistics'),
         SidebarXItem(icon: MyIcons.settings, label: 'Settings'),
         SidebarXItem(icon: MyIcons.logout, label: 'Logout'),
       ],
+      footerDivider: Divider(height: 1, color: HexColor(bWhite90),),
     );
   }
 }

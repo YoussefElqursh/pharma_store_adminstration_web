@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
-import 'package:pharma_store_administration_web/shared/my_icons_icons.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductsScreen extends StatefulWidget {

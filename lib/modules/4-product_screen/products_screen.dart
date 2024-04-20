@@ -70,7 +70,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         borderSide: BorderSide(color: HexColor(primary)),
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Icon(MyIcons.filter, color: Colors.white,),
+                      child: const Icon(Icons.filter_list_rounded, color: Colors.white,),
                     ),
                   ],
                 ),

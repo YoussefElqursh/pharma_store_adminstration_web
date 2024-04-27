@@ -39,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     SalesData('Feb', 28),
     SalesData('Mar', 34),
     SalesData('Apr', 32),
-    SalesData('May', 40)
+    SalesData('May', 30)
   ];
   bool isClicked = false;
 
@@ -135,8 +135,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ),
                               borderWidth: 45,
                               tooltipBehavior: _tooltip,
-                              series: <CartesianSeries<ChartData,
-                                  String>>[
+                              series: <CartesianSeries<ChartData,String>>[
                                 ColumnSeries<ChartData, String>(
                                     legendIconType: LegendIconType.circle,
                                     dataSource: data,
@@ -276,8 +275,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: Container(
-                          padding: const EdgeInsets.only(
-                              left: 35, right: 35, top: 35),
+                          padding: const EdgeInsets.only(left: 35, right: 35, top: 35),
                           height: 466,
                           width: 350,
                           decoration: BoxDecoration(

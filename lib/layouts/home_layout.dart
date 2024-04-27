@@ -4,6 +4,8 @@ import 'package:pharma_store_administration_web/modules/4-product_screen/product
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
 
+import '../modules/5-pharmacy_screen/pharmacy_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreenRoute';
   const HomeScreen({super.key});
@@ -20,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _controller = SidebarXController(selectedIndex: 0, extended: true);
+  final _controller = SidebarXController(selectedIndex: 2, extended: true);
   final _key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           final isSmallScreen = MediaQuery.of(context).size.width < 600;
           return Scaffold(
             key: _key,
+            // what is happening here ?
             appBar: isSmallScreen
                 ? AppBar(
                     title: const Text('SideBarX Example'),
@@ -59,13 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             return const ProductsScreen();
                           case 2:
                             _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Settings',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
+                            return const PharmacyScreen();
                           case 3:
                             _key.currentState?.closeDrawer();
                             return const Center(

@@ -6,6 +6,8 @@ import '../../../modules/1-login_screen/login_screen.dart';
 import '../../../modules/2-forgot_password/forgot_password_screen.dart';
 import '../../../modules/2-forgot_password/otp_screen.dart';
 import '../../../modules/2-forgot_password/success_password_screen.dart';
+import '../../../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
+import '../../../modules/5-pharmacy_screen/pharmacy_screen.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
@@ -22,6 +24,10 @@ class AppRouter {
         return SuccessPasswordScreen.route();
       case 'HomeScreenRoute':
         return HomeScreen.route();
+      case 'PharmacyProfilesScreenRoute':
+        return PharmacyProfilesScreen.route();
+      case 'Pharmacy_ScreenRoute':
+        return PharmacyScreen.route();
       default:
         return _errorRoute();
     }

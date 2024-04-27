@@ -168,6 +168,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
         fColor = HexColor('#4A72FF');
     }
     return DataRow(
+
       cells: [
         DataCell(Text('${data.id}')),
         DataCell(Text(data.from)),

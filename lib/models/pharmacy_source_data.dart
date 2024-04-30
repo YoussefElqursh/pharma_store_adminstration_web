@@ -61,9 +61,15 @@ class DTS extends DataTableSource {
           icon: const Icon(Icons.more_vert),
           itemBuilder: (BuildContext context) => [
              PopupMenuItem<String>(
-              onTap: () => Navigator.push(
+              onTap: () =>  Navigator.push(
                 context,
-                PharmacyProfilesScreen.route(), // Use PharmacyProfilesScreen.route()
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      FadeTransition(
+                        opacity: animation,
+                        child: const PharmacyProfilesScreen(),
+                      ),
+                ),
               ),
               value: 'View Profile',
               child: const Text('View Profile'),

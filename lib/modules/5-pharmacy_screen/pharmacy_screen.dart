@@ -194,7 +194,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                       MaterialButton(
                         onPressed: () {
                           setState(() {
-                            filterVisiblity=!filterVisiblity ;
+                            filterVisiblity = !filterVisiblity;
                           });
                         },
                         color: HexColor(primary),
@@ -213,7 +213,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                     ],
                   ),
                   Visibility(
-                    visible:filterVisiblity ,
+                    visible: filterVisiblity,
                     child: Container(
                       margin: const EdgeInsets.only(top: 5),
                       decoration: BoxDecoration(

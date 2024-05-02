@@ -20,6 +20,6 @@ class DataCardModel{
 List<DataCardModel> dataList = [
   DataCardModel('Total Products', '1250', MyIcons.product, 'assets/icons/path.svg', '15%', true,'#8280FF'),
   DataCardModel('Total Pharmacies', '500', MyIcons.pharmacy, 'assets/icons/path (1).svg', '3%', false,'#FEC53D'),
-  DataCardModel('Total Stores', '100', MyIcons.store, 'assets/icons/path.svg', '6%', true,'#4AD991'),
+  DataCardModel('Total Sales', '100', MyIcons.store, 'assets/icons/path.svg', '6%', true,'#4AD991'),
   DataCardModel('Total Orders', '200', MyIcons.order, 'assets/icons/path (1).svg', '12%', false,'#FF9066'),
 ];

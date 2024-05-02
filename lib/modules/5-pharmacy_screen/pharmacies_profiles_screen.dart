@@ -8,6 +8,7 @@ import '../../layouts/home_layout.dart';
 import '../../models/data_card_model.dart';
 import '../../models/order_source_data.dart';
 
+import '../../models/pharmacy_card_model.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/components/functions.dart';
 import '../../shared/components/widget/back_screen_header.dart';
@@ -1387,8 +1388,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) =>
-                                      buildDataCard(dataList[index], index),
-                                  itemCount: dataList.length),
+                                      buildDataCard(pharmacyDataList[index], index),
+                                  itemCount: pharmacyDataList.length),
                             )
                           ],
                         ),
@@ -1404,7 +1405,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
     );
   }
 
-  Widget buildDataCard(DataCardModel dataCardModel, int index) {
+  Widget buildDataCard(PharmacyCardModel dataCardModel, int index) {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, bottom: 20),
       child: Container(

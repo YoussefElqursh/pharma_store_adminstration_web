@@ -1449,7 +1449,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                     child: DropdownButton2<String>(
                       isExpanded: true,
                       hint: Text(
-                        'This Week',
+                        'This Month',
                         style: TextStyle(
                           fontSize: 14,
                           color: HexColor(bWhite90),

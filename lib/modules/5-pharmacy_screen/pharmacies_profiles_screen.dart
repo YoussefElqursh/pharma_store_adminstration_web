@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
+import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-import '../../layouts/home_layout.dart';
 import '../../models/order_source_data.dart';
 
 import '../../models/pharmacy_card_model.dart';
@@ -71,7 +71,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
         appBar: PreferredSize(
           preferredSize: const Size(double.infinity, 75),
           child: BackScreenHeader(
-            goBack: () => Navigator.push(context, HomeScreen.route()),
+            goBack: () => Navigator.push(context, PharmacyScreen.route()),
             backScreenName: 'Pharmacies',
           ),
         ),
@@ -108,8 +108,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                         Expanded(
                           child: Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 20.0),
+                              const Padding(
+                                padding: EdgeInsets.only(bottom: 20.0),
                                 child: Expanded(
                                   child: ProfileContainer(),
 

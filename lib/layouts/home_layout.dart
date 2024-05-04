@@ -23,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = false;
 
-  final _controller = SidebarXController(selectedIndex: 2, extended: true);
+  final _controller = SidebarXController(selectedIndex: 0, extended: true);
   final _key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -57,41 +57,60 @@ class _HomeScreenState extends State<HomeScreen> {
                         switch (_controller.selectedIndex) {
                           case 0:
                             _key.currentState?.closeDrawer();
-                            // Navigate to DashboardScreen
-                            return Navigator(
-                              onGenerateRoute: (settings) => MaterialPageRoute(
-                                builder: (context) => const DashboardScreen(),
-                              ),
-                            );
+                            return const DashboardScreen();
                           case 1:
                             _key.currentState?.closeDrawer();
-                            // Navigate to ProductsScreen
-                            return Navigator(
-                              onGenerateRoute: (settings) => MaterialPageRoute(
-                                builder: (context) => const ProductsScreen(),
-                              ),
-                            );
+                            return const ProductsScreen();
                           case 2:
                             _key.currentState?.closeDrawer();
-                            // Navigate to PharmacyScreen
+                            // Navigate to DashboardScreen
                             return Navigator(
                               onGenerateRoute: (settings) => MaterialPageRoute(
                                 builder: (context) => const PharmacyScreen(),
                               ),
                             );
-                        // Handle other cases similarly
+                          case 3:
+                            _key.currentState?.closeDrawer();
+                            return const Center(
+                              child: Text(
+                                'Theme',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 40),
+                              ),
+                            );
+                          case 4:
+                            _key.currentState?.closeDrawer();
+                            return const Center(
+                              child: Text(
+                                'Theme',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 40),
+                              ),
+                            );
+                          case 5:
+                            _key.currentState?.closeDrawer();
+                            return const Center(
+                              child: DashboardScreen());
+                          case 6:
+                            _key.currentState?.closeDrawer();
+                            return const Center(
+                              child: Text(
+                                'Theme',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 40),
+                              ),
+                            );
                           default:
                             return const Center(
                               child: Text(
                                 'Home',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 40,
-                                ),
+                                    color: Colors.white, fontSize: 40),
                               ),
                             );
                         }
-                      },                    ),
+                      },
+                    ),
                   ),
                 ),
               ],

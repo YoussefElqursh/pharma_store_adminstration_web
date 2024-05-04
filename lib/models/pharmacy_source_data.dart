@@ -7,7 +7,7 @@ class DTS extends DataTableSource {
   final List<PharmacyDataModel> pharmacyData;
   final BuildContext context; // Add context to access Navigator
 
-  updaDTS(this.pharmacyData, this.context);
+  DTS(this.pharmacyData, this.context);
 
   void _openProfileScreen() {
     Navigator.push(

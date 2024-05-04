@@ -80,8 +80,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 80.0),
             child: Expanded(
-              child: SingleChildScrollView(
-                child: PaginatedDataTable(
+              child: ListView(
+                children:[ PaginatedDataTable(
                   sortAscending: sort,
                   sortColumnIndex: 2,
                   columnSpacing:
@@ -128,12 +128,12 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                     ),
                     const DataColumn(label: Text("")),
                   ],
-                  source: DTS(pharmacyDemoData),
+                  source: DTS(pharmacyDemoData,context),
                   rowsPerPage: _rowPerPage,
                   onRowsPerPageChanged: (r) => setState(() {
                     _rowPerPage = r!;
                   }),
-                ),
+                )],
               ),
             ),
           ),

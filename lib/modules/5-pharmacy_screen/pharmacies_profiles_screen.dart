@@ -5,13 +5,13 @@ import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 import '../../layouts/home_layout.dart';
-import '../../models/data_card_model.dart';
 import '../../models/order_source_data.dart';
 
 import '../../models/pharmacy_card_model.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/components/functions.dart';
 import '../../shared/components/widget/back_screen_header.dart';
+import '../../shared/components/widget/pharmacy_profile_widget.dart';
 
 class PharmacyProfilesScreen extends StatefulWidget {
   static const String routeName = 'PharmacyProfilesScreenRoute';
@@ -111,142 +111,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 20.0),
                                 child: Expanded(
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height -
-                                        558,
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(
-                                        Radius.circular(8),
-                                      ),
-                                      border: Border.all(
-                                        color: const Color(
-                                            0xFFDDE1EB), // Border color #dde1eb
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(30.0),
-                                      child: Row(
-                                        children: [
-                                          ClipOval(
-                                            child: Container(
-                                              width: 80,
-                                              height: 80,
-                                              color: Colors.cyan,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                              width:
-                                                  20), // Add space between the oval container and the column
-                                          SingleChildScrollView(
-                                            scrollDirection: Axis.vertical,
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Elezaby', // Example text, replace with your content
-                                                  style: TextStyle(
-                                                    color: HexColor("#23262a"),
-                                                    fontSize: 18,
-                                                    fontFamily:
-                                                        "Poppins-SemiBold",
-                                                  ),
-                                                  overflow: TextOverflow.fade,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          bottom: 8.0),
-                                                  child: Text(
-                                                    'Elezaby123124', // Example text, replace with your content
-                                                    style: TextStyle(
-                                                      fontFamily:
-                                                          "Poppins-Regular",
-                                                      fontSize: 16,
-                                                      color:
-                                                          HexColor("#60656e"),
-                                                    ),
-                                                    overflow: TextOverflow.fade,
-                                                  ),
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      width: 84,
-                                                      height: 25,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            HexColor('#ecfdf3'),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(14),
-                                                      ),
-                                                      child: Center(
-                                                        child: Text(
-                                                          "Activated",
-                                                          style: TextStyle(
-                                                            color: HexColor(
-                                                                '#009881'),
-                                                            fontSize: 14,
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(width: 30),
-                                                    InkWell(
-                                                      onTap: () {},
-                                                      child: Container(
-                                                        width: 57,
-                                                        height: 23,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: const Color
-                                                              .fromRGBO(74, 114,
-                                                              255, 0.05),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(14),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Text(
-                                                              "Edit",
-                                                              style: TextStyle(
-                                                                color: HexColor(
-                                                                    primary),
-                                                                fontSize: 14,
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                            ),
-                                                            const Icon(
-                                                                Icons.edit,
-                                                                size: 13,
-                                                                color: Colors
-                                                                    .blueAccent),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
+                                  child: ProfileContainer(),
+
                                 ),
                               ),
                               Expanded(
@@ -732,7 +598,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width -
-                                              130,
+                                              360,
                                           height: 40,
                                           child: TextFormField(
                                             controller: controllerOfFilter,
@@ -1388,7 +1254,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) =>
-                                      buildDataCard(pharmacyDataList[index], index),
+                                      buildDataCard(pharmacyDataList[index] , index),
                                   itemCount: pharmacyDataList.length),
                             )
                           ],

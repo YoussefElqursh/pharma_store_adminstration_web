@@ -57,55 +57,41 @@ class _HomeScreenState extends State<HomeScreen> {
                         switch (_controller.selectedIndex) {
                           case 0:
                             _key.currentState?.closeDrawer();
-                            return const DashboardScreen();
+                            // Navigate to DashboardScreen
+                            return Navigator(
+                              onGenerateRoute: (settings) => MaterialPageRoute(
+                                builder: (context) => const DashboardScreen(),
+                              ),
+                            );
                           case 1:
                             _key.currentState?.closeDrawer();
-                            return const ProductsScreen();
+                            // Navigate to ProductsScreen
+                            return Navigator(
+                              onGenerateRoute: (settings) => MaterialPageRoute(
+                                builder: (context) => const ProductsScreen(),
+                              ),
+                            );
                           case 2:
                             _key.currentState?.closeDrawer();
-                            return const PharmacyScreen();
-                          case 3:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
+                            // Navigate to PharmacyScreen
+                            return Navigator(
+                              onGenerateRoute: (settings) => MaterialPageRoute(
+                                builder: (context) => const PharmacyScreen(),
                               ),
                             );
-                          case 4:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
-                          case 5:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: DashboardScreen());
-                          case 6:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
+                        // Handle other cases similarly
                           default:
                             return const Center(
                               child: Text(
                                 'Home',
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                ),
                               ),
                             );
                         }
-                      },
-                    ),
+                      },                    ),
                   ),
                 ),
               ],

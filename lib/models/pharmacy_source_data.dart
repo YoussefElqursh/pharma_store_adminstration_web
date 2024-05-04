@@ -5,8 +5,22 @@ import '../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
 
 class DTS extends DataTableSource {
   final List<PharmacyDataModel> pharmacyData;
+  final BuildContext context; // Add context to access Navigator
 
-  DTS(this.pharmacyData);
+  updaDTS(this.pharmacyData, this.context);
+
+  void _openProfileScreen() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            FadeTransition(
+              opacity: animation,
+              child: const PharmacyProfilesScreen(),
+            ),
+      ),
+    );
+  }
 
   @override
   DataRow? getRow(int index) {
@@ -18,9 +32,11 @@ class DTS extends DataTableSource {
       case 'Activated':
         bColor = HexColor('#ecfdf3');
         fColor = HexColor('#009881');
+        break; // Add break statement
       case 'Deactivated':
         bColor = HexColor('#fff2ea');
         fColor = HexColor('#f15046');
+        break; // Add break statement
     }
 
     return DataRow.byIndex(
@@ -57,25 +73,18 @@ class DTS extends DataTableSource {
             ),
           ),
         ),
-        DataCell(PopupMenuButton<String>(
-          icon: const Icon(Icons.more_vert),
-          itemBuilder: (BuildContext context) => [
-             PopupMenuItem<String>(
-              onTap: () =>  Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      FadeTransition(
-                        opacity: animation,
-                        child: const PharmacyProfilesScreen(),
-                      ),
-                ),
+        DataCell(
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem<String>(
+                value: 'View Profile',
+                onTap: _openProfileScreen,
+                child: const Text('View Profile'), // Call function here
               ),
-              value: 'View Profile',
-              child: const Text('View Profile'),
-            ),
-          ],
-        )) // Directly add the IconButton)
+            ],
+          ),
+        )
       ],
     );
   }
@@ -84,9 +93,8 @@ class DTS extends DataTableSource {
   bool get isRowCountApproximate => true;
 
   @override
-  int get rowCount => 10;
+  int get rowCount => 10; // Change this to actual count
 
   @override
   int get selectedRowCount => 0;
-
 }

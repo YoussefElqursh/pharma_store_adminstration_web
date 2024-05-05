@@ -17,4 +17,9 @@ List demoData = [
   Data(3, 'El Motahadah\nIbnsina', '19011', '28-1-2023 9:25 PM', 'On Hold', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
   Data(4, 'El Motahadah\nPharmaceuticals', 'Zikry', '2-2-2023 12:20 AM', 'On Way', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
   Data(5, 'Pharmaceuticals  ', 'El Delta', '15-3-2014 8:20 AM', 'On Way', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
+  Data(6, 'Pharmaceuticals\nIbnsina', 'Dr. Osama El Tayeby', '15-3-2014 2:20 PM', 'Delivered', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
+  Data(7, 'Avano Pharma\nIbnsina\nEl Motahadah', 'El Nahas', '25-8-2020 10:30 AM', 'Delivered', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
+  Data(8, 'El Motahadah\nIbnsina', '19011', '28-1-2023 9:25 PM', 'On Hold', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
+  Data(9, 'El Motahadah\nPharmaceuticals', 'Zikry', '2-2-2023 12:20 AM', 'On Way', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
+  Data(10, 'Pharmaceuticals  ', 'El Delta', '15-3-2014 8:20 AM', 'On Way', IconButton(onPressed: (){}, icon: const Icon(Icons.more_vert))),
 ];

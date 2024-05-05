@@ -85,7 +85,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                   sortAscending: sort,
                   sortColumnIndex: 2,
                   columnSpacing:
-                      (MediaQuery.of(context).size.width / 2.252) / 7,
+                      (MediaQuery.of(context).size.width / 2.252) / 8.5,
                   dataRowMaxHeight: 72,
                   headingRowColor:
                       const MaterialStatePropertyAll(Color(0xffEAECF0)),

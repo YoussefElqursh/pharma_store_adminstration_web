@@ -20,7 +20,6 @@ class SideBarXExample extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20.0),
             child: Flexible(
               child: Row(
-              
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
@@ -33,39 +32,36 @@ class SideBarXExample extends StatelessWidget {
                   const SizedBox(width: 10),
                   extended
                       ? Text.rich(
-                    overflow: TextOverflow.fade,
-              
-                        TextSpan(
-
-                          children: [
-                            TextSpan(
-              
-                              text: 'Pharma',
-                              style: TextStyle(
-                                color: HexColor(primary),
-                                fontSize: 20,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
+                          overflow: TextOverflow.fade,
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Pharma',
+                                style: TextStyle(
+                                  color: HexColor(primary),
+                                  fontSize: 20,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: 'Store',
-                              style: TextStyle(
-                                color: HexColor(black),
-                                fontSize: 20,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w600,
+                              TextSpan(
+                                text: 'Store',
+                                style: TextStyle(
+                                  color: HexColor(black),
+                                  fontSize: 20,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        style: const TextStyle(
-                          color: Color(0xff4a72ff),
-                          fontSize: 20,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                        ),
-                      )
+                            ],
+                          ),
+                          style: const TextStyle(
+                            color: Color(0xff4a72ff),
+                            fontSize: 20,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        )
                       : const SizedBox(),
                 ],
               ),
@@ -73,7 +69,7 @@ class SideBarXExample extends StatelessWidget {
           );
         },
         headerDivider: Padding(
-          padding: const EdgeInsets.only(top: 22.0,bottom: 10),
+          padding: const EdgeInsets.only(top: 22.0, bottom: 10),
           child: Divider(color: HexColor(bWhite90), height: 1),
         ),
         theme: SidebarXTheme(
@@ -109,7 +105,10 @@ class SideBarXExample extends StatelessWidget {
           selectedItemTextPadding: const EdgeInsets.only(left: 15),
         ),
         items: const [
-          SidebarXItem(icon: MyIcons.dashboard, label: 'Dashboard',),
+          SidebarXItem(
+            icon: MyIcons.dashboard,
+            label: 'Dashboard',
+          ),
           SidebarXItem(icon: MyIcons.product, label: 'Products'),
           SidebarXItem(icon: MyIcons.pharmacy, label: 'Pharmacies'),
           SidebarXItem(icon: MyIcons.store, label: 'Stores'),
@@ -118,7 +117,10 @@ class SideBarXExample extends StatelessWidget {
           SidebarXItem(icon: MyIcons.settings, label: 'Settings'),
           SidebarXItem(icon: MyIcons.logout, label: 'Logout'),
         ],
-        footerDivider: Divider(height: 1, color: HexColor(bWhite90),),
+        footerDivider: Divider(
+          height: 1,
+          color: HexColor(bWhite90),
+        ),
       ),
     );
   }

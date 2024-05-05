@@ -9,7 +9,7 @@ class ProfileContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height - 558,
+      height: MediaQuery.of(context).size.height - 458,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
           Radius.circular(8),

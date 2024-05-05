@@ -112,7 +112,6 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                 padding: EdgeInsets.only(bottom: 20.0),
                                 child: Expanded(
                                   child: ProfileContainer(),
-
                                 ),
                               ),
                               Expanded(
@@ -533,7 +532,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                   sortColumnIndex: 2,
                                   columnSpacing:
                                       (MediaQuery.of(context).size.width -
-                                              130) /
+                                              650) /
                                           7,
                                   dataRowMaxHeight: 72,
                                   headingRowColor:
@@ -1210,17 +1209,38 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                                   !canceledIsChecked &&
                                                                   !deliveredIsChecked) {
                                                                 // All checkboxes are unchecked, return the original filterData
-                                                                demoData = filterData!;
+                                                                demoData =
+                                                                    filterData!;
                                                               } else {
                                                                 // At least one checkbox is checked, filter based on selected states
-                                                                List<String> selectedStates = [];
-                                                                if (onHoldIsChecked) selectedStates.add("On Hold");
-                                                                if (onWayIsChecked) selectedStates.add("On Way");
-                                                                if (canceledIsChecked) selectedStates.add("Canceled");
-                                                                if (deliveredIsChecked) selectedStates.add("Delivered");
+                                                                List<String>
+                                                                    selectedStates =
+                                                                    [];
+                                                                if (onHoldIsChecked) {
+                                                                   selectedStates
+                                                                      .add(
+                                                                          "On Hold");
+                                                                }
+                                                                if (onWayIsChecked) {
+                                                                  selectedStates
+                                                                      .add(
+                                                                          "On Way");
+                                                                }
+                                                                if (canceledIsChecked) {
+                                                                  selectedStates
+                                                                      .add(
+                                                                          "Canceled");
+                                                                }
+                                                                if (deliveredIsChecked) {
+                                                                  selectedStates
+                                                                      .add(
+                                                                          "Delivered");
+                                                                }
 
                                                                 orderDemoData = filterData!
-                                                                    .where((element) => selectedStates.contains(element.state))
+                                                                    .where((element) =>
+                                                                        selectedStates
+                                                                            .contains(element.state))
                                                                     .toList();
                                                               }
                                                             });
@@ -1254,7 +1274,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
                                   itemBuilder: (context, index) =>
-                                      buildDataCard(pharmacyDataList[index] , index),
+                                      buildDataCard(
+                                          pharmacyDataList[index], index),
                                   itemCount: pharmacyDataList.length),
                             )
                           ],

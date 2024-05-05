@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:pharma_store_administration_web/models/pharmacy_data-table_model.dart';
 import '../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
 import 'order_data_table_model.dart';
 

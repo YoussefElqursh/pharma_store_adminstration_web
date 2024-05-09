@@ -14,15 +14,18 @@ class BackScreenHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 75,
+      height: 54,
       decoration: BoxDecoration(
-        border: Border.all(
-          color: HexColor(bWhite90),
-          width: 1.5,
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: HexColor('#DDE1EB'),
+            width: 1,
+          ),
+          vertical: BorderSide.none,
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -30,14 +33,14 @@ class BackScreenHeader extends StatelessWidget {
               padding: const EdgeInsets.only(right: 6.0),
               child: IconButton(
                 onPressed:goBack,
-                icon:setPhoto(kind: 1,path: "assets/images/Arrow_alt_lright_alt.svg"),
+                icon:setPhoto(kind: 1,path: "assets/images/Arrow_alt_lright_alt.svg", width: 21, height: 21),
               ),
             ),
             DefaultTextStyle(
               style: TextStyle(
                 color: HexColor(black),
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
               ),
               child: Text(backScreenName),
 
@@ -45,13 +48,13 @@ class BackScreenHeader extends StatelessWidget {
             const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: const Icon(MyIcons.notification),
+              icon: const Icon(MyIcons.notification,size: 15,),
             ),
             const SizedBox(width: 25),
             ClipOval(
               child: Container(
-                width: 45,
-                height: 45,
+                width: 32,
+                height: 32,
                 color: Colors.cyan,
               ),
             ),

@@ -99,9 +99,9 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                 const SizedBox(height: 30.7),
                 SafeArea(
                   child: SizedBox(
-                    height: MediaQuery.of(context)
-                        .size
-                        .height, // Adjust height as needed
+                      height: MediaQuery.of(context)
+                          .size
+                          .height, // Adjust height as needed
                     child: TabBarView(
                       children: [
                         // Replace these placeholders with actual content widgets for each tab
@@ -124,13 +124,16 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                             const EdgeInsets.only(bottom: 31.0),
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(8)),
-                                              border: Border.fromBorderSide(
-                                                  BorderSide(
-                                                      color: HexColor(
-                                                          "#dde1eb")))),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(8),
+                                            ),
+                                            border: Border.fromBorderSide(
+                                              BorderSide(
+                                                color: HexColor("#dde1eb"),
+                                              ),
+                                            ),
+                                          ),
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width -
@@ -150,11 +153,12 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                     child: Text(
                                                       "Pharmacy Details",
                                                       style: TextStyle(
-                                                          fontSize: 18,
-                                                          fontFamily:
-                                                              "Poppins-SemiBold",
-                                                          color: HexColor(
-                                                              "#23262a")),
+                                                        fontSize: 18,
+                                                        fontFamily:
+                                                            "Poppins-SemiBold",
+                                                        color:
+                                                            HexColor("#23262a"),
+                                                      ),
                                                     ),
                                                   ),
                                                   Divider(
@@ -175,63 +179,80 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                         child: Row(
                                                           children: [
                                                             const Column(
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            33.0,
-                                                                        top: 5),
-                                                                    child: Text(
-                                                                        "Email:"),
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              33.0,
+                                                                          top:
+                                                                              5),
+                                                                  child: Text(
+                                                                    "Email:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            81.0),
-                                                                    child: Text(
-                                                                        "Contact Number:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              81.0),
+                                                                  child: Text(
+                                                                    "Contact Number:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            33.0),
-                                                                    child: Text(
-                                                                        "Country:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              33.0),
+                                                                  child: Text(
+                                                                    "Country:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            33.0),
-                                                                    child: Text(
-                                                                        "Governorate:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              33.0),
+                                                                  child: Text(
+                                                                    "Governorate:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            32.0),
-                                                                    child: Text(
-                                                                        "Region:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              32.0),
+                                                                  child: Text(
+                                                                    "Region:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            31.0),
-                                                                    child: Text(
-                                                                        "Address:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              31.0),
+                                                                  child: Text(
+                                                                    "Address:",
                                                                   ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        bottom:
-                                                                            32.0),
-                                                                    child: Text(
-                                                                        "License Number:"),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          bottom:
+                                                                              32.0),
+                                                                  child: Text(
+                                                                    "License Number:",
                                                                   ),
-                                                                  Text(
-                                                                      "Commercial Register:"),
-                                                                ]),
+                                                                ),
+                                                                Text(
+                                                                  "Commercial Register:",
+                                                                ),
+                                                              ],
+                                                            ),
                                                             Padding(
                                                               padding:
                                                                   const EdgeInsets
@@ -239,122 +260,138 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                                       left:
                                                                           21.0),
                                                               child: Column(
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              35.0,
-                                                                          top:
-                                                                              8),
-                                                                      child: Text(
-                                                                          "elezaby123456@gmail.com"),
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            35.0,
+                                                                        top: 8),
+                                                                    child: Text(
+                                                                      "elezaby123456@gmail.com",
                                                                     ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              40.0),
-                                                                      child:
-                                                                          Column(
-                                                                        children: [
-                                                                          Text(
-                                                                              "01202617505"),
-                                                                          Text(
-                                                                              "01202617505"),
-                                                                          Text(
-                                                                              "01202617505"),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              35.0),
-                                                                      child: Text(
-                                                                          "Egypt"),
-                                                                    ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              35.0),
-                                                                      child: Text(
-                                                                          "Alexandria"),
-                                                                    ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              35.0),
-                                                                      child: Text(
-                                                                          "El montaza"),
-                                                                    ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              25.0),
-                                                                      child: Text(
-                                                                          "8587 Frida Ports"),
-                                                                    ),
-                                                                    const Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          bottom:
-                                                                              30.0),
-                                                                      child: Text(
-                                                                          "5180682"),
-                                                                    ),
-                                                                    Row(
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            40.0),
+                                                                    child:
+                                                                        Column(
                                                                       children: [
-                                                                        const Text(
-                                                                            "commercial_register.pdf"),
-                                                                        const SizedBox(
-                                                                            width:
-                                                                                30),
-                                                                        InkWell(
-                                                                          onTap:
-                                                                              () {},
-                                                                          child:
-                                                                              Container(
-                                                                            width:
-                                                                                60,
-                                                                            height:
-                                                                                23,
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              color: const Color.fromRGBO(74, 114, 255, 0.05),
-                                                                              borderRadius: BorderRadius.circular(14),
-                                                                            ),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              children: [
-                                                                                Text(
-                                                                                  "Show",
-                                                                                  style: TextStyle(
-                                                                                    color: HexColor(primary),
-                                                                                    fontSize: 14,
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontWeight: FontWeight.w500,
-                                                                                  ),
-                                                                                ),
-                                                                                const SizedBox(width: 6),
-                                                                                const Icon(Icons.file_present_outlined, size: 13, color: Colors.blueAccent),
-                                                                              ],
-                                                                            ),
-                                                                          ),
+                                                                        Text(
+                                                                          "01202617505",
+                                                                        ),
+                                                                        Text(
+                                                                          "01202617505",
+                                                                        ),
+                                                                        Text(
+                                                                          "01202617505",
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                  ]),
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            35.0),
+                                                                    child: Text(
+                                                                      "Egypt",
+                                                                    ),
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            35.0),
+                                                                    child: Text(
+                                                                      "Alexandria",
+                                                                    ),
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            35.0),
+                                                                    child: Text(
+                                                                      "El montaza",
+                                                                    ),
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            25.0),
+                                                                    child: Text(
+                                                                      "8587 Frida Ports",
+                                                                    ),
+                                                                  ),
+                                                                  const Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        bottom:
+                                                                            30.0),
+                                                                    child: Text(
+                                                                      "5180682",
+                                                                    ),
+                                                                  ),
+                                                                  Row(
+                                                                    children: [
+                                                                      const Text(
+                                                                        "commercial_register.pdf",
+                                                                      ),
+                                                                      const SizedBox(
+                                                                          width:
+                                                                              30),
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {},
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              60,
+                                                                          height:
+                                                                              23,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color: const Color.fromRGBO(
+                                                                                74,
+                                                                                114,
+                                                                                255,
+                                                                                0.05),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(14),
+                                                                          ),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                "Show",
+                                                                                style: TextStyle(
+                                                                                  color: HexColor(primary),
+                                                                                  fontSize: 14,
+                                                                                  fontFamily: 'Poppins',
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                              ),
+                                                                              const SizedBox(width: 6),
+                                                                              const Icon(Icons.file_present_outlined, size: 13, color: Colors.blueAccent),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ],
                                                         ),
                                                       ),
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -369,13 +406,16 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                             const EdgeInsets.only(bottom: 31.0),
                                         child: Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(8)),
-                                              border: Border.fromBorderSide(
-                                                  BorderSide(
-                                                      color: HexColor(
-                                                          "#dde1eb")))),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(8),
+                                            ),
+                                            border: Border.fromBorderSide(
+                                              BorderSide(
+                                                color: HexColor("#dde1eb"),
+                                              ),
+                                            ),
+                                          ),
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width -
@@ -414,101 +454,114 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                   child: Row(
                                                     children: [
                                                       Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom:
+                                                                        33.0,
+                                                                    top: 5),
+                                                            child: Text(
+                                                              "First Name:",
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom:
+                                                                        33.0),
+                                                            child: Text(
+                                                              "Last Name:",
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom:
+                                                                        33.0),
+                                                            child: Text(
+                                                              "Email:",
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    bottom:
+                                                                        33.0),
+                                                            child: Text(
+                                                              "Phone Number:",
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            "License Number:",
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                left: 21.0),
+                                                        child: Column(
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
+                                                                  .start,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
                                                                   .start,
                                                           children: [
                                                             Padding(
                                                               padding: EdgeInsets
                                                                   .only(
                                                                       bottom:
-                                                                          33.0,
-                                                                      top: 5),
+                                                                          35),
                                                               child: Text(
-                                                                  "First Name:"),
+                                                                "Ahmed",
+                                                              ),
                                                             ),
                                                             Padding(
                                                               padding: EdgeInsets
                                                                   .only(
                                                                       bottom:
-                                                                          33.0),
-                                                              child: Text(
-                                                                  "Last Name:"),
+                                                                          30.0),
+                                                              child: Column(
+                                                                children: [
+                                                                  Text(
+                                                                    "Mohammed",
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
                                                             Padding(
                                                               padding: EdgeInsets
                                                                   .only(
                                                                       bottom:
-                                                                          33.0),
+                                                                          40.0),
                                                               child: Text(
-                                                                  "Email:"),
+                                                                "ahmedmo1463@gmail.com",
+                                                              ),
                                                             ),
                                                             Padding(
                                                               padding: EdgeInsets
                                                                   .only(
                                                                       bottom:
-                                                                          33.0),
+                                                                          35.0),
                                                               child: Text(
-                                                                  "Phone Number:"),
+                                                                "01503632147",
+                                                              ),
                                                             ),
                                                             Text(
-                                                                "License Number:"),
-                                                          ]),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.only(
-                                                                left: 21.0),
-                                                        child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        bottom:
-                                                                            35),
-                                                                child: Text(
-                                                                    "Ahmed"),
-                                                              ),
-                                                              Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        bottom:
-                                                                            30.0),
-                                                                child: Column(
-                                                                  children: [
-                                                                    Text(
-                                                                        "Mohammed"),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        bottom:
-                                                                            40.0),
-                                                                child: Text(
-                                                                    "ahmedmo1463@gmail.com"),
-                                                              ),
-                                                              Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        bottom:
-                                                                            35.0),
-                                                                child: Text(
-                                                                    "01503632147"),
-                                                              ),
-                                                              Text("126565"),
-                                                            ]),
+                                                              "126565",
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
                                                 ),
-                                              )
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -516,179 +569,195 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                     ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                        Stack(children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 80.0),
-                              child: SingleChildScrollView(
-                                child: PaginatedDataTable(
-                                  showEmptyRows: false,
-                                  primary: true,
-                                  sortAscending: sort,
-                                  sortColumnIndex: 2,
-                                  columnSpacing:
-                                      (MediaQuery.of(context).size.width -
-                                              650) /
-                                          7,
-                                  dataRowMaxHeight: 72,
-                                  headingRowColor:
-                                      const MaterialStatePropertyAll(
-                                          Color(0xffEAECF0)),
-                                  columns: [
-                                    const DataColumn(label: Text('ID')),
-                                    const DataColumn(label: Text('From')),
-                                    DataColumn(
-                                      onSort: (columnIndex, ascending) {
-                                        if (columnIndex == 2) {
-                                          setState(() {
-                                            sort = ascending;
-                                            if (ascending) {
-                                              filterData?.sort((a, b) =>
-                                                  a.to.compareTo(b.to));
-                                            } else {
-                                              filterData?.sort((a, b) =>
-                                                  b.to.compareTo(a.to));
-                                            }
-                                          });
-                                        }
-                                      },
-                                      label: const Row(
-                                        children: [
-                                          Text('To'),
-                                          SizedBox(
-                                            width: 113,
-                                          )
-                                        ],
+                        Stack(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 80.0),
+                                child: SingleChildScrollView(
+                                  child: PaginatedDataTable(
+                                    showEmptyRows: false,
+                                    primary: true,
+                                    sortAscending: sort,
+                                    sortColumnIndex: 2,
+                                    columnSpacing:
+                                        (MediaQuery.of(context).size.width -
+                                                650) /
+                                            7,
+                                    dataRowMaxHeight: 72,
+                                    headingRowColor:
+                                        const MaterialStatePropertyAll(
+                                            Color(0xffEAECF0)),
+                                    columns: [
+                                      const DataColumn(label: Text('ID')),
+                                      const DataColumn(label: Text('From')),
+                                      DataColumn(
+                                        onSort: (columnIndex, ascending) {
+                                          if (columnIndex == 2) {
+                                            setState(
+                                              () {
+                                                sort = ascending;
+                                                if (ascending) {
+                                                  filterData?.sort((a, b) =>
+                                                      a.to.compareTo(b.to));
+                                                } else {
+                                                  filterData?.sort((a, b) =>
+                                                      b.to.compareTo(a.to));
+                                                }
+                                              },
+                                            );
+                                          }
+                                        },
+                                        label: const Row(
+                                          children: [
+                                            Text('To'),
+                                            SizedBox(
+                                              width: 113,
+                                            ),
+                                          ],
+                                        ),
                                       ),
+                                      const DataColumn(
+                                        label: SizedBox(
+                                          width: 159,
+                                          child: Text('Date'),
+                                        ),
+                                      ),
+                                      const DataColumn(
+                                        label: Text('State'),
+                                      ),
+                                      const DataColumn(
+                                        label: Text(""),
+                                      ),
+                                    ],
+                                    source: DtsOrder(orderDemoData),
+                                    rowsPerPage: _rowPerPage,
+                                    onRowsPerPageChanged: (r) => setState(
+                                      () {
+                                        _rowPerPage = r!;
+                                      },
                                     ),
-                                    const DataColumn(
-                                      label: SizedBox(
-                                          width: 159, child: Text('Date')),
-                                    ),
-                                    const DataColumn(
-                                      label: Text('State'),
-                                    ),
-                                    const DataColumn(label: Text("")),
-                                  ],
-                                  source: DtsOrder(orderDemoData),
-                                  rowsPerPage: _rowPerPage,
-                                  onRowsPerPageChanged: (r) => setState(() {
-                                    _rowPerPage = r!;
-                                  }),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 30, bottom: 10),
-                              child: Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        SizedBox(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width -
-                                              360,
-                                          height: 40,
-                                          child: TextFormField(
-                                            controller: controllerOfFilter,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                orderDemoData = filterData!
-                                                    .where((element) => element
-                                                        .date
-                                                        .contains(value))
-                                                    .toList();
-                                              });
-                                            },
-                                            decoration: InputDecoration(
-                                                filled: true,
-                                                fillColor: HexColor(white),
-                                                hintText:
-                                                    'Search order by date,  or store',
-                                                hintStyle: const TextStyle(
-                                                  color: Color(0xffb2bac6),
-                                                  fontFamily: 'Poppins',
-                                                ),
-                                                prefixIcon: Icon(
-                                                  Icons.search,
-                                                  color: HexColor(bWhite90),
-                                                  size: 21,
-                                                ),
-                                                border:
-                                                    const OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(12),
-                                                    topLeft:
-                                                        Radius.circular(12),
+                            Expanded(
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 30, bottom: 10),
+                                child: Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width -
+                                                360,
+                                            height: 40,
+                                            child: TextFormField(
+                                              controller: controllerOfFilter,
+                                              onChanged: (value) {
+                                                setState(
+                                                  () {
+                                                    orderDemoData = filterData!
+                                                        .where((element) =>
+                                                            element.date
+                                                                .contains(
+                                                                    value))
+                                                        .toList();
+                                                  },
+                                                );
+                                              },
+                                              decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor: HexColor(white),
+                                                  hintText:
+                                                      'Search order by date,  or store',
+                                                  hintStyle: const TextStyle(
+                                                    color: Color(0xffb2bac6),
+                                                    fontFamily: 'Poppins',
                                                   ),
-                                                ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color:
-                                                          HexColor(bWhite90)),
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: HexColor(primary)),
-                                                ),
-                                                contentPadding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 5)),
+                                                  prefixIcon: Icon(
+                                                    Icons.search,
+                                                    color: HexColor(bWhite90),
+                                                    size: 21,
+                                                  ),
+                                                  border:
+                                                      const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12),
+                                                      topLeft:
+                                                          Radius.circular(12),
+                                                    ),
+                                                  ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            HexColor(bWhite90)),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            HexColor(primary)),
+                                                  ),
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                          .symmetric(
+                                                          vertical: 5)),
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(width: 10),
-                                        MaterialButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              filterVisiblity =
-                                                  !filterVisiblity;
-                                            });
-                                          },
-                                          color: HexColor(primary),
-                                          elevation: 0,
-                                          height: 48,
-                                          minWidth: 48,
-                                          shape: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: HexColor(primary)),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
+                                          const SizedBox(width: 10),
+                                          MaterialButton(
+                                            onPressed: () {
+                                              setState(
+                                                () {
+                                                  filterVisiblity =
+                                                      !filterVisiblity;
+                                                },
+                                              );
+                                            },
+                                            color: HexColor(primary),
+                                            elevation: 0,
+                                            height: 48,
+                                            minWidth: 48,
+                                            shape: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: HexColor(primary)),
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                            ),
+                                            child: const Icon(
+                                              Icons.filter_list_rounded,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                          child: const Icon(
-                                            Icons.filter_list_rounded,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Visibility(
-                                      visible: filterVisiblity,
-                                      child: Container(
-                                        margin: const EdgeInsets.only(top: 5),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0)),
-                                        width: 280,
-                                        height: 371,
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              right: 20.0),
-                                          child: Column(
+                                        ],
+                                      ),
+                                      Visibility(
+                                        visible: filterVisiblity,
+                                        child: Container(
+                                          margin: const EdgeInsets.only(top: 5),
+                                          decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0)),
+                                          width: 280,
+                                          height: 371,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 20.0),
+                                            child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
@@ -742,56 +811,54 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                         child: TextFormField(
                                                           decoration:
                                                               InputDecoration(
-                                                                  filled: true,
-                                                                  fillColor:
-                                                                      HexColor(
-                                                                          white),
-                                                                  hintText:
-                                                                      '25-8-2020',
-                                                                  hintStyle:
-                                                                      TextStyle(
-                                                                    fontSize:
-                                                                        11.5,
-                                                                    color: HexColor(
-                                                                        "#42526d"),
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                  ),
-                                                                  border:
-                                                                      const OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              12),
-                                                                    ),
-                                                                  ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                HexColor(bWhite90)),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                HexColor(primary)),
-                                                                  ),
-                                                                  contentPadding: const EdgeInsets
+                                                            filled: true,
+                                                            fillColor:
+                                                                HexColor(white),
+                                                            hintText:
+                                                                '25-8-2020',
+                                                            hintStyle:
+                                                                TextStyle(
+                                                              fontSize: 11.5,
+                                                              color: HexColor(
+                                                                  "#42526d"),
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                            ),
+                                                            border:
+                                                                const OutlineInputBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
                                                                       .only(
-                                                                      top: 10,
-                                                                      bottom:
-                                                                          10,
-                                                                      left: 10,
-                                                                      right:
-                                                                          30)),
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        12),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        12),
+                                                              ),
+                                                            ),
+                                                            enabledBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide: BorderSide(
+                                                                  color: HexColor(
+                                                                      bWhite90)),
+                                                            ),
+                                                            focusedBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: HexColor(
+                                                                    primary),
+                                                              ),
+                                                            ),
+                                                            contentPadding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    top: 10,
+                                                                    bottom: 10,
+                                                                    left: 10,
+                                                                    right: 30),
+                                                          ),
                                                         ),
                                                       ),
                                                       const SizedBox(width: 16),
@@ -805,57 +872,54 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                         child: TextFormField(
                                                           decoration:
                                                               InputDecoration(
-                                                                  filled: true,
-                                                                  fillColor:
-                                                                      HexColor(
-                                                                          white),
-                                                                  hintText:
-                                                                      'To',
-                                                                  hintStyle:
-                                                                      const TextStyle(
-                                                                    fontSize:
-                                                                        12,
-                                                                    color: Color(
-                                                                        0xffb2bac6),
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                  ),
-                                                                  border:
-                                                                      const OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              12),
-                                                                    ),
-                                                                  ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                HexColor(bWhite90)),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                HexColor(primary)),
-                                                                  ),
-                                                                  contentPadding:
-                                                                      const EdgeInsets
-                                                                          .only(
-                                                                          top:
-                                                                              12,
-                                                                          bottom:
-                                                                              12,
-                                                                          left:
-                                                                              12)),
+                                                            filled: true,
+                                                            fillColor:
+                                                                HexColor(white),
+                                                            hintText: 'To',
+                                                            hintStyle:
+                                                                const TextStyle(
+                                                              fontSize: 12,
+                                                              color: Color(
+                                                                  0xffb2bac6),
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                            ),
+                                                            border:
+                                                                const OutlineInputBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        12),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        12),
+                                                              ),
+                                                            ),
+                                                            enabledBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: HexColor(
+                                                                    bWhite90),
+                                                              ),
+                                                            ),
+                                                            focusedBorder:
+                                                                OutlineInputBorder(
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: HexColor(
+                                                                    primary),
+                                                              ),
+                                                            ),
+                                                            contentPadding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    top: 12,
+                                                                    bottom: 12,
+                                                                    left: 12),
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
@@ -889,21 +953,21 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                               const MaterialStatePropertyAll(
                                                                   Colors
                                                                       .transparent),
-
                                                           side: BorderSide(
                                                               color: HexColor(
                                                                   white70),
                                                               width: 1.3),
-
                                                           activeColor:
                                                               HexColor(primary),
                                                           value:
                                                               deliveredIsChecked, // Adjust initial value as needed
                                                           onChanged: (value) {
-                                                            setState(() {
-                                                              deliveredIsChecked =
-                                                                  value!;
-                                                            });
+                                                            setState(
+                                                              () {
+                                                                deliveredIsChecked =
+                                                                    value!;
+                                                              },
+                                                            );
                                                           }, // Pass the function reference
                                                         ),
                                                       ),
@@ -964,10 +1028,12 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                           value:
                                                               onHoldIsChecked, // Adjust initial value as needed
                                                           onChanged: (value) {
-                                                            setState(() {
-                                                              onHoldIsChecked =
-                                                                  value!;
-                                                            });
+                                                            setState(
+                                                              () {
+                                                                onHoldIsChecked =
+                                                                    value!;
+                                                              },
+                                                            );
                                                           }, // Pass the function reference
                                                         ),
                                                       ),
@@ -1013,143 +1079,140 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                       ),
                                                     ]),
                                                 Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.start,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                left: 13.0,
-                                                                top: 14.0),
-                                                        child: Checkbox(
-                                                          overlayColor:
-                                                              const MaterialStatePropertyAll(
-                                                                  Colors
-                                                                      .transparent),
-
-                                                          side: BorderSide(
-                                                              color: HexColor(
-                                                                  white70),
-                                                              width: 1.3),
-
-                                                          activeColor:
-                                                              HexColor(primary),
-                                                          value:
-                                                              onWayIsChecked, // Adjust initial value as needed
-                                                          onChanged: (value) {
-                                                            setState(() {
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 13.0,
+                                                              top: 14.0),
+                                                      child: Checkbox(
+                                                        overlayColor:
+                                                            const MaterialStatePropertyAll(
+                                                                Colors
+                                                                    .transparent),
+                                                        side: BorderSide(
+                                                            color: HexColor(
+                                                                white70),
+                                                            width: 1.3),
+                                                        activeColor:
+                                                            HexColor(primary),
+                                                        value:
+                                                            onWayIsChecked, // Adjust initial value as needed
+                                                        onChanged: (value) {
+                                                          setState(
+                                                            () {
                                                               onWayIsChecked =
                                                                   value!;
-                                                            });
-                                                          }, // Pass the function reference
-                                                        ),
+                                                            },
+                                                          );
+                                                        }, // Pass the function reference
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                left: 2.5,
-                                                                top: 14.0),
-                                                        child: Container(
-                                                          width: 78,
-                                                          height: 26,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: HexColor(
-                                                                '#e9f3ff'),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        14),
-                                                          ),
-                                                          child: Center(
-                                                            child: Text(
-                                                              "On Way",
-                                                              style: TextStyle(
-                                                                color: HexColor(
-                                                                    '#4a72ff'),
-                                                                fontSize: 12,
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 2.5,
+                                                              top: 14.0),
+                                                      child: Container(
+                                                        width: 78,
+                                                        height: 26,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: HexColor(
+                                                              '#e9f3ff'),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(14),
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            "On Way",
+                                                            style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#4a72ff'),
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .only(
-                                                                left: 15.0,
-                                                                top: 14.0),
-                                                        child: Checkbox(
-                                                          overlayColor:
-                                                              const MaterialStatePropertyAll(
-                                                                  Colors
-                                                                      .transparent),
-                                                          focusColor:
-                                                              Colors.black,
-                                                          side: BorderSide(
-                                                              color: HexColor(
-                                                                  white70),
-                                                              width: 1.3),
-                                                          activeColor:
-                                                              HexColor(primary),
-                                                          value:
-                                                              canceledIsChecked, // Adjust initial value as needed
-                                                          onChanged: (value) {
-                                                            setState(() {
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 15.0,
+                                                              top: 14.0),
+                                                      child: Checkbox(
+                                                        overlayColor:
+                                                            const MaterialStatePropertyAll(
+                                                                Colors
+                                                                    .transparent),
+                                                        focusColor:
+                                                            Colors.black,
+                                                        side: BorderSide(
+                                                            color: HexColor(
+                                                                white70),
+                                                            width: 1.3),
+                                                        activeColor:
+                                                            HexColor(primary),
+                                                        value:
+                                                            canceledIsChecked, // Adjust initial value as needed
+                                                        onChanged: (value) {
+                                                          setState(
+                                                            () {
                                                               canceledIsChecked =
                                                                   value!;
-                                                            });
-                                                          }, // Pass the function reference
-                                                        ),
+                                                            },
+                                                          );
+                                                        }, // Pass the function reference
                                                       ),
-                                                      Padding(
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 2.5,
+                                                              top: 14.0),
+                                                      child: Container(
                                                         padding:
                                                             const EdgeInsets
-                                                                .only(
-                                                                left: 2.5,
-                                                                top: 14.0),
-                                                        child: Container(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .symmetric(
-                                                                  horizontal:
-                                                                      2.5),
-                                                          width: 85,
-                                                          height: 26,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: HexColor(
-                                                                '#fff2ea'),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        14),
-                                                          ),
-                                                          child: Center(
-                                                            child: Text(
-                                                              "Canceled",
-                                                              style: TextStyle(
-                                                                color: HexColor(
-                                                                    '#f15046'),
-                                                                fontSize: 12,
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
+                                                                .symmetric(
+                                                                horizontal:
+                                                                    2.5),
+                                                        width: 85,
+                                                        height: 26,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: HexColor(
+                                                              '#fff2ea'),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(14),
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            "Canceled",
+                                                            style: TextStyle(
+                                                              color: HexColor(
+                                                                  '#f15046'),
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                             ),
                                                           ),
                                                         ),
                                                       ),
-                                                    ]),
+                                                    ),
+                                                  ],
+                                                ),
                                                 Row(
                                                   children: [
                                                     const Spacer(),
@@ -1159,13 +1222,14 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                               bottom: 18,
                                                               top: 34),
                                                       child: MaterialButton(
-                                                          minWidth: 58,
-                                                          height: 34,
-                                                          elevation: 0.0,
-                                                          color: HexColor(
-                                                              "#f5f6fa"),
-                                                          onPressed: () {
-                                                            setState(() {
+                                                        minWidth: 58,
+                                                        height: 34,
+                                                        elevation: 0.0,
+                                                        color:
+                                                            HexColor("#f5f6fa"),
+                                                        onPressed: () {
+                                                          setState(
+                                                            () {
                                                               onWayIsChecked =
                                                                   false;
                                                               onHoldIsChecked =
@@ -1174,20 +1238,21 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                                   false;
                                                               deliveredIsChecked =
                                                                   false;
-
                                                               orderDemoData =
                                                                   filterData!;
-                                                            });
-                                                          },
-                                                          child: Text(
-                                                            "Reset",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    "Poppins-SemiBold",
-                                                                fontSize: 12,
-                                                                color: HexColor(
-                                                                    "#60656e")),
-                                                          )),
+                                                            },
+                                                          );
+                                                        },
+                                                        child: Text(
+                                                          "Reset",
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  "Poppins-SemiBold",
+                                                              fontSize: 12,
+                                                              color: HexColor(
+                                                                  "#60656e")),
+                                                        ),
+                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
@@ -1196,13 +1261,14 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                               bottom: 18,
                                                               top: 34),
                                                       child: MaterialButton(
-                                                          minWidth: 58,
-                                                          height: 34,
-                                                          elevation: 0.0,
-                                                          color:
-                                                              HexColor(primary),
-                                                          onPressed: () {
-                                                            setState(() {
+                                                        minWidth: 58,
+                                                        height: 34,
+                                                        elevation: 0.0,
+                                                        color:
+                                                            HexColor(primary),
+                                                        onPressed: () {
+                                                          setState(
+                                                            () {
                                                               // Check if all checkboxes are unchecked (equivalent to all checkboxes checked in previous code)
                                                               if (!onHoldIsChecked &&
                                                                   !onWayIsChecked &&
@@ -1217,7 +1283,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                                     selectedStates =
                                                                     [];
                                                                 if (onHoldIsChecked) {
-                                                                   selectedStates
+                                                                  selectedStates
                                                                       .add(
                                                                           "On Hold");
                                                                 }
@@ -1236,37 +1302,40 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                                       .add(
                                                                           "Delivered");
                                                                 }
-
                                                                 orderDemoData = filterData!
                                                                     .where((element) =>
                                                                         selectedStates
                                                                             .contains(element.state))
                                                                     .toList();
                                                               }
-                                                            });
-                                                          },
-                                                          child: Text(
-                                                            "Apply",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    "Poppins-SemiBold",
-                                                                fontSize: 12,
-                                                                color: HexColor(
-                                                                    "#ffffff")),
-                                                          )),
-                                                    )
+                                                            },
+                                                          );
+                                                        },
+                                                        child: Text(
+                                                          "Apply",
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  "Poppins-SemiBold",
+                                                              fontSize: 12,
+                                                              color: HexColor(
+                                                                  "#ffffff")),
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ],
-                                                )
-                                              ]),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    )
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ]),
+                          ],
+                        ),
                         Wrap(
                           children: [
                             SizedBox(
@@ -1277,7 +1346,7 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                       buildDataCard(
                                           pharmacyDataList[index], index),
                                   itemCount: pharmacyDataList.length),
-                            )
+                            ),
                           ],
                         ),
                       ],
@@ -1343,24 +1412,28 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                         ),
                       ),
                       items: itemList
-                          .map((String item) => DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                    color: HexColor(white70),
-                                    fontFamily: 'Poppins',
-                                  ),
+                          .map(
+                            (String item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                  color: HexColor(white70),
+                                  fontFamily: 'Poppins',
                                 ),
-                              ))
+                              ),
+                            ),
+                          )
                           .toList(),
                       value: selectedItem,
                       iconStyleData:
                           IconStyleData(iconEnabledColor: HexColor(white70)),
                       onChanged: (String? value) {
-                        setState(() {
-                          selectedItem = value;
-                        });
+                        setState(
+                          () {
+                            selectedItem = value;
+                          },
+                        );
                       },
                       buttonStyleData: const ButtonStyleData(
                         height: 40,
@@ -1408,26 +1481,28 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                           : HexColor('#ecfdf3'),
                       borderRadius: BorderRadius.circular(23),
                     ),
-                    child: Row(children: [
-                      const SizedBox(width: 10),
-                      setPhoto(
-                          kind: 1,
-                          path: dataCardModel.cardImage,
-                          width: 15,
-                          height: 9),
-                      const SizedBox(width: 10),
-                      Text(
-                        dataCardModel.cardPercentage,
-                        style: TextStyle(
-                          color: dataCardModel.cardState
-                              ? const Color(0xfff15046)
-                              : HexColor('#009881'),
-                          fontSize: 12,
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 10),
+                        setPhoto(
+                            kind: 1,
+                            path: dataCardModel.cardImage,
+                            width: 15,
+                            height: 9),
+                        const SizedBox(width: 10),
+                        Text(
+                          dataCardModel.cardPercentage,
+                          style: TextStyle(
+                            color: dataCardModel.cardState
+                                ? const Color(0xfff15046)
+                                : HexColor('#009881'),
+                            fontSize: 12,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                    ]),
+                      ],
+                    ),
                   ),
                 ],
               )

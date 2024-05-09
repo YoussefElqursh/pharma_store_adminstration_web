@@ -73,188 +73,207 @@ class _PharmacyScreen extends State<PharmacyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const ScreenHeader(screenName: 'Pharmacies'),
-      Expanded(
-        child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 40.0, right: 40.0, top: 80.0),
-            child: Expanded(
-              child: ListView(
-                children:[ PaginatedDataTable(
-                  sortAscending: sort,
-                  sortColumnIndex: 2,
-                  columnSpacing:
-                      (MediaQuery.of(context).size.width / 2.252) / 8.5,
-                  dataRowMaxHeight: 72,
-                  headingRowColor:
-                      const MaterialStatePropertyAll(Color(0xffEAECF0)),
-                  columns: [
-                    const DataColumn(label: Text('ID')),
-                    const DataColumn(label: Text('Photo')),
-                    DataColumn(
-                      onSort: (columnIndex, ascending) {
-                        if (columnIndex == 2) {
-                          setState(() {
-                            sort = ascending;
-                            if (ascending) {
-                              filterData
-                                  ?.sort((a, b) => a.name.compareTo(b.name));
-                            } else {
-                              filterData
-                                  ?.sort((a, b) => b.name.compareTo(a.name));
-                            }
-                          });
-                        }
-                      },
-                      label: const Row(
-                        children: [
-                          Text('Name'),
-                          SizedBox(
-                            width: 113,
-                          )
-                        ],
-                      ),
-                    ),
-                    const DataColumn(
-                      label:
-                          SizedBox(width: 159, child: Text('Contact Number')),
-                    ),
-                    const DataColumn(
-                      label: Text('Address'),
-                    ),
-                    const DataColumn(
-                      label: Text('State'),
-                    ),
-                    const DataColumn(label: Text("")),
-                  ],
-                  source: DTS(pharmacyDemoData,context),
-                  rowsPerPage: _rowPerPage,
-                  onRowsPerPageChanged: (r) => setState(() {
-                    _rowPerPage = r!;
-                  }),
-                )],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-                left: 40.0, right: 40, top: 30, bottom: 10),
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
+    return Column(
+      children: [
+        const ScreenHeader(screenName: 'Pharmacies'),
+        Expanded(
+          child: Stack(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.only(left: 40.0, right: 40.0, top: 80.0),
+                child: Expanded(
+                  child: ListView(
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width - 360,
-                        height: 40,
-                        child: TextFormField(
-                          controller: controllerOfFilter,
-                          onChanged: (value) {
-                            setState(() {
-                              pharmacyDemoData = filterData!
-                                  .where(
-                                      (element) => element.name.contains(value))
-                                  .toList();
-                            });
-                          },
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: HexColor(white),
-                              hintText: 'Search pharmacy by name',
-                              hintStyle: const TextStyle(
-                                color: Color(0xffb2bac6),
-                                fontFamily: 'Poppins',
-                              ),
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: HexColor(bWhite90),
-                                size: 21,
-                              ),
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(12),
-                                  topLeft: Radius.circular(12),
+                      PaginatedDataTable(
+                        sortAscending: sort,
+                        sortColumnIndex: 2,
+                        columnSpacing:
+                            (MediaQuery.of(context).size.width / 2.252) / 8.5,
+                        dataRowMaxHeight: 72,
+                        headingRowColor:
+                            const MaterialStatePropertyAll(Color(0xffEAECF0)),
+                        columns: [
+                          const DataColumn(label: Text('ID')),
+                          const DataColumn(label: Text('Photo')),
+                          DataColumn(
+                            onSort: (columnIndex, ascending) {
+                              if (columnIndex == 2) {
+                                setState(
+                                  () {
+                                    sort = ascending;
+                                    if (ascending) {
+                                      filterData?.sort(
+                                          (a, b) => a.name.compareTo(b.name));
+                                    } else {
+                                      filterData?.sort(
+                                          (a, b) => b.name.compareTo(a.name));
+                                    }
+                                  },
+                                );
+                              }
+                            },
+                            label: const Row(
+                              children: [
+                                Text('Name'),
+                                SizedBox(
+                                  width: 113,
                                 ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: HexColor(bWhite90)),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: HexColor(primary)),
-                              ),
-                              contentPadding:
-                                  const EdgeInsets.symmetric(vertical: 5)),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      MaterialButton(
-                        onPressed: () {
-                          setState(() {
-                            filterVisiblity = !filterVisiblity;
-                          });
-                        },
-                        color: HexColor(primary),
-                        elevation: 0,
-                        height: 48,
-                        minWidth: 48,
-                        shape: OutlineInputBorder(
-                          borderSide: BorderSide(color: HexColor(primary)),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(
-                          Icons.filter_list_rounded,
-                          color: Colors.white,
+                              ],
+                            ),
+                          ),
+                          const DataColumn(
+                            label: SizedBox(
+                              width: 159,
+                              child: Text('Contact Number'),
+                            ),
+                          ),
+                          const DataColumn(
+                            label: Text('Address'),
+                          ),
+                          const DataColumn(
+                            label: Text('State'),
+                          ),
+                          const DataColumn(
+                            label: Text(""),
+                          ),
+                        ],
+                        source: DTS(pharmacyDemoData, context),
+                        rowsPerPage: _rowPerPage,
+                        onRowsPerPageChanged: (r) => setState(
+                          () {
+                            _rowPerPage = r!;
+                          },
                         ),
                       ),
                     ],
                   ),
-                  Visibility(
-                    visible: filterVisiblity,
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 5),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8.0)),
-                      width: 280,
-                      height: 227,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.only(left: 20.0, top: 20.0),
-                                child: Text(
-                                  "Filter Options",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Poppins-SemiBold',
-                                    fontSize: 16,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 40.0, right: 40, top: 30, bottom: 10),
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width - 360,
+                            height: 40,
+                            child: TextFormField(
+                              controller: controllerOfFilter,
+                              onChanged: (value) {
+                                setState(
+                                  () {
+                                    pharmacyDemoData = filterData!
+                                        .where((element) =>
+                                            element.name.contains(value))
+                                        .toList();
+                                  },
+                                );
+                              },
+                              decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: HexColor(white),
+                                  hintText: 'Search pharmacy by name',
+                                  hintStyle: const TextStyle(
+                                    color: Color(0xffb2bac6),
+                                    fontFamily: 'Poppins',
+                                  ),
+                                  prefixIcon: Icon(
+                                    Icons.search,
+                                    color: HexColor(bWhite90),
+                                    size: 21,
+                                  ),
+                                  border: const OutlineInputBorder(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(12),
+                                      topLeft: Radius.circular(12),
+                                    ),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: HexColor(bWhite90)),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: HexColor(primary)),
+                                  ),
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 5)),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          MaterialButton(
+                            onPressed: () {
+                              setState(
+                                () {
+                                  filterVisiblity = !filterVisiblity;
+                                },
+                              );
+                            },
+                            color: HexColor(primary),
+                            elevation: 0,
+                            height: 48,
+                            minWidth: 48,
+                            shape: OutlineInputBorder(
+                              borderSide: BorderSide(color: HexColor(primary)),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: const Icon(
+                              Icons.filter_list_rounded,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Visibility(
+                        visible: filterVisiblity,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(8.0)),
+                          width: 280,
+                          height: 227,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 20.0, top: 20.0),
+                                  child: Text(
+                                    "Filter Options",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Poppins-SemiBold',
+                                      fontSize: 16,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 14.0),
-                                child: Divider(
-                                  height: 1,
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 20.0, left: 20.0),
-                                child: Text(
-                                  "State:",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Poppins-Medium',
-                                    fontSize: 14,
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 14.0),
+                                  child: Divider(
+                                    height: 1,
                                   ),
                                 ),
-                              ),
-                              Row(
+                                const Padding(
+                                  padding:
+                                      EdgeInsets.only(top: 20.0, left: 20.0),
+                                  child: Text(
+                                    "State:",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Poppins-Medium',
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                                Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Padding(
@@ -350,24 +369,27 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                         ),
                                       ),
                                     ),
-                                  ]),
-                              Row(
-                                children: [
-                                  const Spacer(),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        bottom: 18, top: 34),
-                                    child: MaterialButton(
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const Spacer(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          bottom: 18, top: 34),
+                                      child: MaterialButton(
                                         minWidth: 58,
                                         height: 34,
                                         elevation: 0.0,
                                         color: HexColor("#f5f6fa"),
                                         onPressed: () {
-                                          setState(() {
-                                            deactivatedIsChecked = false;
-                                            activatedIsChecked = false;
-                                            pharmacyDemoData = filterData!;
-                                          });
+                                          setState(
+                                            () {
+                                              deactivatedIsChecked = false;
+                                              activatedIsChecked = false;
+                                              pharmacyDemoData = filterData!;
+                                            },
+                                          );
                                         },
                                         child: Text(
                                           "Reset",
@@ -375,39 +397,43 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                               fontFamily: "Poppins-SemiBold",
                                               fontSize: 12,
                                               color: HexColor("#60656e")),
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8.0, bottom: 18, top: 34),
-                                    child: MaterialButton(
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8.0, bottom: 18, top: 34),
+                                      child: MaterialButton(
                                         minWidth: 58,
                                         height: 34,
                                         elevation: 0.0,
                                         color: HexColor(primary),
                                         onPressed: () {
-                                          setState(() {
-                                            if (deactivatedIsChecked == true &&
-                                                activatedIsChecked == true) {
-                                              pharmacyDemoData = filterData!;
-                                            } else if (activatedIsChecked ==
-                                                true) {
-                                              pharmacyDemoData = filterData!
-                                                  .where((element) => element
-                                                      .state
-                                                      .contains("Activated"))
-                                                  .toList();
-                                            } else if (deactivatedIsChecked ==
-                                                true) {
-                                              pharmacyDemoData = filterData!
-                                                  .where((element) => element
-                                                      .state
-                                                      .contains("Deactivated"))
-                                                  .toList();
-                                            } else {
-                                              pharmacyDemoData = filterData!;
-                                            }
-                                          });
+                                          setState(
+                                            () {
+                                              if (deactivatedIsChecked ==
+                                                      true &&
+                                                  activatedIsChecked == true) {
+                                                pharmacyDemoData = filterData!;
+                                              } else if (activatedIsChecked ==
+                                                  true) {
+                                                pharmacyDemoData = filterData!
+                                                    .where((element) => element
+                                                        .state
+                                                        .contains("Activated"))
+                                                    .toList();
+                                              } else if (deactivatedIsChecked ==
+                                                  true) {
+                                                pharmacyDemoData = filterData!
+                                                    .where((element) =>
+                                                        element.state.contains(
+                                                            "Deactivated"))
+                                                    .toList();
+                                              } else {
+                                                pharmacyDemoData = filterData!;
+                                              }
+                                            },
+                                          );
                                         },
                                         child: Text(
                                           "Apply",
@@ -415,20 +441,24 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                               fontFamily: "Poppins-SemiBold",
                                               fontSize: 12,
                                               color: HexColor("#ffffff")),
-                                        )),
-                                  )
-                                ],
-                              )
-                            ]),
-                      ),
-                    ),
-                  )
-                ],
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ]),
-      ),
-    ]);
+        ),
+      ],
+    );
   }
 }

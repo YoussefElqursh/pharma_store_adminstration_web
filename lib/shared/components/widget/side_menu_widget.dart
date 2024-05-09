@@ -26,8 +26,8 @@ class SideBarXExample extends StatelessWidget {
                     child: setPhoto(
                         kind: 1,
                         path: 'assets/images/Logo-app.svg',
-                        width: 30,
-                        height: 30),
+                        width: 20,
+                        height: 20),
                   ),
                   const SizedBox(width: 10),
                   extended
@@ -39,7 +39,7 @@ class SideBarXExample extends StatelessWidget {
                                 text: 'Pharma',
                                 style: TextStyle(
                                   color: HexColor(primary),
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -48,7 +48,7 @@ class SideBarXExample extends StatelessWidget {
                                 text: 'Store',
                                 style: TextStyle(
                                   color: HexColor(black),
-                                  fontSize: 20,
+                                  fontSize: 16,
                                   fontFamily: 'Poppins',
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -57,7 +57,7 @@ class SideBarXExample extends StatelessWidget {
                           ),
                           style: const TextStyle(
                             color: Color(0xff4a72ff),
-                            fontSize: 20,
+                            fontSize: 16,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w600,
                           ),
@@ -69,7 +69,7 @@ class SideBarXExample extends StatelessWidget {
           );
         },
         headerDivider: Padding(
-          padding: const EdgeInsets.only(top: 22.0, bottom: 10),
+          padding: const EdgeInsets.only(top: 9.0, bottom: 10),
           child: Divider(color: HexColor(bWhite90), height: 1),
         ),
         theme: SidebarXTheme(
@@ -85,30 +85,39 @@ class SideBarXExample extends StatelessWidget {
           ),
           selectedIconTheme: const IconThemeData(color: Colors.white),
         ),
-        extendedTheme: SidebarXTheme(
-          width: 230,
+        extendedTheme: const SidebarXTheme(
+          width: 180,
           textStyle: TextStyle(
-            color: HexColor(black),
+            color: Color(0xFF23262A),
+            fontSize: 12,
             fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+            height: 0,
           ),
           selectedTextStyle: TextStyle(
-            color: HexColor(white),
+            color: Colors.white,
+            fontSize: 12,
             fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
+            height: 0,
           ),
           hoverTextStyle: TextStyle(
-            color: HexColor(black),
+            color: Color(0xFF23262A),
+            fontSize: 12,
             fontFamily: 'Poppins',
+            fontWeight: FontWeight.w400,
+            height: 0,
           ),
-          itemPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          selectedItemPadding: const EdgeInsets.all(15),
-          itemTextPadding: const EdgeInsets.only(left: 15),
-          selectedItemTextPadding: const EdgeInsets.only(left: 15),
+          itemPadding: EdgeInsets.only(left: 25, right: 15, top: 10),
+          selectedItemPadding: EdgeInsets.all(15),
+          itemTextPadding: EdgeInsets.only(left: 10),
+          selectedItemTextPadding: EdgeInsets.only(left: 10),
+          iconTheme: IconThemeData(size: 18, color: Colors.black),
+          selectedIconTheme: IconThemeData(size: 18, color: Colors.white),
+          selectedItemMargin: EdgeInsets.only(left: 15,right: 25)
         ),
         items: const [
-          SidebarXItem(
-            icon: MyIcons.dashboard,
-            label: 'Dashboard',
-          ),
+          SidebarXItem(icon: MyIcons.dashboard, label: 'Dashboard',),
           SidebarXItem(icon: MyIcons.product, label: 'Products'),
           SidebarXItem(icon: MyIcons.pharmacy, label: 'Pharmacies'),
           SidebarXItem(icon: MyIcons.store, label: 'Stores'),

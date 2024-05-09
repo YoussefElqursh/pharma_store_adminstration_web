@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashboard_screen.dart';
-import 'package:pharma_store_administration_web/modules/4-product_screen/products_screen.dart';
+import 'package:pharma_store_administration_web/modules/4-product_module/products_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
 import '../modules/5-pharmacy_screen/pharmacy_screen.dart';
@@ -60,10 +60,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             return const DashboardScreen();
                           case 1:
                             _key.currentState?.closeDrawer();
-                            return const ProductsScreen();
+                            return Navigator(
+                              onGenerateRoute: (settings) => MaterialPageRoute(
+                                builder: (context) => const ProductsScreen(),
+                              ),
+                            );
                           case 2:
                             _key.currentState?.closeDrawer();
-                            // Navigate to DashboardScreen
                             return Navigator(
                               onGenerateRoute: (settings) => MaterialPageRoute(
                                 builder: (context) => const PharmacyScreen(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
+import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class TableWidget extends StatefulWidget {
@@ -12,111 +13,122 @@ class TableWidget extends StatefulWidget {
 }
 
 class _TableWidgetState extends State<TableWidget> {
-
   int numberOfPages = 10;
   int currentPage = 0;
+
+  void _openProfileScreen() {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+          opacity: animation,
+          child: const PharmacyProfilesScreen(),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
 
-    var pages = List.generate(numberOfPages, (index) => Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
-      child: DataTable(
-        columnSpacing: 41.5,
-        dataRowMaxHeight: 65,
-        decoration: BoxDecoration(
-            border: Border.all(color: HexColor(bWhite90)),
-            borderRadius: BorderRadius.circular(16)),
-        border: TableBorder.all(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12)),
-            color: HexColor(bWhite90),
-            style: BorderStyle.none),
-        headingTextStyle: const TextStyle(
-          color: Color(0xff42526d),
-          fontSize: 12,
-          fontFamily: 'Poppins',
-          fontWeight: FontWeight.w500,
-        ),
-        headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
-        columns: [
-          const DataColumn(label: Text('ID')),
-          const DataColumn(label: Text('Photo')),
-          DataColumn(
-            label: Row(
-              children: [
-                const Text('Name'),
-                const SizedBox(width: 10),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.sort_rounded)),
-              ],
-            ),
+    var pages = List.generate(
+        numberOfPages,
+        (index) => DataTable(
+          columnSpacing: (MediaQuery.of(context).size.width - 240) / 16 ,
+          dataRowMaxHeight: 48,
+          decoration: BoxDecoration(
+              border: Border.all(color: HexColor(bWhite90)),
+              borderRadius: BorderRadius.circular(16)),
+          border: TableBorder.all(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12)),
+              color: HexColor(bWhite90),
+              style: BorderStyle.none),
+          headingTextStyle: const TextStyle(
+            color: Color(0xff42526d),
+            fontSize: 10,
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w600,
           ),
-          DataColumn(
-            label: Row(
-              children: [
-                const Text('Category'),
-                const SizedBox(width: 10),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.sort_rounded)),
-              ],
+          headingRowColor:
+              const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          columns: [
+            const DataColumn(label: Text('ID')),
+            const DataColumn(label: Text('Photo')),
+            DataColumn(
+              label: Row(
+                children: [
+                  const Text('Name'),
+                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.sort_rounded)),
+                ],
+              ),
             ),
-          ),
-          DataColumn(
-            label: Row(
-              children: [
-                const Text('Quantity'),
-                const SizedBox(width: 10),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.sort_rounded)),
-              ],
+            DataColumn(
+              label: Row(
+                children: [
+                  const Text('Category'),
+                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.sort_rounded)),
+                ],
+              ),
             ),
-          ),
-          DataColumn(
-            label: Row(
-              children: [
-                const Text('Public Price'),
-                const SizedBox(width: 10),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.sort_rounded)),
-              ],
+            DataColumn(
+              label: Row(
+                children: [
+                  const Text('Quantity'),
+                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.sort_rounded)),
+                ],
+              ),
             ),
-          ),
-          DataColumn(
-            label: Row(
-              children: [
-                const Text('Monthly Sales'),
-                const SizedBox(width: 10),
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.sort_rounded)),
-              ],
+            DataColumn(
+              label: Row(
+                children: [
+                  const Text('Public Price'),
+                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.sort_rounded)),
+                ],
+              ),
             ),
-          ),
-        ],
-        rows: List.generate(
-            demoData.length, (index) => _dataRow(demoData[index])),
-      ),
-    ));
+            DataColumn(
+              label: Row(
+                children: [
+                  const Text('Monthly Sales'),
+                  const SizedBox(width: 10),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.sort_rounded)),
+                ],
+              ),
+            ),
+          ],
+          rows: List.generate(
+              demoData.length, (index) => _dataRow(demoData[index])),
+        ));
 
     return Column(
       children: [
         pages[currentPage],
-        const SizedBox(height: 25),
+        const SizedBox(height: 20),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
               const Text(
-                '5 of 50 product ',
+                'Showing 1 to 5 of 10 categories',
                 style: TextStyle(
                   color: Color(0xFF6B788E),
-                  fontSize: 14,
+                  fontSize: 10,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
                   height: 0.10,
@@ -133,9 +145,9 @@ class _TableWidgetState extends State<TableWidget> {
                     buttonSelectedBackgroundColor: HexColor(primary),
                   ),
                   numberPages: numberOfPages,
-                  onPageChange: (index){
+                  onPageChange: (index) {
                     setState(() {
-                      currentPage=index;
+                      currentPage = index;
                     });
                   },
                 ),
@@ -150,7 +162,7 @@ class _TableWidgetState extends State<TableWidget> {
   DataRow _dataRow(Data data) {
     Color? bColor;
     Color? fColor;
-    switch( data.state){
+    switch (data.state) {
       case 'Delivered':
         bColor = HexColor('#ECFDF3');
         fColor = HexColor('#009881');
@@ -162,12 +174,55 @@ class _TableWidgetState extends State<TableWidget> {
         fColor = HexColor('#4A72FF');
     }
     return DataRow(
-
       cells: [
-        DataCell(Text('${data.id}')),
-        DataCell(Text(data.from)),
-        DataCell(Text(data.to)),
-        DataCell(Text(data.dateTime)),
+        DataCell(
+          Text(
+            '${data.id}',
+            style: const TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 10,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+          ),
+        ),
+        DataCell(
+          Text(
+            data.from,
+            style: const TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 10,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+          ),
+        ),
+        DataCell(
+          Text(
+            data.to,
+            style: const TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 10,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+          ),
+        ),
+        DataCell(
+          Text(
+            data.dateTime,
+            style: const TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 10,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+          ),
+        ),
         DataCell(
           Container(
             width: 73,
@@ -176,8 +231,7 @@ class _TableWidgetState extends State<TableWidget> {
               color: bColor,
               borderRadius: BorderRadius.circular(14),
             ),
-            child:
-            Center(
+            child: Center(
               child: Text(
                 data.state,
                 style: TextStyle(
@@ -190,17 +244,20 @@ class _TableWidgetState extends State<TableWidget> {
             ),
           ),
         ),
+        const DataCell(Text('')),
         DataCell(
-          Row(
-            children: [
-              const Spacer(),
-              data.moreIcon,
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem<String>(
+                value: 'View Profile',
+                onTap: _openProfileScreen,
+                child: const Text('View Profile'), // Call function here
+              ),
             ],
           ),
         ),
-        const DataCell(Text('')),
       ],
     );
   }
-
 }

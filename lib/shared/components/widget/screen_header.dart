@@ -10,15 +10,18 @@ class ScreenHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 75,
+      height: 54,
       decoration: BoxDecoration(
-        border: Border.all(
-          color: HexColor(bWhite90),
-          width: 1.5,
+        border: Border.symmetric(
+          horizontal: BorderSide(
+            color: HexColor('#DDE1EB'),
+            width: 1,
+          ),
+          vertical: BorderSide.none,
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -35,14 +38,14 @@ class ScreenHeader extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: (){},
-                  icon: const Icon(MyIcons.notification),
+                  onPressed: () {},
+                  icon: const Icon(MyIcons.notification, size: 15),
                 ),
                 const SizedBox(width: 25),
                 ClipOval(
                   child: Container(
-                    width: 45,
-                    height: 45,
+                    width: 32,
+                    height: 32,
                     color: Colors.cyan,
                   ),
                 ),

@@ -545,7 +545,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               DataColumn(label: Text('State')),
                               DataColumn(label: Text('')),
                             ],
-                            rows: List.generate(demoData.length,
+                            rows: List.generate(5,
                                     (index) => _dataRow(demoData[index])),
                           ),
                         ],

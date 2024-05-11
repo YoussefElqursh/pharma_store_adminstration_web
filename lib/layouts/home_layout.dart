@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashboard_screen.dart';
 import 'package:pharma_store_administration_web/modules/4-product_module/products_screen.dart';
+import 'package:pharma_store_administration_web/modules/6-store_screen/store_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
 import '../modules/5-pharmacy_screen/pharmacy_screen.dart';
@@ -23,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = false;
 
-  final _controller = SidebarXController(selectedIndex: 1, extended: true);
+  final _controller = SidebarXController(selectedIndex: 2, extended: true);
   final _key = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -74,11 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           case 3:
                             _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
+                            return Navigator(
+                              onGenerateRoute: (settings) => MaterialPageRoute(
+                                builder: (context) => const StoreScreen(),
                               ),
                             );
                           case 4:

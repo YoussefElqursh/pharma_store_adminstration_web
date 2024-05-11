@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/pharmacy_data-table_model.dart';
-import '../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
+import '../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 
 class DTS extends DataTableSource {
   final List<PharmacyDataModel> pharmacyData;
@@ -12,16 +12,11 @@ class DTS extends DataTableSource {
   void _openProfileScreen() {
     Navigator.push(
       context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            FadeTransition(
-              opacity: animation,
-              child: const PharmacyProfilesScreen(),
-            ),
+      MaterialPageRoute(
+        builder: (context) => const PharmacyScreenOption(),
       ),
     );
   }
-
   @override
   DataRow? getRow(int index) {
     if (index >= pharmacyData.length || index < 0) return null;

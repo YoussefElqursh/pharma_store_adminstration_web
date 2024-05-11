@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
-import 'package:pharma_store_administration_web/models/data_table.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-class TableWidget extends StatefulWidget {
-  const TableWidget({super.key});
+import '../../../models/store_order_data_table.dart';
+import '../../../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
+
+class PharmacyOrderTableWidget extends StatefulWidget {
+  const PharmacyOrderTableWidget({super.key});
 
   @override
-  State<TableWidget> createState() => _TableWidgetState();
+  State<PharmacyOrderTableWidget> createState() => _PharmacyOrderTableWidget();
 }
 
-class _TableWidgetState extends State<TableWidget> {
+class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
@@ -33,8 +34,8 @@ class _TableWidgetState extends State<TableWidget> {
 
     var pages = List.generate(
         numberOfPages,
-        (index) => DataTable(
-          columnSpacing: (MediaQuery.of(context).size.width - 240) / 16 ,
+            (index) => DataTable(
+          columnSpacing:MediaQuery.of(context).size.width /10,
           dataRowMaxHeight: 48,
           decoration: BoxDecoration(
               border: Border.all(color: HexColor(bWhite90)),
@@ -52,14 +53,14 @@ class _TableWidgetState extends State<TableWidget> {
             fontWeight: FontWeight.w600,
           ),
           headingRowColor:
-              const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          const MaterialStatePropertyAll(Color(0xfffbfafb)),
           columns: [
             const DataColumn(label: Text('ID')),
-            const DataColumn(label: Text('Photo')),
+            const DataColumn(label: Text('From')),
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Name'),
+                  const Text('To'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -70,7 +71,7 @@ class _TableWidgetState extends State<TableWidget> {
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Category'),
+                  const Text('Date'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -81,7 +82,7 @@ class _TableWidgetState extends State<TableWidget> {
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Quantity'),
+                  const Text('State'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -89,77 +90,60 @@ class _TableWidgetState extends State<TableWidget> {
                 ],
               ),
             ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Public Price'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Monthly Sales'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
+            const DataColumn(label: Text('')),
+
+
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+              storeOrderDemoData.length, (index) => _dataRow(storeOrderDemoData[index])),
         ));
 
-    return Column(
-      children: [
-        pages[currentPage],
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.only(left: 30.0),
-          child: Row(
-            children: [
-              const Text(
-                'Showing 1 to 5 of 10 categories',
-                style: TextStyle(
-                  color: Color(0xFF6B788E),
-                  fontSize: 10,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  height: 0.10,
-                ),
-              ),
-              const Spacer(),
-              SizedBox(
-                width: 500,
-                child: NumberPaginator(
-                  config: NumberPaginatorUIConfig(
-                    buttonShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    buttonSelectedBackgroundColor: HexColor(primary),
+    return Expanded(
+      child: Column(
+        children: [
+          pages[currentPage],
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Row(
+              children: [
+                const Text(
+                  'Showing 1 to 5 of 10 categories',
+                  style: TextStyle(
+                    color: Color(0xFF6B788E),
+                    fontSize: 10,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                    height: 0.10,
                   ),
-                  numberPages: numberOfPages,
-                  onPageChange: (index) {
-                    setState(() {
-                      currentPage = index;
-                    });
-                  },
                 ),
-              ),
-            ],
+                const Spacer(),
+                SizedBox(
+                  width: 500,
+                  child: NumberPaginator(
+                    config: NumberPaginatorUIConfig(
+                      buttonShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      buttonSelectedBackgroundColor: HexColor(primary),
+                    ),
+                    numberPages: numberOfPages,
+                    onPageChange: (index) {
+                      setState(() {
+                        currentPage = index;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  DataRow _dataRow(Data data) {
+  DataRow _dataRow(StoreOrderData data) {
     Color? bColor;
     Color? fColor;
     switch (data.state) {
@@ -171,8 +155,8 @@ class _TableWidgetState extends State<TableWidget> {
         fColor = HexColor('#ECA600');
       case 'On Way':
         bColor = HexColor('#E9F3FF');
-        fColor = HexColor('#4A72FF');
-    }
+        fColor = HexColor('#4A72FF');}
+
     return DataRow(
       cells: [
         DataCell(
@@ -213,7 +197,7 @@ class _TableWidgetState extends State<TableWidget> {
         ),
         DataCell(
           Text(
-            data.dateTime,
+            data.date,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -244,7 +228,6 @@ class _TableWidgetState extends State<TableWidget> {
             ),
           ),
         ),
-        const DataCell(Text('')),
         DataCell(
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),

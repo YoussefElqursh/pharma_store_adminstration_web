@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import '../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
+import '../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'order_data_table_model.dart';
 
 class DtsOrder extends DataTableSource {
@@ -68,7 +68,7 @@ class DtsOrder extends DataTableSource {
                   pageBuilder: (context, animation, secondaryAnimation) =>
                       FadeTransition(
                         opacity: animation,
-                        child: const PharmacyProfilesScreen(),
+                        child: const PharmacyScreenOption(),
                       ),
                 ),
               ),

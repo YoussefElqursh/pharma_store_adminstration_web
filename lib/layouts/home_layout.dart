@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashboard_screen.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/product_tab/products_screen.dart';
+import 'package:pharma_store_administration_web/modules/4-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/modules/6-store_screen/store_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';

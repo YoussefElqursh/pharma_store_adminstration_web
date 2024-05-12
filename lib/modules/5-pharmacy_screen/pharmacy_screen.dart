@@ -72,7 +72,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
     controllerOfFilter = TextEditingController(); // Initialize here
   }
 
-  int _rowPerPage = PaginatedDataTable.defaultRowsPerPage;
+  //int _rowPerPage = PaginatedDataTable.defaultRowsPerPage;
 
   @override
   Widget build(BuildContext context) {
@@ -387,7 +387,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
           ),
         ),
       ),
-    ]},
+    ],
     );
   }
 }

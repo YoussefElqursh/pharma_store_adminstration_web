@@ -6,8 +6,10 @@ import '../../../modules/1-login_screen/login_screen.dart';
 import '../../../modules/2-forgot_password/forgot_password_screen.dart';
 import '../../../modules/2-forgot_password/otp_screen.dart';
 import '../../../modules/2-forgot_password/success_password_screen.dart';
-import '../../../modules/5-pharmacy_screen/pharmacies_profiles_screen.dart';
+import '../../../modules/4-product_module/products_screen.dart';
+import '../../../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 import '../../../modules/5-pharmacy_screen/pharmacy_screen.dart';
+import '../../../modules/6-store_screen/store_screen.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
@@ -25,9 +27,13 @@ class AppRouter {
       case 'HomeScreenRoute':
         return HomeScreen.route();
       case 'PharmacyProfilesScreenRoute':
-        return PharmacyProfilesScreen.route();
-      case 'Pharmacy_ScreenRoute':
+        return PharmacyScreenOption.route();
+      case 'PharmacyScreenRoute':
         return PharmacyScreen.route();
+      case 'Store_ScreenRoute':
+        return StoreScreen.route();
+      case 'ProductScreenRoute':
+        return ProductsScreen.route();
       default:
         return _errorRoute();
     }

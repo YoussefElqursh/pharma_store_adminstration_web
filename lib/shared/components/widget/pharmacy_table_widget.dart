@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
-import 'package:pharma_store_administration_web/models/data_table.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-class TableWidget extends StatefulWidget {
-  const TableWidget({super.key});
+import '../../../models/pharmacy_data_table.dart';
+import '../../../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
+
+class PharmacyTableWidget extends StatefulWidget {
+  const PharmacyTableWidget({super.key});
 
   @override
-  State<TableWidget> createState() => _TableWidgetState();
+  State<PharmacyTableWidget> createState() => _PharmacyTableWidget();
 }
 
-class _TableWidgetState extends State<TableWidget> {
+class _PharmacyTableWidget extends State<PharmacyTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
@@ -34,7 +35,7 @@ class _TableWidgetState extends State<TableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-          columnSpacing: (MediaQuery.of(context).size.width - 240) / 16 ,
+          columnSpacing:MediaQuery.of(context).size.width /15 ,
           dataRowMaxHeight: 48,
           decoration: BoxDecoration(
               border: Border.all(color: HexColor(bWhite90)),
@@ -70,7 +71,7 @@ class _TableWidgetState extends State<TableWidget> {
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Category'),
+                  const Text('Contact Number'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -81,7 +82,7 @@ class _TableWidgetState extends State<TableWidget> {
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Quantity'),
+                  const Text('Address'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -92,7 +93,7 @@ class _TableWidgetState extends State<TableWidget> {
             DataColumn(
               label: Row(
                 children: [
-                  const Text('Public Price'),
+                  const Text('State'),
                   const SizedBox(width: 10),
                   IconButton(
                       onPressed: () {},
@@ -100,79 +101,74 @@ class _TableWidgetState extends State<TableWidget> {
                 ],
               ),
             ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Monthly Sales'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
+
+            const DataColumn(label: Text('')),
+
+
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+              pharmacyDemoData.length, (index) => _dataRow(pharmacyDemoData[index])),
         ));
 
-    return Column(
-      children: [
-        pages[currentPage],
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.only(left: 30.0),
-          child: Row(
-            children: [
-              const Text(
-                'Showing 1 to 5 of 10 categories',
-                style: TextStyle(
-                  color: Color(0xFF6B788E),
-                  fontSize: 10,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                  height: 0.10,
-                ),
-              ),
-              const Spacer(),
-              SizedBox(
-                width: 500,
-                child: NumberPaginator(
-                  config: NumberPaginatorUIConfig(
-                    buttonShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    buttonSelectedBackgroundColor: HexColor(primary),
+    return Expanded(
+      child: Column(
+        children: [
+          pages[currentPage],
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Row(
+              children: [
+                const Text(
+                  'Showing 1 to 5 of 10 categories',
+                  style: TextStyle(
+                    color: Color(0xFF6B788E),
+                    fontSize: 10,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w500,
+                    height: 0.10,
                   ),
-                  numberPages: numberOfPages,
-                  onPageChange: (index) {
-                    setState(() {
-                      currentPage = index;
-                    });
-                  },
                 ),
-              ),
-            ],
+                const Spacer(),
+                SizedBox(
+                  width: 500,
+                  child: NumberPaginator(
+                    config: NumberPaginatorUIConfig(
+                      buttonShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      buttonSelectedBackgroundColor: HexColor(primary),
+                    ),
+                    numberPages: numberOfPages,
+                    onPageChange: (index) {
+                      setState(() {
+                        currentPage = index;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  DataRow _dataRow(Data data) {
+  DataRow _dataRow(PharmacyData data) {
     Color? bColor;
     Color? fColor;
     switch (data.state) {
-      case 'Delivered':
-        bColor = HexColor('#ECFDF3');
+      case 'Activated':
+        bColor = HexColor('#ecfdf3');
         fColor = HexColor('#009881');
-      case 'On Hold':
-        bColor = HexColor('#FFFADF');
-        fColor = HexColor('#ECA600');
-      case 'On Way':
-        bColor = HexColor('#E9F3FF');
-        fColor = HexColor('#4A72FF');
+        break; // Add break statement
+      case 'Deactivated':
+        bColor = HexColor('#fff2ea');
+        fColor = HexColor('#f15046');
+        break; // Add break statement
     }
+
     return DataRow(
       cells: [
         DataCell(
@@ -189,7 +185,7 @@ class _TableWidgetState extends State<TableWidget> {
         ),
         DataCell(
           Text(
-            data.from,
+            data.photo,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -201,7 +197,7 @@ class _TableWidgetState extends State<TableWidget> {
         ),
         DataCell(
           Text(
-            data.to,
+            data.name,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -213,7 +209,7 @@ class _TableWidgetState extends State<TableWidget> {
         ),
         DataCell(
           Text(
-            data.dateTime,
+            data.contactNumber,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -226,6 +222,25 @@ class _TableWidgetState extends State<TableWidget> {
         DataCell(
           Container(
             width: 73,
+            height: 26,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Center(
+              child: Text(
+                data.address,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+        ),
+        DataCell(
+          Container(
+            width: 80,
             height: 26,
             decoration: BoxDecoration(
               color: bColor,
@@ -244,7 +259,7 @@ class _TableWidgetState extends State<TableWidget> {
             ),
           ),
         ),
-        const DataCell(Text('')),
+
         DataCell(
           PopupMenuButton<String>(
             icon: const Icon(Icons.more_vert),

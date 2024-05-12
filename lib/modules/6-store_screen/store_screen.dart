@@ -5,22 +5,21 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 import '../../models/store-data_table.dart';
 import '../../shared/components/functions.dart';
-import '../../shared/components/widget/pharmacy_table_widget.dart';
+import '../../shared/components/widget/store_table_widget.dart';
 
-class PharmacyScreen extends StatefulWidget {
-  static const String routeName = 'PharmacyScreenRoute';
+class StoreScreen extends StatefulWidget {
+  static const String routeName = 'Storey_ScreenRoute';
 
-  const PharmacyScreen({super.key});
-
+  const StoreScreen({super.key});
   static Route route() {
     return MaterialPageRoute(
       settings: const RouteSettings(name: routeName),
-      builder: (context) => const PharmacyScreen(),
+      builder: (context) => const StoreScreen(),
     );
   }
 
   @override
-  State<PharmacyScreen> createState() => _PharmacyScreen();
+  State<StoreScreen> createState() => _StoreScreen();
 }
 
 List<StoreData> pharmacyDemoData = [
@@ -46,7 +45,7 @@ List<StoreData> pharmacyDemoData = [
       IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
 ];
 
-class _PharmacyScreen extends State<PharmacyScreen> {
+class _StoreScreen extends State<StoreScreen> {
   List<StoreData>? filterData;
 
   bool activatedIsChecked = false;
@@ -72,12 +71,11 @@ class _PharmacyScreen extends State<PharmacyScreen> {
     controllerOfFilter = TextEditingController(); // Initialize here
   }
 
-  int _rowPerPage = PaginatedDataTable.defaultRowsPerPage;
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      const ScreenHeader(screenName: 'Pharmacies'),
+      const ScreenHeader(screenName: 'Stores'),
       Expanded(
         child:
         SingleChildScrollView(
@@ -85,7 +83,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 78.0,left: 40.0,right:40.0),
-                child: Expanded(child: PharmacyTableWidget()),
+                child: Expanded(child: StoreTableWidget()),
               ),
               Expanded(
                 child: Padding(
@@ -387,7 +385,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
           ),
         ),
       ),
-    ]},
+    ],
     );
   }
 }

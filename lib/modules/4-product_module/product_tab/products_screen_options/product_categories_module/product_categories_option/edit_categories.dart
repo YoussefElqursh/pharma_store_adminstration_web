@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/products_screen_options/product_categories_module/product_categories_option/confirm_categories.dart';
+import 'confirm_categories.dart';
 
 class EditCategories extends StatelessWidget {
   const EditCategories({super.key});

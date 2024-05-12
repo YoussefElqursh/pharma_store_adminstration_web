@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/products_screen_options/product/add_product_screen.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/products_screen_options/product_categories_module/product_categories_screen.dart';
+import 'package:pharma_store_administration_web/modules/4-product_module/product_tab/products_screen_options/product/add_product_screen.dart';
+import 'package:pharma_store_administration_web/modules/4-product_module/product_tab/products_screen_options/product_categories_module/product_categories_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget.dart';

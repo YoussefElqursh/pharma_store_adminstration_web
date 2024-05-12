@@ -31,72 +31,69 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     var pages = List.generate(
         numberOfPages,
-            (index) => DataTable(
-          columnSpacing:MediaQuery.of(context).size.width /10,
-          dataRowMaxHeight: 48,
-          decoration: BoxDecoration(
-              border: Border.all(color: HexColor(bWhite90)),
-              borderRadius: BorderRadius.circular(16)),
-          border: TableBorder.all(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12)),
-              color: HexColor(bWhite90),
-              style: BorderStyle.none),
-          headingTextStyle: const TextStyle(
-            color: Color(0xff42526d),
-            fontSize: 10,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-          ),
-          headingRowColor:
-          const MaterialStatePropertyAll(Color(0xfffbfafb)),
-          columns: [
-            const DataColumn(label: Text('ID')),
-            const DataColumn(label: Text('From')),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('To'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
+        (index) => DataTable(
+              columnSpacing: MediaQuery.of(context).size.width / 10,
+              dataRowMaxHeight: 48,
+              decoration: BoxDecoration(
+                  border: Border.all(color: HexColor(bWhite90)),
+                  borderRadius: BorderRadius.circular(16)),
+              border: TableBorder.all(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12)),
+                  color: HexColor(bWhite90),
+                  style: BorderStyle.none),
+              headingTextStyle: const TextStyle(
+                color: Color(0xff42526d),
+                fontSize: 10,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
               ),
-            ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Date'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('State'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
-            const DataColumn(label: Text('')),
-
-
-          ],
-          rows: List.generate(
-              storeOrderDemoData.length, (index) => _dataRow(storeOrderDemoData[index])),
-        ));
+              headingRowColor:
+                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
+              columns: [
+                const DataColumn(label: Text('ID')),
+                const DataColumn(label: Text('From')),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('To'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('Date'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('State'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                const DataColumn(label: Text('')),
+              ],
+              rows: List.generate(storeOrderDemoData.length,
+                  (index) => _dataRow(storeOrderDemoData[index])),
+            ));
 
     return Expanded(
       child: Column(
@@ -155,7 +152,8 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
         fColor = HexColor('#ECA600');
       case 'On Way':
         bColor = HexColor('#E9F3FF');
-        fColor = HexColor('#4A72FF');}
+        fColor = HexColor('#4A72FF');
+    }
 
     return DataRow(
       cells: [

@@ -9,6 +9,7 @@ class SideBarXExample extends StatelessWidget {
   const SideBarXExample({super.key, required SidebarXController controller})
       : _controller = controller;
   final SidebarXController _controller;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -86,38 +87,40 @@ class SideBarXExample extends StatelessWidget {
           selectedIconTheme: const IconThemeData(color: Colors.white),
         ),
         extendedTheme: const SidebarXTheme(
-          width: 180,
-          textStyle: TextStyle(
-            color: Color(0xFF23262A),
-            fontSize: 12,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w400,
-            height: 0,
-          ),
-          selectedTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 12,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-            height: 0,
-          ),
-          hoverTextStyle: TextStyle(
-            color: Color(0xFF23262A),
-            fontSize: 12,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w400,
-            height: 0,
-          ),
-          itemPadding: EdgeInsets.only(left: 25, right: 15, top: 10),
-          selectedItemPadding: EdgeInsets.all(15),
-          itemTextPadding: EdgeInsets.only(left: 10),
-          selectedItemTextPadding: EdgeInsets.only(left: 10),
-          iconTheme: IconThemeData(size: 18, color: Colors.black),
-          selectedIconTheme: IconThemeData(size: 18, color: Colors.white),
-          selectedItemMargin: EdgeInsets.only(left: 15,right: 25)
-        ),
+            width: 180,
+            textStyle: TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 12,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+            selectedTextStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+              height: 0,
+            ),
+            hoverTextStyle: TextStyle(
+              color: Color(0xFF23262A),
+              fontSize: 12,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w400,
+              height: 0,
+            ),
+            itemPadding: EdgeInsets.only(left: 25, right: 15, top: 10),
+            selectedItemPadding: EdgeInsets.all(15),
+            itemTextPadding: EdgeInsets.only(left: 10),
+            selectedItemTextPadding: EdgeInsets.only(left: 10),
+            iconTheme: IconThemeData(size: 18, color: Colors.black),
+            selectedIconTheme: IconThemeData(size: 18, color: Colors.white),
+            selectedItemMargin: EdgeInsets.only(left: 15, right: 25)),
         items: const [
-          SidebarXItem(icon: MyIcons.dashboard, label: 'Dashboard',),
+          SidebarXItem(
+            icon: MyIcons.dashboard,
+            label: 'Dashboard',
+          ),
           SidebarXItem(icon: MyIcons.product, label: 'Products'),
           SidebarXItem(icon: MyIcons.pharmacy, label: 'Pharmacies'),
           SidebarXItem(icon: MyIcons.store, label: 'Stores'),

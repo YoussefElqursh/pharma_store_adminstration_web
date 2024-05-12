@@ -7,6 +7,7 @@ class ScreenHeader extends StatelessWidget {
   const ScreenHeader({super.key, required this.screenName});
 
   final String screenName;
+
   @override
   Widget build(BuildContext context) {
     return Container(

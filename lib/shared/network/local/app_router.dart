@@ -10,7 +10,6 @@ import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharma
 import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/modules/6-store_screen/store_screen.dart';
 
-
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

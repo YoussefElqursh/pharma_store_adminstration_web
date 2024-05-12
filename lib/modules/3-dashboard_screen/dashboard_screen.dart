@@ -31,7 +31,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-
   late List<ChartData> data;
   late List<ChartData> data1;
   late TooltipBehavior _tooltip;
@@ -103,8 +102,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     alignment: Alignment.topRight,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20.0, right: 20.0),
+                        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -117,9 +115,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: SfCartesianChart(
                               primaryXAxis: const CategoryAxis(),
                               primaryYAxis: const NumericAxis(
-                                  minimum: 20,
-                                  maximum: 100,
-                                  interval: 20),
+                                  minimum: 20, maximum: 100, interval: 20),
                               title: const ChartTitle(
                                 text: 'Sales Analytics',
                                 alignment: ChartAlignment.near,
@@ -141,37 +137,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ColumnSeries<ChartData, String>(
                                     legendIconType: LegendIconType.circle,
                                     dataSource: data,
-                                    xValueMapper: (ChartData data, _) =>
-                                    data.x,
-                                    yValueMapper: (ChartData data, _) =>
-                                    data.y,
+                                    xValueMapper: (ChartData data, _) => data.x,
+                                    yValueMapper: (ChartData data, _) => data.y,
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(15)),
                                     width: 0.4,
                                     spacing: 0.4,
                                     name: 'Sales',
-                                    color: const Color.fromRGBO(
-                                        74, 114, 255, 1)),
+                                    color:
+                                        const Color.fromRGBO(74, 114, 255, 1)),
                                 ColumnSeries<ChartData, String>(
                                     legendIconType: LegendIconType.circle,
                                     dataSource: data1,
-                                    xValueMapper: (ChartData data, _) =>
-                                    data.x,
-                                    yValueMapper: (ChartData data, _) =>
-                                    data.y,
+                                    xValueMapper: (ChartData data, _) => data.x,
+                                    yValueMapper: (ChartData data, _) => data.y,
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(15)),
                                     width: 0.4,
                                     spacing: 0.4,
                                     name: 'Profits',
-                                    color: const Color.fromRGBO(
-                                        173, 200, 255, 1)),
+                                    color:
+                                        const Color.fromRGBO(173, 200, 255, 1)),
                               ]),
                         ),
                       ),
                       Padding(
-                        padding:
-                        const EdgeInsets.only(right: 80.0, top: 60),
+                        padding: const EdgeInsets.only(right: 80.0, top: 60),
                         child: Container(
                           height: 32,
                           decoration: BoxDecoration(
@@ -233,12 +224,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               LineSeries<SalesData, String>(
                                 dataSource: data2,
                                 xValueMapper: (SalesData sales, _) =>
-                                sales.year,
+                                    sales.year,
                                 yValueMapper: (SalesData sales, _) =>
-                                sales.sales,
+                                    sales.sales,
                                 name: 'Order',
-                                dataLabelSettings:
-                                const DataLabelSettings(
+                                dataLabelSettings: const DataLabelSettings(
                                   isVisible: true,
                                 ),
                               ),
@@ -247,8 +237,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       Padding(
-                        padding:
-                        const EdgeInsets.only(right: 80.0, top: 80),
+                        padding: const EdgeInsets.only(right: 80.0, top: 80),
                         child: Container(
                           height: 32,
                           decoration: BoxDecoration(
@@ -307,8 +296,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     height: 32,
                                     decoration: BoxDecoration(
                                       color: const Color(0x0c4a72ff),
-                                      borderRadius:
-                                      BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: MaterialButton(
                                       onPressed: () {},
@@ -330,8 +318,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 height: 335,
                                 child: ListView.builder(
                                   itemBuilder: (context, index) =>
-                                      _pharmaciesModel(
-                                          pharmaciesList[index]),
+                                      _pharmaciesModel(pharmaciesList[index]),
                                   itemCount: pharmaciesList.length,
                                 ),
                               ),
@@ -372,8 +359,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     height: 32,
                                     decoration: BoxDecoration(
                                       color: const Color(0x0c4a72ff),
-                                      borderRadius:
-                                      BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: MaterialButton(
                                       onPressed: () {},
@@ -436,8 +422,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     height: 32,
                                     decoration: BoxDecoration(
                                       color: const Color(0x0c4a72ff),
-                                      borderRadius:
-                                      BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: MaterialButton(
                                       onPressed: () {},
@@ -524,13 +509,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             dataRowMaxHeight: 65,
                             decoration: BoxDecoration(
                                 border: Border.all(color: HexColor(bWhite90)),
-                                borderRadius: BorderRadius.circular(16)
-                            ),
+                                borderRadius: BorderRadius.circular(16)),
                             border: TableBorder.all(
                                 borderRadius: BorderRadius.circular(16),
                                 color: HexColor(bWhite90),
-                                style: BorderStyle.none
-                            ),
+                                style: BorderStyle.none),
                             headingTextStyle: const TextStyle(
                               color: Color(0xff42526d),
                               fontSize: 12,
@@ -548,8 +531,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               DataColumn(label: Text('State')),
                               DataColumn(label: Text('')),
                             ],
-                            rows: List.generate(5,
-                                    (index) => _dataRow(demoData[index])),
+                            rows: List.generate(
+                                5, (index) => _dataRow(demoData[index])),
                           ),
                         ],
                       ),
@@ -591,8 +574,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: bColor,
             borderRadius: BorderRadius.circular(14),
           ),
-          child:
-          Center(
+          child: Center(
             child: Text(
               data.state,
               style: TextStyle(
@@ -667,21 +649,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       items: itemList
-                          .map((String item) =>
-                          DropdownMenuItem<String>(
-                            value: item,
-                            child: Text(
-                              item,
-                              style: TextStyle(
-                                color: HexColor(white70),
-                                fontFamily: 'Poppins',
-                              ),
-                            ),
-                          ))
+                          .map((String item) => DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: TextStyle(
+                                    color: HexColor(white70),
+                                    fontFamily: 'Poppins',
+                                  ),
+                                ),
+                              ))
                           .toList(),
                       value: selectedItem,
                       iconStyleData:
-                      IconStyleData(iconEnabledColor: HexColor(white70)),
+                          IconStyleData(iconEnabledColor: HexColor(white70)),
                       onChanged: (String? value) {
                         setState(() {
                           selectedItem = value;
@@ -718,8 +699,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                     child: Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Icon(dataCardModel.cardIcon,
-                          color: HexColor(dataCardModel.color),)),
+                        child: Icon(
+                          dataCardModel.cardIcon,
+                          color: HexColor(dataCardModel.color),
+                        )),
                   ),
                   const Spacer(),
                   Container(

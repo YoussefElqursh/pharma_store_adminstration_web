@@ -5,12 +5,11 @@ import 'package:pharma_store_administration_web/shared/my_icons_icons.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class BackScreenHeader extends StatelessWidget {
-   const BackScreenHeader(
-       {super.key, required this.backScreenName,required this.goBack}
-       );
+  const BackScreenHeader(
+      {super.key, required this.backScreenName, required this.goBack});
 
- final String backScreenName;
-   final void Function() goBack; // No return type
+  final String backScreenName;
+  final void Function() goBack; // No return type
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,8 +31,12 @@ class BackScreenHeader extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 6.0),
               child: IconButton(
-                onPressed:goBack,
-                icon:setPhoto(kind: 1,path: "assets/images/Arrow_alt_lright_alt.svg", width: 21, height: 21),
+                onPressed: goBack,
+                icon: setPhoto(
+                    kind: 1,
+                    path: "assets/images/Arrow_alt_lright_alt.svg",
+                    width: 21,
+                    height: 21),
               ),
             ),
             DefaultTextStyle(
@@ -43,12 +46,14 @@ class BackScreenHeader extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
               child: Text(backScreenName),
-
             ),
             const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: const Icon(MyIcons.notification,size: 15,),
+              icon: const Icon(
+                MyIcons.notification,
+                size: 15,
+              ),
             ),
             const SizedBox(width: 25),
             ClipOval(
@@ -60,9 +65,7 @@ class BackScreenHeader extends StatelessWidget {
             ),
           ],
         ),
-
       ),
     );
   }
-
 }

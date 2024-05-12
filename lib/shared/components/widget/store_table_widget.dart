@@ -31,72 +31,69 @@ class _StoreTableWidget extends State<StoreTableWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-          columnSpacing:MediaQuery.of(context).size.width /11 ,
-          dataRowMaxHeight: 48,
-          decoration: BoxDecoration(
-              border: Border.all(color: HexColor(bWhite90)),
-              borderRadius: BorderRadius.circular(16)),
-          border: TableBorder.all(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12)),
-              color: HexColor(bWhite90),
-              style: BorderStyle.none),
-          headingTextStyle: const TextStyle(
-            color: Color(0xff42526d),
-            fontSize: 10,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
-          ),
-          headingRowColor:
-              const MaterialStatePropertyAll(Color(0xfffbfafb)),
-          columns: [
-            const DataColumn(label: Text('ID')),
-            const DataColumn(label: Text('Photo')),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Name'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
+              columnSpacing: MediaQuery.of(context).size.width / 11,
+              dataRowMaxHeight: 48,
+              decoration: BoxDecoration(
+                  border: Border.all(color: HexColor(bWhite90)),
+                  borderRadius: BorderRadius.circular(16)),
+              border: TableBorder.all(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12)),
+                  color: HexColor(bWhite90),
+                  style: BorderStyle.none),
+              headingTextStyle: const TextStyle(
+                color: Color(0xff42526d),
+                fontSize: 10,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
               ),
-            ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Contact Number'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
-            DataColumn(
-              label: Row(
-                children: [
-                  const Text('Address'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.sort_rounded)),
-                ],
-              ),
-            ),
-            const DataColumn(label: Text('')),
-
-
-          ],
-          rows: List.generate(
-              storeDemoData.length, (index) => _dataRow(storeDemoData[index])),
-        ));
+              headingRowColor:
+                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
+              columns: [
+                const DataColumn(label: Text('ID')),
+                const DataColumn(label: Text('Photo')),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('Name'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('Contact Number'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('Address'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded)),
+                    ],
+                  ),
+                ),
+                const DataColumn(label: Text('')),
+              ],
+              rows: List.generate(storeDemoData.length,
+                  (index) => _dataRow(storeDemoData[index])),
+            ));
 
     return Expanded(
       child: Column(
@@ -144,7 +141,6 @@ class _StoreTableWidget extends State<StoreTableWidget> {
   }
 
   DataRow _dataRow(StoreData data) {
-
     return DataRow(
       cells: [
         DataCell(

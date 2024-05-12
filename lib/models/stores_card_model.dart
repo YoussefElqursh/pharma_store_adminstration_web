@@ -1,6 +1,6 @@
-class StoresCardModel{
-
+class StoresCardModel {
   StoresCardModel(this.storeName, this.storeUserName, this.storeImage);
+
   final String storeName;
   final String storeUserName;
   final String storeImage;

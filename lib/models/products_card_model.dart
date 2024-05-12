@@ -1,6 +1,6 @@
-class ProductsCardModel{
-
+class ProductsCardModel {
   ProductsCardModel(this.productName, this.productUserName, this.productImage);
+
   final String productName;
   final String productUserName;
   final String productImage;

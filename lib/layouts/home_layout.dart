@@ -7,6 +7,7 @@ import '../modules/5-pharmacy_screen/pharmacy_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreenRoute';
+
   const HomeScreen({super.key});
 
   static Route route() {
@@ -25,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _controller = SidebarXController(selectedIndex: 1, extended: true);
   final _key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -92,8 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             );
                           case 5:
                             _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: DashboardScreen());
+                            return const Center(child: DashboardScreen());
                           case 6:
                             _key.currentState?.closeDrawer();
                             return const Center(

@@ -32,7 +32,8 @@ class DtsOrder extends DataTableSource {
     return DataRow.byIndex(
       index: index,
       cells: [
-        DataCell(Text(OrderItem.id.toString())), // Access data using object properties
+        DataCell(Text(OrderItem.id.toString())),
+        // Access data using object properties
         DataCell(Text(OrderItem.from)),
         DataCell(Text(OrderItem.to)),
         DataCell(Text(OrderItem.date)),
@@ -44,8 +45,7 @@ class DtsOrder extends DataTableSource {
               color: bColor,
               borderRadius: BorderRadius.circular(14),
             ),
-            child:
-            Center(
+            child: Center(
               child: Text(
                 OrderItem.state,
                 style: TextStyle(
@@ -62,21 +62,22 @@ class DtsOrder extends DataTableSource {
           icon: const Icon(Icons.more_vert),
           itemBuilder: (BuildContext context) => [
             PopupMenuItem<String>(
-              onTap: () =>  Navigator.push(
+              onTap: () => Navigator.push(
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) =>
                       FadeTransition(
-                        opacity: animation,
-                        child: const PharmacyProfilesScreen(),
-                      ),
+                    opacity: animation,
+                    child: const PharmacyProfilesScreen(),
+                  ),
                 ),
               ),
               value: 'View Profile',
               child: const Text('View Profile'),
             ),
           ],
-        )) // Directly add the IconButton)
+        ))
+        // Directly add the IconButton)
       ],
     );
   }
@@ -89,5 +90,4 @@ class DtsOrder extends DataTableSource {
 
   @override
   int get selectedRowCount => 0;
-
 }

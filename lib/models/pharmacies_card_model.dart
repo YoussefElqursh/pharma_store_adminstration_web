@@ -1,6 +1,7 @@
-class PharmaciesCardModel{
+class PharmaciesCardModel {
+  PharmaciesCardModel(
+      this.pharmacyName, this.pharmacyUserName, this.pharmacyImage);
 
-  PharmaciesCardModel(this.pharmacyName, this.pharmacyUserName, this.pharmacyImage);
   final String pharmacyName;
   final String pharmacyUserName;
   final String pharmacyImage;
@@ -16,4 +17,3 @@ List<PharmaciesCardModel> pharmaciesList = [
   PharmaciesCardModel('El Ezaby', '23145_El-Ezaby', ''),
   PharmaciesCardModel('El Delta', '23145_El-Delta', ''),
 ];
-

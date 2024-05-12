@@ -13,11 +13,10 @@ class DTS extends DataTableSource {
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            FadeTransition(
-              opacity: animation,
-              child: const PharmacyProfilesScreen(),
-            ),
+        pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+          opacity: animation,
+          child: const PharmacyProfilesScreen(),
+        ),
       ),
     );
   }

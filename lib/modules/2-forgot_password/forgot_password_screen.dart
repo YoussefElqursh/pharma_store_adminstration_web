@@ -6,6 +6,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
   static const String routeName = 'ForgotPasswordScreenRoute';
+
   const ForgotPasswordScreen({super.key});
 
   static Route route() {
@@ -161,7 +162,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       ),
                       child: MaterialButton(
                         onPressed: () {
-                            navigateTo(context, 'OTPScreenRoute');
+                          navigateTo(context, 'OTPScreenRoute');
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius:
@@ -181,7 +182,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                     const SizedBox(height: 30),
                     Center(
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           navigateTo(context, 'LoginScreenRoute');
                         },
                         child: Row(

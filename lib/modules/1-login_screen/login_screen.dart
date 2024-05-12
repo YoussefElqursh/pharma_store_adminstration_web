@@ -6,6 +6,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = 'LoginScreenRoute';
+
   const LoginScreen({super.key});
 
   static Route route() {

@@ -7,7 +7,7 @@ class ConfirmCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child:Container(
+      child: Container(
         width: 350,
         height: 317,
         decoration: ShapeDecoration(
@@ -29,7 +29,11 @@ class ConfirmCategories extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              setPhoto(kind: 1, path: 'assets/images/verified.svg', width: 60, height: 60),
+              setPhoto(
+                  kind: 1,
+                  path: 'assets/images/verified.svg',
+                  width: 60,
+                  height: 60),
               const SizedBox(height: 30),
               const Text(
                 'Changes Saved! ',
@@ -59,12 +63,13 @@ class ConfirmCategories extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
                   color: const Color(0xFF4A71FF),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3)),
                 ),
                 child: MaterialButton(
                   height: 35,
                   minWidth: 60,
-                  onPressed: (){},
+                  onPressed: () {},
                   child: const Text(
                     'Close',
                     style: TextStyle(

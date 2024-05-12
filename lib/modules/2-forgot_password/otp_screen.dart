@@ -6,6 +6,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class OTPScreen extends StatelessWidget {
   static const String routeName = 'OTPScreenRoute';
+
   const OTPScreen({super.key});
 
   static Route route() {
@@ -133,12 +134,14 @@ class OTPScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: HexColor(primary), // Adjust color as needed
+                                color: HexColor(primary),
+                                // Adjust color as needed
                                 width: 1.0, // Adjust width as needed
                               ),
                             ),
                           ),
-                          child: Text('Resend code',
+                          child: Text(
+                            'Resend code',
                             style: TextStyle(
                               color: HexColor(primary),
                               fontSize: 16,

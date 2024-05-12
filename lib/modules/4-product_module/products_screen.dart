@@ -9,6 +9,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductsScreen extends StatefulWidget {
   static const String routeName = 'ProductsScreenRoute';
+
   const ProductsScreen({super.key});
 
   static Route route() {
@@ -24,6 +25,7 @@ class ProductsScreen extends StatefulWidget {
 
 class _ProductsScreenState extends State<ProductsScreen> {
   bool filterVisibility = false;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

@@ -6,6 +6,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class SuccessPasswordScreen extends StatelessWidget {
   static const String routeName = 'SuccessPasswordScreenRoute';
+
   const SuccessPasswordScreen({super.key});
 
   static Route route() {

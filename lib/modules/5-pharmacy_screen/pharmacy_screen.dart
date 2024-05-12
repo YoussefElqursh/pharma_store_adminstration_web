@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../models/pharmacy_data-table_model.dart';
 import '../../models/pharmacy_source_data.dart';
 
@@ -9,6 +10,7 @@ class PharmacyScreen extends StatefulWidget {
   static const String routeName = 'Pharmacy_ScreenRoute';
 
   const PharmacyScreen({super.key});
+
   static Route route() {
     return MaterialPageRoute(
       settings: const RouteSettings(name: routeName),
@@ -289,8 +291,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                             width: 1.3),
 
                                         activeColor: HexColor(primary),
-                                        value:
-                                            activatedIsChecked, // Adjust initial value as needed
+                                        value: activatedIsChecked,
+                                        // Adjust initial value as needed
                                         onChanged: (value) {
                                           setState(() {
                                             activatedIsChecked = value!;
@@ -334,8 +336,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                             color: HexColor(white70),
                                             width: 1.3),
                                         activeColor: HexColor(primary),
-                                        value:
-                                            deactivatedIsChecked, // Adjust initial value as needed
+                                        value: deactivatedIsChecked,
+                                        // Adjust initial value as needed
                                         onChanged: (value) {
                                           setState(() {
                                             deactivatedIsChecked = value!;

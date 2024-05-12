@@ -8,6 +8,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductCategoryScreen extends StatefulWidget {
   static const String routeName = 'ProductCategoryScreenRoute';
+
   const ProductCategoryScreen({super.key});
 
   static Route route() {
@@ -16,6 +17,7 @@ class ProductCategoryScreen extends StatefulWidget {
       builder: (context) => const ProductCategoryScreen(),
     );
   }
+
   @override
   State<ProductCategoryScreen> createState() => _ProductCategoryScreenState();
 }
@@ -25,8 +27,13 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BackScreenHeader(backScreenName: 'Products', goBack: () { Navigator.push(context, ProductsScreen.route()); },),
-         Expanded(
+        BackScreenHeader(
+          backScreenName: 'Products',
+          goBack: () {
+            Navigator.push(context, ProductsScreen.route());
+          },
+        ),
+        Expanded(
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(30.0),
@@ -52,15 +59,16 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                         clipBehavior: Clip.antiAlias,
                         decoration: ShapeDecoration(
                           color: const Color(0xFF4A71FF),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
                         ),
                         child: MaterialButton(
                           minWidth: 138,
                           height: 42,
-                          onPressed: (){
+                          onPressed: () {
                             showDialog(
-                                context: context,
-                                builder: (context) => const AddCategorise(),
+                              context: context,
+                              builder: (context) => const AddCategorise(),
                             );
                           },
                           child: const Row(
@@ -68,7 +76,11 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.add, size: 15, color: Colors.white,),
+                              Icon(
+                                Icons.add,
+                                size: 15,
+                                color: Colors.white,
+                              ),
                               SizedBox(width: 10),
                               Text(
                                 'Add Category',
@@ -103,7 +115,6 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                             fontWeight: FontWeight.w400,
                             height: 0,
                           ),
-
                           prefixIcon: Icon(
                             Icons.search,
                             color: HexColor(bWhite90),
@@ -122,7 +133,7 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                             borderSide: BorderSide(color: HexColor(primary)),
                           ),
                           contentPadding:
-                          const EdgeInsets.symmetric(vertical: 5)),
+                              const EdgeInsets.symmetric(vertical: 5)),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -131,10 +142,8 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
               ),
             ),
           ),
-                   )
+        )
       ],
     );
   }
 }
-
-

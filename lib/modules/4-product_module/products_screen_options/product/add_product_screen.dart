@@ -11,7 +11,6 @@ class AddProductScreen extends StatefulWidget {
 }
 
 class _AddProductScreenState extends State<AddProductScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +20,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
           backScreenName: 'Products',
           goBack: () {
             Navigator.push(context, ProductsScreen.route());
-            },
+          },
         ),
         Expanded(
           child: SingleChildScrollView(
@@ -44,7 +43,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(left: 30.0, top: 25.0, bottom: 25.0),
+                      padding:
+                          EdgeInsets.only(left: 30.0, top: 25.0, bottom: 25.0),
                       child: Text(
                         'Add Product',
                         style: TextStyle(
@@ -102,17 +102,21 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 decoration: ShapeDecoration(
                                   color: Colors.white,
                                   shape: RoundedRectangleBorder(
-                                    side: const BorderSide(width: 1.50, color: Color(0xFFDDE1EB)),
+                                    side: const BorderSide(
+                                        width: 1.50, color: Color(0xFFDDE1EB)),
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                 ),
                                 child: Center(
-                                  child: setPhoto(kind: 1, path: 'assets/images/Frame.svg', width: 40, height: 30),
+                                  child: setPhoto(
+                                      kind: 1,
+                                      path: 'assets/images/Frame.svg',
+                                      width: 40,
+                                      height: 30),
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){
-                                },
+                                onTap: () {},
                                 child: ClipOval(
                                   child: Container(
                                     width: 22,
@@ -124,7 +128,11 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         color: const Color(0xFFDDE1EB),
                                       ),
                                     ),
-                                    child: const Icon(Icons.edit, color: Color(0xFFDDE1EB), size: 15,),
+                                    child: const Icon(
+                                      Icons.edit,
+                                      color: Color(0xFFDDE1EB),
+                                      size: 15,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -182,7 +190,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: 344.75,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 344.75, maxHeight: 42),
                                       hintText: 'Enter name',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -194,17 +203,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -249,7 +258,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: 344.75,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 344.75, maxHeight: 42),
                                       hintText: 'Select category',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -261,17 +271,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -316,7 +326,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: 344.75,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 344.75, maxHeight: 42),
                                       hintText: 'e.g., 30 tablets',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -328,17 +339,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -387,7 +398,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: 524.625,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 524.625, maxHeight: 42),
                                       hintText: 'e.g., EGP 19.99',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -399,17 +411,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -454,7 +466,8 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: 524.625,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: 524.625, maxHeight: 42),
                                       hintText: 'Enter manufacturer name',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -466,17 +479,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -536,7 +549,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: double.infinity,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: double.infinity,
+                                          maxHeight: 42),
                                       hintText: 'e.g., Analgesics',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -548,17 +563,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -570,11 +585,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       clipBehavior: Clip.antiAlias,
                                       decoration: ShapeDecoration(
                                         color: const Color(0xFFF5F6FA),
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                       ),
                                       child: IconButton(
-                                        onPressed: () {
-                                        },
+                                        onPressed: () {},
                                         icon: const Icon(
                                           Icons.add,
                                           size: 16,
@@ -583,10 +599,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         style: ButtonStyle(
                                           shape: MaterialStatePropertyAll(
                                             ContinuousRectangleBorder(
-                                              borderRadius: BorderRadius.circular(6),
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
                                             ),
                                           ),
-                                          padding: const MaterialStatePropertyAll(EdgeInsets.all(5),),
+                                          padding:
+                                              const MaterialStatePropertyAll(
+                                            EdgeInsets.all(5),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -637,7 +657,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       fontWeight: FontWeight.w400,
                                     ),
                                     decoration: InputDecoration(
-                                      constraints: const BoxConstraints(maxWidth: double.infinity,maxHeight: 42),
+                                      constraints: const BoxConstraints(
+                                          maxWidth: double.infinity,
+                                          maxHeight: 42),
                                       hintText: 'e.g., Ibuprofen',
                                       hintStyle: const TextStyle(
                                         color: Color(0xFFB2BAC6),
@@ -649,17 +671,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(3),
                                         borderSide: const BorderSide(
                                             color: Color(0xFFDDE1EB),
-                                            strokeAlign: BorderSide.strokeAlignCenter,
-                                            width: 1.5
-                                        ),
+                                            strokeAlign:
+                                                BorderSide.strokeAlignCenter,
+                                            width: 1.5),
                                       ),
                                     ),
                                   ),
@@ -671,11 +693,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                       clipBehavior: Clip.antiAlias,
                                       decoration: ShapeDecoration(
                                         color: const Color(0xFFF5F6FA),
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
                                       ),
                                       child: IconButton(
-                                        onPressed: () {
-                                        },
+                                        onPressed: () {},
                                         icon: const Icon(
                                           Icons.add,
                                           size: 16,
@@ -684,10 +707,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                         style: ButtonStyle(
                                           shape: MaterialStatePropertyAll(
                                             ContinuousRectangleBorder(
-                                              borderRadius: BorderRadius.circular(6),
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
                                             ),
                                           ),
-                                          padding: const MaterialStatePropertyAll(EdgeInsets.all(5),),
+                                          padding:
+                                              const MaterialStatePropertyAll(
+                                            EdgeInsets.all(5),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -706,12 +733,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 clipBehavior: Clip.antiAlias,
                                 decoration: ShapeDecoration(
                                   color: const Color(0xFFF5F6FA),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(3)),
                                 ),
                                 child: MaterialButton(
                                   height: 42,
                                   minWidth: 83,
-                                  onPressed: (){},
+                                  onPressed: () {},
                                   child: const Text(
                                     'Cancel',
                                     style: TextStyle(
@@ -730,12 +758,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                 clipBehavior: Clip.antiAlias,
                                 decoration: ShapeDecoration(
                                   color: const Color(0xFF4A71FF),
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(3)),
                                 ),
                                 child: MaterialButton(
                                   height: 42,
                                   minWidth: 75,
-                                  onPressed: (){},
+                                  onPressed: () {},
                                   child: const Text(
                                     'Save',
                                     style: TextStyle(
@@ -759,7 +788,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
             ),
           ),
         ),
-
       ],
     );
   }

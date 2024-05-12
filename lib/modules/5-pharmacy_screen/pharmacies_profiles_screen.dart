@@ -5,8 +5,8 @@ import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-import '../../models/order_source_data.dart';
 
+import '../../models/order_source_data.dart';
 import '../../models/pharmacy_card_model.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/components/functions.dart';
@@ -99,9 +99,9 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                 const SizedBox(height: 30.7),
                 SafeArea(
                   child: SizedBox(
-                      height: MediaQuery.of(context)
-                          .size
-                          .height, // Adjust height as needed
+                    height: MediaQuery.of(context)
+                        .size
+                        .height, // Adjust height as needed
                     child: TabBarView(
                       children: [
                         // Replace these placeholders with actual content widgets for each tab
@@ -960,7 +960,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                           activeColor:
                                                               HexColor(primary),
                                                           value:
-                                                              deliveredIsChecked, // Adjust initial value as needed
+                                                              deliveredIsChecked,
+                                                          // Adjust initial value as needed
                                                           onChanged: (value) {
                                                             setState(
                                                               () {
@@ -1026,7 +1027,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                           activeColor:
                                                               HexColor(primary),
                                                           value:
-                                                              onHoldIsChecked, // Adjust initial value as needed
+                                                              onHoldIsChecked,
+                                                          // Adjust initial value as needed
                                                           onChanged: (value) {
                                                             setState(
                                                               () {
@@ -1098,8 +1100,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                             width: 1.3),
                                                         activeColor:
                                                             HexColor(primary),
-                                                        value:
-                                                            onWayIsChecked, // Adjust initial value as needed
+                                                        value: onWayIsChecked,
+                                                        // Adjust initial value as needed
                                                         onChanged: (value) {
                                                           setState(
                                                             () {
@@ -1162,7 +1164,8 @@ class _PharmacyProfilesScreenState extends State<PharmacyProfilesScreen> {
                                                         activeColor:
                                                             HexColor(primary),
                                                         value:
-                                                            canceledIsChecked, // Adjust initial value as needed
+                                                            canceledIsChecked,
+                                                        // Adjust initial value as needed
                                                         onChanged: (value) {
                                                           setState(
                                                             () {

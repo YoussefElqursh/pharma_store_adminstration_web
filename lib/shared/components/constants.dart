@@ -1,4 +1,3 @@
-
 //------------------------------------------------------------------------------
 // this list of chooses in dropdown btn.
 List<String> itemList = [
@@ -9,4 +8,3 @@ List<String> itemList = [
 ];
 
 String? selectedItem = 'This week';
-

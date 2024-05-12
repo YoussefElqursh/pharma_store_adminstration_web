@@ -16,7 +16,9 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
+
   static const String routeName = 'DashboardScreenRoute';
+
   static Route route() {
     return MaterialPageRoute(
       settings: const RouteSettings(name: routeName),
@@ -135,7 +137,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               ),
                               borderWidth: 45,
                               tooltipBehavior: _tooltip,
-                              series: <CartesianSeries<ChartData,String>>[
+                              series: <CartesianSeries<ChartData, String>>[
                                 ColumnSeries<ChartData, String>(
                                     legendIconType: LegendIconType.circle,
                                     dataSource: data,
@@ -275,7 +277,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 20.0),
                         child: Container(
-                          padding: const EdgeInsets.only(left: 35, right: 35, top: 35),
+                          padding: const EdgeInsets.only(
+                              left: 35, right: 35, top: 35),
                           height: 466,
                           width: 350,
                           decoration: BoxDecoration(
@@ -401,7 +404,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0,right: 15.0),
+                        padding: const EdgeInsets.only(left: 20.0, right: 15.0),
                         child: Container(
                           padding: const EdgeInsets.only(
                               left: 35, right: 35, top: 35),
@@ -564,7 +567,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   DataRow _dataRow(Data data) {
     Color? bColor;
     Color? fColor;
-    switch( data.state){
+    switch (data.state) {
       case 'Delivered':
         bColor = HexColor('#ECFDF3');
         fColor = HexColor('#009881');
@@ -613,7 +616,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     ]);
   }
 
-  Widget buildDataCard(DataCardModel dataCardModel,int index) {
+  Widget buildDataCard(DataCardModel dataCardModel, int index) {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, bottom: 20),
       child: Container(
@@ -664,16 +667,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       items: itemList
-                          .map((String item) => DropdownMenuItem<String>(
-                        value: item,
-                        child: Text(
-                          item,
-                          style: TextStyle(
-                            color: HexColor(white70),
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ))
+                          .map((String item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: TextStyle(
+                                color: HexColor(white70),
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
+                          ))
                           .toList(),
                       value: selectedItem,
                       iconStyleData:
@@ -702,19 +706,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     height: 60,
                     width: 60,
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            HexColor(dataCardModel.color),
-                            Colors.white,
-                          ],
-                        ),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          HexColor(dataCardModel.color),
+                          Colors.white,
+                        ],
+                      ),
                       borderRadius: BorderRadius.circular(23),
                     ),
                     child: Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Icon(dataCardModel.cardIcon,color: HexColor(dataCardModel.color),)),
+                        child: Icon(dataCardModel.cardIcon,
+                          color: HexColor(dataCardModel.color),)),
                   ),
                   const Spacer(),
                   Container(

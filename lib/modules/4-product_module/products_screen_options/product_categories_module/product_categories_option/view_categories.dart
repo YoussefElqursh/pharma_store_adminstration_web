@@ -6,7 +6,7 @@ class ViewCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child:Container(
+      child: Container(
         width: 350,
         height: 317,
         decoration: ShapeDecoration(
@@ -28,7 +28,8 @@ class ViewCategories extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left:25, top: 15, right: 25,bottom: 10.0),
+                padding: const EdgeInsets.only(
+                    left: 25, top: 15, right: 25, bottom: 10.0),
                 child: Row(
                   children: [
                     const Text(
@@ -42,7 +43,7 @@ class ViewCategories extends StatelessWidget {
                     ),
                     const Spacer(),
                     IconButton(
-                      onPressed: (){},
+                      onPressed: () {},
                       icon: const Icon(Icons.exit_to_app_sharp),
                     ),
                   ],
@@ -53,7 +54,7 @@ class ViewCategories extends StatelessWidget {
                 color: Color(0xFFDDE1EB),
               ),
               Padding(
-                padding: const EdgeInsets.only(left:25, top: 25, right: 25),
+                padding: const EdgeInsets.only(left: 25, top: 25, right: 25),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -116,12 +117,13 @@ class ViewCategories extends StatelessWidget {
                           clipBehavior: Clip.antiAlias,
                           decoration: ShapeDecoration(
                             color: const Color(0xFF4A71FF),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3)),
                           ),
                           child: MaterialButton(
                             height: 35,
                             minWidth: 65,
-                            onPressed: (){},
+                            onPressed: () {},
                             child: const Text(
                               'Close',
                               style: TextStyle(

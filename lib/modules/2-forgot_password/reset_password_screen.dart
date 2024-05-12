@@ -8,6 +8,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   static const String routeName = 'ResetPasswordScreenRoute';
+
   const ResetPasswordScreen({super.key});
 
   static Route route() {
@@ -23,9 +24,9 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   String password = '';
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Row(
         children: [

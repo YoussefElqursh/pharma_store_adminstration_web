@@ -6,9 +6,9 @@ import 'package:pharma_store_administration_web/modules/2-forgot_password/otp_sc
 import 'package:pharma_store_administration_web/modules/2-forgot_password/reset_password_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-forgot_password/success_password_screen.dart';
 import 'package:pharma_store_administration_web/modules/4-product_module/products_module.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
-import 'package:pharma_store_administration_web/modules/6-store_screen/store_screen.dart';
+import '../../../modules/5-pharmacy_module/pharmacy_screen.dart';
+import '../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
+import '../../../modules/6-store_module/store_screen.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
 import '../../models/store-data_table.dart';
 import '../../shared/components/functions.dart';
-import '../../shared/components/widget/store_table_widget.dart';
+import '../../shared/components/widget/store_widget/store_table_widget.dart';
 
 class StoreScreen extends StatefulWidget {
   static const String routeName = 'Storey_ScreenRoute';

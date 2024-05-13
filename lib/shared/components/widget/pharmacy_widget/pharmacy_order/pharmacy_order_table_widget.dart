@@ -3,17 +3,18 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-import '../../../models/store-data_table.dart';
-import '../../../modules/6-store_screen/store_screen_option/store_screen_option.dart';
+import '../../../../../models/store_order_data_table_model.dart';
+import '../../../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
-class StoreTableWidget extends StatefulWidget {
-  const StoreTableWidget({super.key});
+
+class PharmacyOrderTableWidget extends StatefulWidget {
+  const PharmacyOrderTableWidget({super.key});
 
   @override
-  State<StoreTableWidget> createState() => _StoreTableWidget();
+  State<PharmacyOrderTableWidget> createState() => _PharmacyOrderTableWidget();
 }
 
-class _StoreTableWidget extends State<StoreTableWidget> {
+class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
@@ -23,7 +24,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
           opacity: animation,
-          child: const StoreScreenOption(),
+          child: const PharmacyScreenOption(),
         ),
       ),
     );
@@ -34,7 +35,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-              columnSpacing: MediaQuery.of(context).size.width / 11,
+              columnSpacing: MediaQuery.of(context).size.width / 10,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
                   border: Border.all(color: HexColor(bWhite90)),
@@ -55,11 +56,11 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                   const MaterialStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
-                const DataColumn(label: Text('Photo')),
+                const DataColumn(label: Text('From')),
                 DataColumn(
                   label: Row(
                     children: [
-                      const Text('Name'),
+                      const Text('To'),
                       const SizedBox(width: 10),
                       IconButton(
                           onPressed: () {},
@@ -70,7 +71,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                 DataColumn(
                   label: Row(
                     children: [
-                      const Text('Contact Number'),
+                      const Text('Date'),
                       const SizedBox(width: 10),
                       IconButton(
                           onPressed: () {},
@@ -81,7 +82,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                 DataColumn(
                   label: Row(
                     children: [
-                      const Text('Address'),
+                      const Text('State'),
                       const SizedBox(width: 10),
                       IconButton(
                           onPressed: () {},
@@ -91,8 +92,8 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                 ),
                 const DataColumn(label: Text('')),
               ],
-              rows: List.generate(storeDemoData.length,
-                  (index) => _dataRow(storeDemoData[index])),
+              rows: List.generate(storeOrderDemoData.length,
+                  (index) => _dataRow(storeOrderDemoData[index])),
             ));
 
     return Expanded(
@@ -140,7 +141,24 @@ class _StoreTableWidget extends State<StoreTableWidget> {
     );
   }
 
-  DataRow _dataRow(StoreData data) {
+  DataRow _dataRow(StoreOrderData data) {
+    Color? bColor;
+    Color? fColor;
+    switch (data.state) {
+      case 'Delivered':
+        bColor = HexColor('#ECFDF3');
+        fColor = HexColor('#009881');
+      case 'On Hold':
+        bColor = HexColor('#FFFADF');
+        fColor = HexColor('#ECA600');
+      case 'On Way':
+        bColor = HexColor('#E9F3FF');
+        fColor = HexColor('#4A72FF');
+      case 'Canceled':
+        bColor = HexColor('#fff2ea');
+        fColor = HexColor('#f15046');
+    }
+
     return DataRow(
       cells: [
         DataCell(
@@ -157,7 +175,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
         ),
         DataCell(
           Text(
-            data.photo,
+            data.from,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -169,7 +187,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
         ),
         DataCell(
           Text(
-            data.name,
+            data.to,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -181,7 +199,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
         ),
         DataCell(
           Text(
-            data.contactNumber,
+            data.date,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -196,12 +214,14 @@ class _StoreTableWidget extends State<StoreTableWidget> {
             width: 73,
             height: 26,
             decoration: BoxDecoration(
+              color: bColor,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Center(
               child: Text(
-                data.address,
-                style: const TextStyle(
+                data.state,
+                style: TextStyle(
+                  color: fColor,
                   fontSize: 12,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,

@@ -5,7 +5,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 import '../../models/store-data_table.dart';
 import '../../shared/components/functions.dart';
-import '../../shared/components/widget/pharmacy_table_widget.dart';
+import '../../shared/components/widget/pharmacy_widget/pharmacy_table_widget.dart';
 
 class PharmacyScreen extends StatefulWidget {
   static const String routeName = 'PharmacyScreenRoute';

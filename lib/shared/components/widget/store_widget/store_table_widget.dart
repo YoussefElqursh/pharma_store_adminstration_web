@@ -3,17 +3,17 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-import '../../../models/pharmacy_data_table.dart';
-import '../../../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
+import '../../../../models/store-data_table.dart';
+import '../../../../modules/6-store_module/store_screen_option/store_screen_option.dart';
 
-class PharmacyTableWidget extends StatefulWidget {
-  const PharmacyTableWidget({super.key});
+class StoreTableWidget extends StatefulWidget {
+  const StoreTableWidget({super.key});
 
   @override
-  State<PharmacyTableWidget> createState() => _PharmacyTableWidget();
+  State<StoreTableWidget> createState() => _StoreTableWidget();
 }
 
-class _PharmacyTableWidget extends State<PharmacyTableWidget> {
+class _StoreTableWidget extends State<StoreTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
@@ -23,7 +23,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
           opacity: animation,
-          child: const PharmacyScreenOption(),
+          child: const StoreScreenOption(),
         ),
       ),
     );
@@ -34,7 +34,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-              columnSpacing: MediaQuery.of(context).size.width / 15,
+              columnSpacing: MediaQuery.of(context).size.width / 11,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
                   border: Border.all(color: HexColor(bWhite90)),
@@ -89,21 +89,10 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
                     ],
                   ),
                 ),
-                DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('State'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
-                    ],
-                  ),
-                ),
                 const DataColumn(label: Text('')),
               ],
-              rows: List.generate(pharmacyDemoData.length,
-                  (index) => _dataRow(pharmacyDemoData[index])),
+              rows: List.generate(storeDemoData.length,
+                  (index) => _dataRow(storeDemoData[index])),
             ));
 
     return Expanded(
@@ -151,20 +140,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
     );
   }
 
-  DataRow _dataRow(PharmacyData data) {
-    Color? bColor;
-    Color? fColor;
-    switch (data.state) {
-      case 'Activated':
-        bColor = HexColor('#ecfdf3');
-        fColor = HexColor('#009881');
-        break; // Add break statement
-      case 'Deactivated':
-        bColor = HexColor('#fff2ea');
-        fColor = HexColor('#f15046');
-        break; // Add break statement
-    }
-
+  DataRow _dataRow(StoreData data) {
     return DataRow(
       cells: [
         DataCell(
@@ -226,27 +202,6 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
               child: Text(
                 data.address,
                 style: const TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ),
-        ),
-        DataCell(
-          Container(
-            width: 80,
-            height: 26,
-            decoration: BoxDecoration(
-              color: bColor,
-              borderRadius: BorderRadius.circular(14),
-            ),
-            child: Center(
-              child: Text(
-                data.state,
-                style: TextStyle(
-                  color: fColor,
                   fontSize: 12,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,

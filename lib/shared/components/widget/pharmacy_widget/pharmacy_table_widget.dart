@@ -3,17 +3,17 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-import '../../../models/store_order_data_table.dart';
-import '../../../modules/5-pharmacy_screen/pharmacy_screen_option/pharmacies_screen_option.dart';
+import '../../../../models/pharmacy_data_table.dart';
+import '../../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
-class PharmacyOrderTableWidget extends StatefulWidget {
-  const PharmacyOrderTableWidget({super.key});
+class PharmacyTableWidget extends StatefulWidget {
+  const PharmacyTableWidget({super.key});
 
   @override
-  State<PharmacyOrderTableWidget> createState() => _PharmacyOrderTableWidget();
+  State<PharmacyTableWidget> createState() => _PharmacyTableWidget();
 }
 
-class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
+class _PharmacyTableWidget extends State<PharmacyTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
@@ -34,7 +34,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-              columnSpacing: MediaQuery.of(context).size.width / 10,
+              columnSpacing: MediaQuery.of(context).size.width / 13,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
                   border: Border.all(color: HexColor(bWhite90)),
@@ -55,44 +55,46 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                   const MaterialStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
-                const DataColumn(label: Text('From')),
+                const DataColumn(label: Text('Photo')),
                 DataColumn(
                   label: Row(
                     children: [
-                      const Text('To'),
+                      const Text('Name'),
                       const SizedBox(width: 10),
                       IconButton(
                           onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                          icon: const Icon(Icons.sort_rounded,size: 22)),
                     ],
                   ),
                 ),
-                DataColumn(
+                const DataColumn(
                   label: Row(
                     children: [
-                      const Text('Date'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                      Text('Contact Number'),
+
                     ],
                   ),
                 ),
-                DataColumn(
+                const DataColumn(
                   label: Row(
                     children: [
-                      const Text('State'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                      Text('Address'),
+
+                    ],
+                  ),
+                ),
+                const DataColumn(
+                  label: Row(
+                    children: [
+                      Text('State'),
+
                     ],
                   ),
                 ),
                 const DataColumn(label: Text('')),
               ],
-              rows: List.generate(storeOrderDemoData.length,
-                  (index) => _dataRow(storeOrderDemoData[index])),
+              rows: List.generate(pharmacyDemoData.length,
+                  (index) => _dataRow(pharmacyDemoData[index])),
             ));
 
     return Expanded(
@@ -140,19 +142,18 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
     );
   }
 
-  DataRow _dataRow(StoreOrderData data) {
+  DataRow _dataRow(PharmacyData data) {
     Color? bColor;
     Color? fColor;
     switch (data.state) {
-      case 'Delivered':
-        bColor = HexColor('#ECFDF3');
+      case 'Activated':
+        bColor = HexColor('#ecfdf3');
         fColor = HexColor('#009881');
-      case 'On Hold':
-        bColor = HexColor('#FFFADF');
-        fColor = HexColor('#ECA600');
-      case 'On Way':
-        bColor = HexColor('#E9F3FF');
-        fColor = HexColor('#4A72FF');
+        break; // Add break statement
+      case 'Deactivated':
+        bColor = HexColor('#fff2ea');
+        fColor = HexColor('#f15046');
+        break; // Add break statement
     }
 
     return DataRow(
@@ -171,7 +172,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
         ),
         DataCell(
           Text(
-            data.from,
+            data.photo,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -183,7 +184,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
         ),
         DataCell(
           Text(
-            data.to,
+            data.name,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -195,7 +196,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
         ),
         DataCell(
           Text(
-            data.date,
+            data.contactNumber,
             style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
@@ -208,6 +209,25 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
         DataCell(
           Container(
             width: 73,
+            height: 26,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Center(
+              child: Text(
+                data.address,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
+        ),
+        DataCell(
+          Container(
+            width: 80,
             height: 26,
             decoration: BoxDecoration(
               color: bColor,

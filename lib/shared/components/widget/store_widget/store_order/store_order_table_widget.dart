@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+import '../../../../../models/store_order_data_table_model.dart';
+import '../../../../../modules/6-store_module/store_screen_option/store_screen_option.dart';
 
-import '../../../models/store_order_data_table.dart';
-import '../../../modules/6-store_screen/store_screen_option/store_screen_option.dart';
 
 class StoreOrderTableWidget extends StatefulWidget {
   const StoreOrderTableWidget({super.key});
@@ -153,6 +153,9 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
       case 'On Way':
         bColor = HexColor('#E9F3FF');
         fColor = HexColor('#4A72FF');
+      case 'Canceled':
+        bColor = HexColor('#fff2ea');
+        fColor = HexColor('#f15046');
     }
 
     return DataRow(
@@ -207,7 +210,7 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
         ),
         DataCell(
           Container(
-            width: 73,
+            width: 76,
             height: 26,
             decoration: BoxDecoration(
               color: bColor,

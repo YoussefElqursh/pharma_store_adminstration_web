@@ -25,7 +25,7 @@ List storeOrderDemoData = [
       'Avano Pharma\nIbnsina\nEl Motahadah',
       'El Nahas',
       '25-8-2020 10:30 AM',
-      'Delivered',
+      'Canceled',
       IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
   StoreOrderData(
       3,

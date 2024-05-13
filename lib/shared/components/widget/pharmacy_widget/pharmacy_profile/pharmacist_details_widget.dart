@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-import '../../../../shared/components/widget/pharmacy_profile_widget.dart';
-import '../../../../shared/style/colors.dart';
+import '../../../../style/colors.dart';
+import '../../pharmacy_profile_widget.dart';
 
 class PharmacistDetailsWidget extends StatelessWidget {
   const PharmacistDetailsWidget({super.key});

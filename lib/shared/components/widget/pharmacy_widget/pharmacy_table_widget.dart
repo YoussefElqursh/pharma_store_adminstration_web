@@ -4,10 +4,11 @@ import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 import '../../../../models/pharmacy_data_table.dart';
-import '../../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
 class PharmacyTableWidget extends StatefulWidget {
-  const PharmacyTableWidget({super.key});
+  final void Function() openProfileScreen; // Function to open profile screen
+
+  const PharmacyTableWidget({super.key, required this.openProfileScreen});
 
   @override
   State<PharmacyTableWidget> createState() => _PharmacyTableWidget();
@@ -17,17 +18,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
-  void _openProfileScreen() {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
-          opacity: animation,
-          child: const PharmacyScreenOption(),
-        ),
-      ),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -252,7 +243,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
             itemBuilder: (BuildContext context) => [
               PopupMenuItem<String>(
                 value: 'View Profile',
-                onTap: _openProfileScreen,
+                onTap: widget.openProfileScreen,
                 child: const Text('View Profile'), // Call function here
               ),
             ],

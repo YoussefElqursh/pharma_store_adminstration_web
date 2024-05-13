@@ -3,7 +3,6 @@ import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashb
 import 'package:pharma_store_administration_web/modules/4-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
-
 import '../modules/5-pharmacy_module/pharmacy_screen.dart';
 import '../modules/6-store_module/store_screen.dart';
 
@@ -50,78 +49,82 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : null,
             drawer: SideBarXExample(controller: _controller),
-            body: Row(
-              children: [
-                if (!isSmallScreen) SideBarXExample(controller: _controller),
-                Expanded(
-                  child: Center(
-                    child: AnimatedBuilder(
-                      animation: _controller,
-                      builder: (context, child) {
-                        switch (_controller.selectedIndex) {
-                          case 0:
-                            _key.currentState?.closeDrawer();
-                            return const DashboardScreen();
-                          case 1:
-                            _key.currentState?.closeDrawer();
-                            return Navigator(
-                              onGenerateRoute: (settings) => MaterialPageRoute(
-                                builder: (context) => const ProductsScreen(),
-                              ),
-                            );
-                          case 2:
-                            _key.currentState?.closeDrawer();
-                            return Navigator(
-                              onGenerateRoute: (settings) => MaterialPageRoute(
-                                builder: (context) => const PharmacyScreen(),
-                              ),
-                            );
-                          case 3:
-                            _key.currentState?.closeDrawer();
-                            return Navigator(
-                              onGenerateRoute: (settings) => MaterialPageRoute(
-                                builder: (context) => const StoreScreen(),
-                              ),
-                            );
-                          case 4:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
-                          case 5:
-                            _key.currentState?.closeDrawer();
-                            return const Center(child: DashboardScreen());
-                          case 6:
-                            _key.currentState?.closeDrawer();
-                            return const Center(
-                              child: Text(
-                                'Theme',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
-                          default:
-                            return const Center(
-                              child: Text(
-                                'Home',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 40),
-                              ),
-                            );
-                        }
-                      },
+            body: Expanded(
+              child: Row(
+                children: [
+                  if (!isSmallScreen) SideBarXExample(controller: _controller),
+                  Expanded(
+                    child: Center(
+                      child: AnimatedBuilder(
+                        animation: _controller,
+                        builder: (context, child) {
+                          switch (_controller.selectedIndex) {
+                            case 0:
+                              _key.currentState?.closeDrawer();
+                              return const DashboardScreen();
+                            case 1:
+                              _key.currentState?.closeDrawer();
+                              return Navigator(
+                                  onGenerateRoute: (settings) =>
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                          const ProductsScreen()));
+
+                            case 2:
+                              _key.currentState?.closeDrawer();
+                              return Navigator(
+                                  onGenerateRoute: (settings) =>
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const PharmacyScreen()));
+                            case 3:
+                              _key.currentState?.closeDrawer();
+                              return Navigator(
+                                  onGenerateRoute: (settings) =>
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const StoreScreen()));
+                            case 4:
+                              _key.currentState?.closeDrawer();
+                              return const Center(
+                                child: Text(
+                                  'Theme',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 40),
+                                ),
+                              );
+                            case 5:
+                              _key.currentState?.closeDrawer();
+                              return const Center(child: DashboardScreen());
+                            case 6:
+                              _key.currentState?.closeDrawer();
+                              return const Center(
+                                child: Text(
+                                  'Theme',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 40),
+                                ),
+                              );
+                            default:
+                              return const Center(
+                                child: Text(
+                                  'Home',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 40),
+                                ),
+                              );
+                          }
+                        },
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
       ),
     );
   }
+  // Method to open the profile screen
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pharma_store_administration_web/modules/6-store_module/store_screen_option/store_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 import '../../models/store-data_table.dart';
@@ -7,7 +8,7 @@ import '../../shared/components/functions.dart';
 import '../../shared/components/widget/store_widget/store_table_widget.dart';
 
 class StoreScreen extends StatefulWidget {
-  static const String routeName = 'Storey_ScreenRoute';
+  static const String routeName = 'Store_ScreenRoute';
 
   const StoreScreen({super.key});
 
@@ -53,7 +54,14 @@ class _StoreScreen extends State<StoreScreen> {
   bool filterVisiblity = false;
   bool sort = true;
   late TextEditingController controllerOfFilter;
-
+  void _openProfileScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const StoreScreenOption(),
+      ),
+    );
+  }
   onSortColumnName(int columnIndex, bool ascending) {
     if (columnIndex == 2) {
       if (ascending) {
@@ -80,9 +88,9 @@ class _StoreScreen extends State<StoreScreen> {
           child: SingleChildScrollView(
             child: Stack(
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 78.0, left: 40.0, right: 40.0),
-                  child: Expanded(child: StoreTableWidget()),
+                 Padding(
+                  padding: const EdgeInsets.only(top: 78.0, left: 40.0, right: 40.0),
+                  child: Expanded(child: StoreTableWidget(openProfileScreen: _openProfileScreen)),
                 ),
                 Expanded(
                   child: Padding(

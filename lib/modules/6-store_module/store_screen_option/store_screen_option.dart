@@ -60,11 +60,7 @@ class _StoreScreenOption extends State<StoreScreenOption> {
     }
   }
 
-  bool deliveredIsChecked = false;
-  bool onWayIsChecked = false;
-  bool onHoldIsChecked = false;
-  bool canceledIsChecked = false;
-
+ 
   bool filterVisiblity = false;
 
   @override
@@ -246,12 +242,7 @@ class _StoreScreenOption extends State<StoreScreenOption> {
                                                 dateTimeController,
                                             dateTimeController2:
                                                 dateTimeController2,
-                                            onHoldIsChecked: onHoldIsChecked,
-                                            onWayIsChecked: onWayIsChecked,
-                                            canceledIsChecked:
-                                                canceledIsChecked,
-                                            deliveredIsChecked:
-                                                deliveredIsChecked,
+
                                           ),
                                         )
                                       ],

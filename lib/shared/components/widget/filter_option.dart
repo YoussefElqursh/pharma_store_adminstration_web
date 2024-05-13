@@ -3,27 +3,20 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
-
+import '../../../models/order_data_table_model.dart';
 import '../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 import '../../style/colors.dart';
 
 class FilterOption extends StatefulWidget {
 
-  final TextEditingController dateTimeController1;
-  final TextEditingController dateTimeController2;
-   late final bool onHoldIsChecked;
-    late bool onWayIsChecked;
-    late bool canceledIsChecked;
-     late bool deliveredIsChecked;
+   final TextEditingController dateTimeController1;
+   final TextEditingController dateTimeController2;
 
-      FilterOption({
+
+        const FilterOption({
     super.key,
-    required this.dateTimeController1,
+    required  this.dateTimeController1,
     required this.dateTimeController2,
-    required this.onHoldIsChecked,
-    required this.onWayIsChecked,
-    required this.canceledIsChecked,
-    required this.deliveredIsChecked,
 
   });
 
@@ -35,8 +28,11 @@ class FilterOption extends StatefulWidget {
 
 class _FilterOption extends State<FilterOption> {
 
-
-  get filterData => null;
+  bool onHoldIsChecked = false;
+  bool onWayIsChecked = false;
+  bool canceledIsChecked = false;
+  bool deliveredIsChecked = false;
+   List<OrderDataModel> ?filterData;
 
   @override
   Widget build(BuildContext context) {
@@ -339,11 +335,11 @@ class _FilterOption extends State<FilterOption> {
                         HexColor(
                             primary),
                         value:
-                        widget.deliveredIsChecked, // Adjust initial value as needed
+                        deliveredIsChecked, // Adjust initial value as needed
                         onChanged:
                             (value) {
                           setState(() {
-                            widget.deliveredIsChecked =
+                            deliveredIsChecked =
                             value!;
                           });
                         }, // Pass the function reference
@@ -407,11 +403,11 @@ class _FilterOption extends State<FilterOption> {
                         HexColor(
                             primary),
                         value:
-                        widget.onHoldIsChecked, // Adjust initial value as needed
+                        onHoldIsChecked, // Adjust initial value as needed
                         onChanged:
                             (value) {
                           setState(() {
-                            widget.onHoldIsChecked =
+                            onHoldIsChecked =
                             value!;
                           });
                         }, // Pass the function reference
@@ -486,11 +482,11 @@ class _FilterOption extends State<FilterOption> {
                         HexColor(
                             primary),
                         value:
-                        widget.onWayIsChecked, // Adjust initial value as needed
+                        onWayIsChecked, // Adjust initial value as needed
                         onChanged:
                             (value) {
                           setState(() {
-                            widget.onWayIsChecked =
+                            onWayIsChecked =
                             value!;
                           });
                         }, // Pass the function reference
@@ -554,11 +550,11 @@ class _FilterOption extends State<FilterOption> {
                         HexColor(
                             primary),
                         value:
-                        widget.canceledIsChecked, // Adjust initial value as needed
+                        canceledIsChecked, // Adjust initial value as needed
                         onChanged:
                             (value) {
                           setState(() {
-                            widget.canceledIsChecked =
+                            canceledIsChecked =
                             value!;
                           });
                         }, // Pass the function reference
@@ -624,13 +620,13 @@ class _FilterOption extends State<FilterOption> {
                             "#f5f6fa"),
                         onPressed: () {
                           setState(() {
-                            widget.onWayIsChecked =
+                            onWayIsChecked =
                             false;
-                            widget.onHoldIsChecked =
+                            onHoldIsChecked =
                             false;
-                            widget.canceledIsChecked =
+                            canceledIsChecked =
                             false;
-                            widget.deliveredIsChecked =
+                            deliveredIsChecked =
                             false;
 
                             orderDemoData =
@@ -664,10 +660,10 @@ class _FilterOption extends State<FilterOption> {
                         onPressed: () {
                           setState(() {
                             // Check if all checkboxes are unchecked (equivalent to all checkboxes checked in previous code)
-                            if (!widget.onHoldIsChecked &&
-                                !widget.onWayIsChecked &&
-                                !widget.canceledIsChecked &&
-                                !widget.deliveredIsChecked) {
+                            if (!onHoldIsChecked &&
+                                !onWayIsChecked &&
+                                !canceledIsChecked &&
+                                !deliveredIsChecked) {
                               // All checkboxes are unchecked, return the original filterData
                               orderDemoData =
                               filterData!;
@@ -676,22 +672,22 @@ class _FilterOption extends State<FilterOption> {
                               List<String>
                               selectedStates =
                               [];
-                              if (widget.onHoldIsChecked) {
+                              if (onHoldIsChecked) {
                                 selectedStates
                                     .add(
                                     "On Hold");
                               }
-                              if (widget.onWayIsChecked) {
+                              if (onWayIsChecked) {
                                 selectedStates
                                     .add(
                                     "On Way");
                               }
-                              if (widget.canceledIsChecked) {
+                              if (canceledIsChecked) {
                                 selectedStates
                                     .add(
                                     "Canceled");
                               }
-                              if (widget.deliveredIsChecked) {
+                              if (deliveredIsChecked) {
                                 selectedStates
                                     .add(
                                     "Delivered");

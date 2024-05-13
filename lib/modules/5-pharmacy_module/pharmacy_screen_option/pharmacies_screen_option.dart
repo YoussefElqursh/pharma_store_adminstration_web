@@ -44,10 +44,7 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
   List<OrderDataModel>? filterData;
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
-  bool deliveredIsChecked = false;
-  bool onWayIsChecked = false;
-  bool onHoldIsChecked = false;
-  bool canceledIsChecked = false;
+
 
   bool filterVisiblity = false;
   bool sort = true;
@@ -231,12 +228,7 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
                                             dateTimeController,
                                             dateTimeController2:
                                             dateTimeController2,
-                                            onHoldIsChecked: onHoldIsChecked,
-                                            onWayIsChecked: onWayIsChecked,
-                                            canceledIsChecked:
-                                            canceledIsChecked,
-                                            deliveredIsChecked:
-                                            deliveredIsChecked,
+
                                           ),
                                         )
                                       ],

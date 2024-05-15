@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashboard_screen.dart';
 import 'package:pharma_store_administration_web/modules/4-product_module/products_module.dart';
+import 'package:pharma_store_administration_web/modules/5-pharmacy_module/pharmacy_screen.dart';
+import 'package:pharma_store_administration_web/modules/6-store_module/store_screen.dart';
+import 'package:pharma_store_administration_web/modules/7-order_module/order_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
-import '../modules/5-pharmacy_module/pharmacy_screen.dart';
-import '../modules/6-store_module/store_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreenRoute';
@@ -25,7 +26,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isSelected = false;
 
-  final _controller = SidebarXController(selectedIndex: 3, extended: true);
+  final _controller = SidebarXController(selectedIndex: 0, extended: true);
   final _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -61,44 +62,58 @@ class _HomeScreenState extends State<HomeScreen> {
                           switch (_controller.selectedIndex) {
                             case 0:
                               _key.currentState?.closeDrawer();
-                              return const DashboardScreen();
+                              return Navigator(
+                                key: const Key('product_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const DashboardScreen(),
+                                ),
+                              );
                             case 1:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                  key: const Key('product_navigator'),
-                                  onGenerateRoute: (settings) =>
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                          const ProductsScreen()));
-
+                                key: const Key('product_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const ProductsScreen(),
+                                ),
+                              );
                             case 2:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                  key: const Key('pharmacy_navigator'),
-                                  onGenerateRoute: (settings) =>
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PharmacyScreen()));
+                                key: const Key('pharmacy_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const PharmacyScreen(),
+                                ),
+                              );
                             case 3:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                  key: const Key('store_navigator'),
-                                  onGenerateRoute: (settings) =>
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const StoreScreen()));
+                                key: const Key('store_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const StoreScreen(),
+                                ),
+                              );
                             case 4:
                               _key.currentState?.closeDrawer();
-                              return const Center(
-                                child: Text(
-                                  'Theme',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 40),
+                              return Navigator(
+                                key: const Key('order_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const OrderScreen(),
                                 ),
                               );
                             case 5:
                               _key.currentState?.closeDrawer();
-                              return const Center(child: DashboardScreen());
+                              return Navigator(
+                                key: const Key('product_navigator'),
+                                onGenerateRoute: (settings) =>
+                                    MaterialPageRoute(
+                                  builder: (context) => const DashboardScreen(),
+                                ),
+                              );
                             case 6:
                               _key.currentState?.closeDrawer();
                               return const Center(
@@ -129,5 +144,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-  // Method to open the profile screen
+// Method to open the profile screen
 }

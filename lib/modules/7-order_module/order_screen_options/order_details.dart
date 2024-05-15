@@ -67,234 +67,238 @@ class _OrderDetailsState extends State<OrderDetails> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.start,
                             children: [
-                              const Row(
+                              const Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
-                                    'ID:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    '#01254',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(width: 397,height: 30),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const Text(
-                                    'State:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 70),
-                                  Container(
-                                    width: 110,
-                                    height: 28,
-                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                    decoration: ShapeDecoration(
-                                      color: const Color(0xFFECFDF3),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(50),
-                                      ),
-                                    ),
-                                    child: const Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Delivered  ',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Color(0xFF009781),
-                                            fontSize: 16,
-                                            fontFamily: 'Poppins',
-                                            fontWeight: FontWeight.w500,
-                                            height: 0,
-                                          ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 70.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                'ID:',
+                                                style: TextStyle(
+                                                  color: Color(0xFF60656E),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 35.0),
+                                              child: Text(
+                                                'Date:',
+                                                style: TextStyle(
+                                                  color: Color(0xFF60656E),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 85.0),
+                                              child: Text(
+                                                'From:',
+                                                style: TextStyle(
+                                                  color: Color(0xFF60656E),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              'Address:',
+                                              style: TextStyle(
+                                                color: Color(0xFF60656E),
+                                                fontSize: 14,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 30),
-                          const Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Date:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    '25-8-2020',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(width: 350,height: 30),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Time:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    '10:30 AM',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 70.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                '#01254',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                '25-8-2020',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                'Avano Pharma\nIbnsina\nEl Motahadah',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                '089 Kutch Green Apt. 448',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
-                            ],
-                          ),
-                          const SizedBox(height: 30),
-                          const Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            children: [
-                              Row(
+                              const SizedBox(height: 30, width: 10),
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text(
-                                    'From:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.only(right: 70.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                'State:',
+                                                style: TextStyle(
+                                                  color: Color(0xFF60656E),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(bottom: 35.0),
+                                              child: Text(
+                                                'Time:',
+                                                style: TextStyle(
+                                                  color: Color(0xFF60656E),
+                                                  fontSize: 14,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              'To:',
+                                              style: TextStyle(
+                                                color: Color(0xFF60656E),
+                                                fontSize: 14,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(right: 70.0),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                              const EdgeInsets.only(bottom: 30.0),
+                                              child: Container(
+                                                width: 110,
+                                                height: 28,
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 8, vertical: 2),
+                                                decoration: ShapeDecoration(
+                                                  color: const Color(0xFFECFDF3),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                    BorderRadius.circular(50),
+                                                  ),
+                                                ),
+                                                child: const Text(
+                                                  'Delivered',
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    color: Color(0xFF009781),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                '10:30 AM',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              child: Text(
+                                                'El Nahas',
+                                                style: TextStyle(
+                                                  color: Color(0xFF23262A),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    'Avano Pharma\nIbnsina\nEl Motahadah',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(width: 315,height: 30),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'To:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    'El Nahas',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 30),
-                          const Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.start,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Address:',
-                                    style: TextStyle(
-                                      color: Color(0xFF60656E),
-                                      fontSize: 14,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
-                                  SizedBox(width: 70),
-                                  Text(
-                                    '089 Kutch Green Apt. 448',
-                                    style: TextStyle(
-                                      color: Color(0xFF23262A),
-                                      fontSize: 16,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w400,
-                                      height: 0,
-                                    ),
-                                  ),
+
                                 ],
                               ),
                             ],
@@ -306,7 +310,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                           ),
                           const SizedBox(height: 40),
                           DataTable(
-                            columnSpacing: (MediaQuery.of(context).size.width - 240) / 16,
+                            columnSpacing:
+                                (MediaQuery.of(context).size.width - 240) / 16,
                             dataRowMaxHeight: 48,
                             headingTextStyle: const TextStyle(
                               color: Color(0xFF23262A),
@@ -314,54 +319,244 @@ class _OrderDetailsState extends State<OrderDetails> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                             ),
-                            headingRowColor:
-                            const MaterialStatePropertyAll(Color(0xffffffff)),
+                            headingRowColor: const MaterialStatePropertyAll(
+                                Color(0xffffffff)),
                             columns: const [
                               DataColumn(label: Text('Product')),
                               DataColumn(label: Text('Store')),
-                              DataColumn(label: Text('Public Price'),),
-                              DataColumn(label: Text('Quantity'),),
-                              DataColumn(label: Text('Price after Discount'),),
-                              DataColumn(label: Text('Product Total'),),
-                            ],
-                            rows: List.generate(
-                                demoData.length, (index) => _dataRow(demoData[index])),
-                          ),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Total Before Discount ',
-                                        style: TextStyle(
-                                          color: Color(0xFF23262A),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        'EGP 5000.00',
-                                        style: TextStyle(
-                                          color: Color(0xFF23262A),
-                                          fontSize: 14,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Divider(height: 1,color: Color(0xFFEAECF0),)
-                                ],
+                              DataColumn(
+                                label: Text('Public Price'),
+                              ),
+                              DataColumn(
+                                label: Text('Quantity'),
+                              ),
+                              DataColumn(
+                                label: Text('Price after Discount'),
+                              ),
+                              DataColumn(
+                                label: Text('Product Total'),
                               ),
                             ],
+                            rows: List.generate(demoData.length,
+                                (index) => _dataRow(demoData[index])),
                           ),
+                          const SizedBox(height: 35.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 430,
+                                height: 150,
+                                decoration: const BoxDecoration(color: Colors.white),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 260,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                            decoration: const BoxDecoration(
+                                              color: Colors.white,
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      'Total Before Discount ',
+                                                      style: TextStyle(
+                                                        color: Color(0xFF23262A),
+                                                        fontSize: 14,
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight: FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            decoration: const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Total Discount ',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF23262A),
+                                                    fontSize: 14,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            decoration: const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Total After Discount',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF23262A),
+                                                    fontSize: 14,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 170,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            decoration: const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'EGP 5000.00',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF23262A),
+                                                    fontSize: 14,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            decoration: const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text.rich(
+                                                  TextSpan(
+                                                    children: [
+                                                      TextSpan(
+                                                        text: 'EGP 500.00 ',
+                                                        style: TextStyle(
+                                                          color: Color(0xFF23262A),
+                                                          fontSize: 14,
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight: FontWeight.w400,
+                                                        ),
+                                                      ),
+                                                      TextSpan(
+                                                        text: '(6%)',
+                                                        style: TextStyle(
+                                                          color: Color(0xFF23262A),
+                                                          fontSize: 14,
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight: FontWeight.w400,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            height: 50,
+                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            decoration: const BoxDecoration(
+                                              border: Border(
+                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                              ),
+                                            ),
+                                            child: const Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'EGP 4500.00',
+                                                  style: TextStyle(
+                                                    color: Color(0xFF23262A),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -462,12 +657,11 @@ class _OrderDetailsState extends State<OrderDetails> {
         ),
         DataCell(
           PopupMenuButton<String>(
-
             icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => [
               PopupMenuItem<String>(
                 value: 'View Profile',
-                onTap: (){},
+                onTap: () {},
                 child: const Text('View Profile'), // Call function here
               ),
             ],

@@ -61,14 +61,14 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: HexColor(bWhite90)),
+                                    BorderSide(color: HexColor(bWhite90)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: HexColor(primary)),
+                                    BorderSide(color: HexColor(primary)),
                               ),
                               contentPadding:
-                              const EdgeInsets.symmetric(vertical: 5)),
+                                  const EdgeInsets.symmetric(vertical: 5)),
                         ),
                       ),
                       const Spacer(),
@@ -134,7 +134,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                           color: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
-                                              BorderRadius.circular(3)),
+                                                  BorderRadius.circular(3)),
                                           shadows: const [
                                             BoxShadow(
                                               color: Color(0x19000000),
@@ -170,7 +170,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                             side: BorderSide(
                                               width: 1,
                                               strokeAlign:
-                                              BorderSide.strokeAlignCenter,
+                                                  BorderSide.strokeAlignCenter,
                                               color: Color(0xFFDDE1EB),
                                             ),
                                           ),
@@ -201,8 +201,8 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                       color: Color(0xFFDDE1EB),
                                                     ),
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        3),
+                                                        BorderRadius.circular(
+                                                            3),
                                                   ),
                                                 ),
                                               ),
@@ -263,8 +263,8 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                       color: Color(0xFFDDE1EB),
                                                     ),
                                                     borderRadius:
-                                                    BorderRadius.circular(
-                                                        3),
+                                                        BorderRadius.circular(
+                                                            3),
                                                   ),
                                                 ),
                                               ),
@@ -279,11 +279,11 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                       text: '10',
                                                       style: TextStyle(
                                                         color:
-                                                        Color(0xFF23262A),
+                                                            Color(0xFF23262A),
                                                         fontSize: 12,
                                                         fontFamily: 'Poppins',
                                                         fontWeight:
-                                                        FontWeight.w500,
+                                                            FontWeight.w500,
                                                         height: 0.14,
                                                       ),
                                                     ),
@@ -291,11 +291,11 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                       text: ' ',
                                                       style: TextStyle(
                                                         color:
-                                                        Color(0xFFB2BAC6),
+                                                            Color(0xFFB2BAC6),
                                                         fontSize: 12,
                                                         fontFamily: 'Poppins',
                                                         fontWeight:
-                                                        FontWeight.w500,
+                                                            FontWeight.w500,
                                                         height: 0.14,
                                                       ),
                                                     ),
@@ -303,11 +303,11 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                       text: '%',
                                                       style: TextStyle(
                                                         color:
-                                                        Color(0xFF23262A),
+                                                            Color(0xFF23262A),
                                                         fontSize: 12,
                                                         fontFamily: 'Poppins',
                                                         fontWeight:
-                                                        FontWeight.w500,
+                                                            FontWeight.w500,
                                                         height: 0.14,
                                                       ),
                                                     ),
@@ -332,14 +332,14 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                             color: const Color(0xFF4A71FF),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                BorderRadius.circular(3)),
+                                                    BorderRadius.circular(3)),
                                           ),
                                           child: const Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                                MainAxisAlignment.center,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Text(
                                                 'Apply ',
@@ -369,7 +369,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                             color: const Color(0xFFF5F6FA),
                                             shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                BorderRadius.circular(3)),
+                                                    BorderRadius.circular(3)),
                                           ),
                                           child: const Text(
                                             'Reset',

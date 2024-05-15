@@ -55,6 +55,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
   bool filterVisiblity = false;
   bool sort = true;
   late TextEditingController controllerOfFilter;
+
 // Function to navigate to profile screen
   void _openProfileScreen() {
     Navigator.push(
@@ -64,6 +65,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
       ),
     );
   }
+
   onSortColumnName(int columnIndex, bool ascending) {
     if (columnIndex == 2) {
       if (ascending) {
@@ -93,9 +95,12 @@ class _PharmacyScreen extends State<PharmacyScreen> {
             child: SingleChildScrollView(
               child: Stack(
                 children: [
-                   Padding(
-                    padding: const EdgeInsets.only(top: 78.0, left: 40.0, right: 40.0),
-                    child: Expanded(child: PharmacyTableWidget(openProfileScreen: _openProfileScreen)),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 78.0, left: 40.0, right: 40.0),
+                    child: Expanded(
+                        child: PharmacyTableWidget(
+                            openProfileScreen: _openProfileScreen)),
                   ),
                   Expanded(
                     child: Padding(
@@ -250,17 +255,19 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                   overlayColor:
                                                       const MaterialStatePropertyAll(
                                                           Colors.transparent),
-      
+
                                                   side: BorderSide(
                                                       color: HexColor(white70),
                                                       width: 1.3),
-      
-                                                  activeColor: HexColor(primary),
+
+                                                  activeColor:
+                                                      HexColor(primary),
                                                   value: activatedIsChecked,
                                                   // Adjust initial value as needed
                                                   onChanged: (value) {
                                                     setState(() {
-                                                      activatedIsChecked = value!;
+                                                      activatedIsChecked =
+                                                          value!;
                                                     });
                                                   }, // Pass the function reference
                                                 ),
@@ -274,7 +281,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                   decoration: BoxDecoration(
                                                     color: HexColor('#ecfdf3'),
                                                     borderRadius:
-                                                        BorderRadius.circular(14),
+                                                        BorderRadius.circular(
+                                                            14),
                                                   ),
                                                   child: Center(
                                                     child: Text(
@@ -302,7 +310,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                   side: BorderSide(
                                                       color: HexColor(white70),
                                                       width: 1.3),
-                                                  activeColor: HexColor(primary),
+                                                  activeColor:
+                                                      HexColor(primary),
                                                   value: deactivatedIsChecked,
                                                   // Adjust initial value as needed
                                                   onChanged: (value) {
@@ -317,15 +326,16 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                 padding: const EdgeInsets.only(
                                                     left: 2.5, top: 14.0),
                                                 child: Container(
-                                                  padding:
-                                                      const EdgeInsets.symmetric(
-                                                          horizontal: 2.5),
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
+                                                      horizontal: 2.5),
                                                   width: 85,
                                                   height: 26,
                                                   decoration: BoxDecoration(
                                                     color: HexColor('#fff2ea'),
                                                     borderRadius:
-                                                        BorderRadius.circular(14),
+                                                        BorderRadius.circular(
+                                                            14),
                                                   ),
                                                   child: Center(
                                                     child: Text(
@@ -358,7 +368,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                     setState(() {
                                                       deactivatedIsChecked =
                                                           false;
-                                                      activatedIsChecked = false;
+                                                      activatedIsChecked =
+                                                          false;
                                                       pharmacyDemoData =
                                                           filterData!;
                                                     });
@@ -369,13 +380,15 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                         fontFamily:
                                                             "Poppins-SemiBold",
                                                         fontSize: 12,
-                                                        color:
-                                                            HexColor("#60656e")),
+                                                        color: HexColor(
+                                                            "#60656e")),
                                                   )),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
-                                                  left: 8.0, bottom: 18, top: 34),
+                                                  left: 8.0,
+                                                  bottom: 18,
+                                                  top: 34),
                                               child: MaterialButton(
                                                   minWidth: 58,
                                                   height: 34,
@@ -388,8 +401,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                                         fontFamily:
                                                             "Poppins-SemiBold",
                                                         fontSize: 12,
-                                                        color:
-                                                            HexColor("#ffffff")),
+                                                        color: HexColor(
+                                                            "#ffffff")),
                                                   )),
                                             )
                                           ],

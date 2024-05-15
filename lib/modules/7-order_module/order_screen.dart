@@ -74,14 +74,14 @@ class _OrderScreenState extends State<OrderScreen> {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: HexColor(bWhite90)),
+                                    BorderSide(color: HexColor(bWhite90)),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: HexColor(primary)),
+                                    BorderSide(color: HexColor(primary)),
                               ),
                               contentPadding:
-                              const EdgeInsets.symmetric(vertical: 5)),
+                                  const EdgeInsets.symmetric(vertical: 5)),
                         ),
                       ),
                       const Spacer(),
@@ -133,7 +133,6 @@ class _OrderScreenState extends State<OrderScreen> {
                           child: FilterOption(
                             dateTimeController1: dateTimeController,
                             dateTimeController2: dateTimeController2,
-
                           ),
                         )
                       ],

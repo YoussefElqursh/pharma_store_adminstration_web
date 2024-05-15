@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../models/pharmacy_card_model.dart';
 import '../../../shared/components/constants.dart';
 import '../../../shared/components/functions.dart';
@@ -60,7 +61,6 @@ class _StoreScreenOption extends State<StoreScreenOption> {
     }
   }
 
- 
   bool filterVisiblity = false;
 
   @override
@@ -242,7 +242,6 @@ class _StoreScreenOption extends State<StoreScreenOption> {
                                                 dateTimeController,
                                             dateTimeController2:
                                                 dateTimeController2,
-
                                           ),
                                         )
                                       ],

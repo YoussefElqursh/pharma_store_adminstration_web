@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../models/pharmacy_card_model.dart';
 import '../../../shared/components/constants.dart';
 import '../../../shared/components/functions.dart';
@@ -45,12 +46,12 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
 
-
   bool filterVisiblity = false;
   bool sort = true;
   late TextEditingController controllerOfFilter;
   TextEditingController dateTimeController = TextEditingController();
   TextEditingController dateTimeController2 = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -225,10 +226,9 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
                                           visible: filterVisiblity,
                                           child: FilterOption(
                                             dateTimeController1:
-                                            dateTimeController,
+                                                dateTimeController,
                                             dateTimeController2:
-                                            dateTimeController2,
-
+                                                dateTimeController2,
                                           ),
                                         )
                                       ],

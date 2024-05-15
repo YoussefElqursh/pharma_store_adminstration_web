@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../../models/store-data_table.dart';
 import '../../../../modules/6-store_module/store_screen_option/store_screen_option.dart';
 
@@ -35,7 +36,6 @@ class _StoreTableWidget extends State<StoreTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-
               columnSpacing: MediaQuery.of(context).size.width / 11,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
@@ -143,7 +143,6 @@ class _StoreTableWidget extends State<StoreTableWidget> {
   }
 
   DataRow _dataRow(StoreData data) {
-
     return DataRow(
       cells: [
         DataCell(

@@ -67,5 +67,4 @@ List storeDemoData = [
       IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
   StoreData(12, 'Pharmaceuticals  ', 'El Delta', '15-3-2014 8:20 AM', 'On Way',
       IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-
 ];

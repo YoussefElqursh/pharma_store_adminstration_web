@@ -6,7 +6,6 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 import '../../../../../models/store_order_data_table_model.dart';
 import '../../../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
-
 class PharmacyOrderTableWidget extends StatefulWidget {
   const PharmacyOrderTableWidget({super.key});
 

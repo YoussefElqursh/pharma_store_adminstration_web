@@ -18,8 +18,6 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
   int numberOfPages = 10;
   int currentPage = 0;
 
-
-
   @override
   Widget build(BuildContext context) {
     var pages = List.generate(
@@ -54,7 +52,7 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
                       const SizedBox(width: 10),
                       IconButton(
                           onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded,size: 22)),
+                          icon: const Icon(Icons.sort_rounded, size: 22)),
                     ],
                   ),
                 ),
@@ -62,7 +60,6 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
                   label: Row(
                     children: [
                       Text('Contact Number'),
-
                     ],
                   ),
                 ),
@@ -70,7 +67,6 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
                   label: Row(
                     children: [
                       Text('Address'),
-
                     ],
                   ),
                 ),
@@ -78,7 +74,6 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
                   label: Row(
                     children: [
                       Text('State'),
-
                     ],
                   ),
                 ),

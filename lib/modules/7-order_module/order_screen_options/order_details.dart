@@ -72,16 +72,19 @@ class _OrderDetailsState extends State<OrderDetails> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.only(right: 70.0),
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 'ID:',
                                                 style: TextStyle(
@@ -93,7 +96,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 35.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 35.0),
                                               child: Text(
                                                 'Date:',
                                                 style: TextStyle(
@@ -105,7 +109,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 85.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 85.0),
                                               child: Text(
                                                 'From:',
                                                 style: TextStyle(
@@ -131,10 +136,12 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       Padding(
                                         padding: EdgeInsets.only(right: 70.0),
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 '#01254',
                                                 style: TextStyle(
@@ -146,7 +153,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 '25-8-2020',
                                                 style: TextStyle(
@@ -158,7 +166,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 'Avano Pharma\nIbnsina\nEl Motahadah',
                                                 style: TextStyle(
@@ -170,7 +179,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 '089 Kutch Green Apt. 448',
                                                 style: TextStyle(
@@ -193,16 +203,19 @@ class _OrderDetailsState extends State<OrderDetails> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       const Padding(
                                         padding: EdgeInsets.only(right: 70.0),
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 'State:',
                                                 style: TextStyle(
@@ -214,7 +227,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(bottom: 35.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 35.0),
                                               child: Text(
                                                 'Time:',
                                                 style: TextStyle(
@@ -238,23 +252,29 @@ class _OrderDetailsState extends State<OrderDetails> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(right: 70.0),
+                                        padding:
+                                            const EdgeInsets.only(right: 70.0),
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding:
-                                              const EdgeInsets.only(bottom: 30.0),
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 30.0),
                                               child: Container(
                                                 width: 110,
                                                 height: 28,
-                                                padding: const EdgeInsets.symmetric(
-                                                    horizontal: 8, vertical: 2),
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 8,
+                                                        vertical: 2),
                                                 decoration: ShapeDecoration(
-                                                  color: const Color(0xFFECFDF3),
+                                                  color:
+                                                      const Color(0xFFECFDF3),
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
-                                                    BorderRadius.circular(50),
+                                                        BorderRadius.circular(
+                                                            50),
                                                   ),
                                                 ),
                                                 child: const Text(
@@ -270,7 +290,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             const Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 '10:30 AM',
                                                 style: TextStyle(
@@ -282,7 +303,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                                               ),
                                             ),
                                             const Padding(
-                                              padding: EdgeInsets.only(bottom: 30.0),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 30.0),
                                               child: Text(
                                                 'El Nahas',
                                                 style: TextStyle(
@@ -298,7 +320,6 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       ),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
@@ -347,7 +368,8 @@ class _OrderDetailsState extends State<OrderDetails> {
                               Container(
                                 width: 430,
                                 height: 150,
-                                decoration: const BoxDecoration(color: Colors.white),
+                                decoration:
+                                    const BoxDecoration(color: Colors.white),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -357,36 +379,48 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       width: 260,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 12),
                                             decoration: const BoxDecoration(
                                               color: Colors.white,
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Row(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  mainAxisAlignment: MainAxisAlignment.start,
-                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
                                                       'Total Before Discount ',
                                                       style: TextStyle(
-                                                        color: Color(0xFF23262A),
+                                                        color:
+                                                            Color(0xFF23262A),
                                                         fontSize: 14,
                                                         fontFamily: 'Poppins',
-                                                        fontWeight: FontWeight.w500,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
                                                     ),
                                                   ],
@@ -397,16 +431,21 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 15),
                                             decoration: const BoxDecoration(
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Total Discount ',
@@ -423,16 +462,21 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 15),
                                             decoration: const BoxDecoration(
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Total After Discount',
@@ -453,22 +497,29 @@ class _OrderDetailsState extends State<OrderDetails> {
                                       width: 170,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 15),
                                             decoration: const BoxDecoration(
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'EGP 5000.00',
@@ -485,16 +536,21 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 15),
                                             decoration: const BoxDecoration(
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text.rich(
                                                   TextSpan(
@@ -502,19 +558,23 @@ class _OrderDetailsState extends State<OrderDetails> {
                                                       TextSpan(
                                                         text: 'EGP 500.00 ',
                                                         style: TextStyle(
-                                                          color: Color(0xFF23262A),
+                                                          color:
+                                                              Color(0xFF23262A),
                                                           fontSize: 14,
                                                           fontFamily: 'Poppins',
-                                                          fontWeight: FontWeight.w400,
+                                                          fontWeight:
+                                                              FontWeight.w400,
                                                         ),
                                                       ),
                                                       TextSpan(
                                                         text: '(6%)',
                                                         style: TextStyle(
-                                                          color: Color(0xFF23262A),
+                                                          color:
+                                                              Color(0xFF23262A),
                                                           fontSize: 14,
                                                           fontFamily: 'Poppins',
-                                                          fontWeight: FontWeight.w400,
+                                                          fontWeight:
+                                                              FontWeight.w400,
                                                         ),
                                                       ),
                                                     ],
@@ -526,16 +586,21 @@ class _OrderDetailsState extends State<OrderDetails> {
                                           Container(
                                             width: double.infinity,
                                             height: 50,
-                                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 24, vertical: 15),
                                             decoration: const BoxDecoration(
                                               border: Border(
-                                                bottom: BorderSide(width: 1, color: Color(0xFFEAECF0)),
+                                                bottom: BorderSide(
+                                                    width: 1,
+                                                    color: Color(0xFFEAECF0)),
                                               ),
                                             ),
                                             child: const Row(
                                               mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'EGP 4500.00',

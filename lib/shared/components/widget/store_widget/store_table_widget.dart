@@ -35,6 +35,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
+
               columnSpacing: MediaQuery.of(context).size.width / 11,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
@@ -142,6 +143,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
   }
 
   DataRow _dataRow(StoreData data) {
+
     return DataRow(
       cells: [
         DataCell(

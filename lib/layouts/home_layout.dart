@@ -65,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 1:
                               _key.currentState?.closeDrawer();
                               return Navigator(
+                                  key: const Key('product_navigator'),
                                   onGenerateRoute: (settings) =>
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -73,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 2:
                               _key.currentState?.closeDrawer();
                               return Navigator(
+                                  key: const Key('pharmacy_navigator'),
                                   onGenerateRoute: (settings) =>
                                       MaterialPageRoute(
                                           builder: (context) =>
@@ -80,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 3:
                               _key.currentState?.closeDrawer();
                               return Navigator(
+                                  key: const Key('store_navigator'),
                                   onGenerateRoute: (settings) =>
                                       MaterialPageRoute(
                                           builder: (context) =>

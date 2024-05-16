@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
+import 'package:pharma_store_administration_web/models/store_order_data_table_model.dart';
+import 'package:pharma_store_administration_web/modules/4-store_module/store_screen_option/store_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
-import '../../../../../models/store_order_data_table_model.dart';
-import '../../../../../modules/6-store_module/store_screen_option/store_screen_option.dart';
 
 class StoreOrderTableWidget extends StatefulWidget {
   const StoreOrderTableWidget({super.key});

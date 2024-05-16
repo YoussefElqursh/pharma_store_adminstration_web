@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_store_administration_web/modules/3-dashboard_screen/dashboard_screen.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/products_module.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_module/pharmacy_screen.dart';
-import 'package:pharma_store_administration_web/modules/6-store_module/store_screen.dart';
-import 'package:pharma_store_administration_web/modules/7-order_module/order_screen.dart';
+import 'package:pharma_store_administration_web/modules/1-dashboard_screen/dashboard_screen.dart';
+import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_options/product_inventory_details/product_inventory_details_screen.dart';
+import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen.dart';
+import 'package:pharma_store_administration_web/modules/4-store_module/store_screen.dart';
+import 'package:pharma_store_administration_web/modules/5-order_module/order_screen.dart';
+import 'package:pharma_store_administration_web/modules/7-settings_module/user_profile_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/side_menu_widget.dart';
 import 'package:sidebarx/sidebarx.dart';
 
@@ -75,7 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 key: const Key('product_navigator'),
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
-                                  builder: (context) => const ProductsScreen(),
+                                  builder: (context) =>
+                                      const ProductInventoryDetailsScreen(),
                                 ),
                               );
                             case 2:
@@ -111,7 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 key: const Key('statistics_navigator'),
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
-                                  builder: (context) => const DashboardScreen(),
+                                  builder: (context) =>
+                                      const UserProfileScreen(),
                                 ),
                               );
                             case 6:

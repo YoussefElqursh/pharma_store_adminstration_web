@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
-
-import '../../../models/order_data_table_model.dart';
-import '../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
-import '../../style/colors.dart';
+import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
+import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
+import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class FilterOption extends StatefulWidget {
   final TextEditingController dateTimeController1;
@@ -71,7 +70,7 @@ class _FilterOption extends State<FilterOption> {
             child: Row(
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 1359.6,
+                  width: MediaQuery.of(context).size.width * 0.08,
                   height: 40,
                   child: TextField(
                     style: const TextStyle(fontSize: 12),
@@ -126,7 +125,7 @@ class _FilterOption extends State<FilterOption> {
                       ),
                     )),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 1359.6,
+                  width: MediaQuery.of(context).size.width * 0.08,
                   height: 40,
                   child: TextField(
                     style: const TextStyle(fontSize: 12),

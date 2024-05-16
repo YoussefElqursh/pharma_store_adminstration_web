@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:pharma_store_administration_web/modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
+import 'package:pharma_store_administration_web/models/store-data_table.dart';
+import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
+import 'package:pharma_store_administration_web/shared/components/functions.dart';
+import 'package:pharma_store_administration_web/shared/components/widget/pharmacy_widget/pharmacy_table_widget.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
-import '../../models/store-data_table.dart';
-import '../../shared/components/functions.dart';
-import '../../shared/components/widget/pharmacy_widget/pharmacy_table_widget.dart';
 
 class PharmacyScreen extends StatefulWidget {
   static const String routeName = 'PharmacyScreenRoute';

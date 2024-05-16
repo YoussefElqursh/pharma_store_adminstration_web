@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
+import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
-import '../../../modules/5-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
 class TableWidget extends StatefulWidget {
   const TableWidget({super.key});

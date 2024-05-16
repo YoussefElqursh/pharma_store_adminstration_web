@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/product_inventory_tab/product_inventory_tab.dart';
-import 'package:pharma_store_administration_web/modules/4-product_module/product_tab/product_tab.dart';
+import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_tab.dart';
+import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/product_tab.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 
 class ProductsScreen extends StatefulWidget {

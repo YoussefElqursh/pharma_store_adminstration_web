@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/data_table.dart';
-import 'package:pharma_store_administration_web/modules/7-order_module/order_screen.dart';
+import 'package:pharma_store_administration_web/modules/5-order_module/order_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
 
 class OrderDetails extends StatefulWidget {

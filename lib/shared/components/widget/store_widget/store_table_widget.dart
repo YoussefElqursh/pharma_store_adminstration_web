@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
+import 'package:pharma_store_administration_web/models/store-data_table.dart';
+import 'package:pharma_store_administration_web/modules/4-store_module/store_screen_option/store_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
-import '../../../../models/store-data_table.dart';
-import '../../../../modules/6-store_module/store_screen_option/store_screen_option.dart';
 
 class StoreTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen

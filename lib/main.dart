@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharma_store_administration_web/modules/0-auth_module/1-login_screen/login_screen.dart';
 import 'package:pharma_store_administration_web/shared/network/local/app_router.dart';
-
-import 'modules/1-login_screen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

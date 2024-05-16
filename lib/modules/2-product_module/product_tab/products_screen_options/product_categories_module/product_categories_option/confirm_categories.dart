@@ -27,7 +27,7 @@ class ConfirmCategories extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 35.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               setPhoto(
                   kind: 1,

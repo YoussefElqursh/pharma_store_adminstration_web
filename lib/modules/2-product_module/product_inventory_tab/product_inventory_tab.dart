@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
-import 'package:pharma_store_administration_web/shared/components/widget/table_widget.dart';
+import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_inventory_tab/product_inventory_tab_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductInventoryTab extends StatefulWidget {
@@ -31,7 +31,7 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                       SizedBox(
                         height: 60,
                       ),
-                      TableWidget(),
+                      ProductInventoryTabTable(),
                     ],
                   ),
                   Row(

@@ -111,6 +111,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
                   Container(
                     width: double.infinity,
                     height: 225,

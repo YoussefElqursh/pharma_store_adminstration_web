@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/models/store_order_data_table_model.dart';
-import 'package:pharma_store_administration_web/modules/4-store_module/store_screen_option/store_screen_option.dart';
+import 'package:pharma_store_administration_web/modules/5-order_module/order_screen_options/order_details.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class StoreOrderTableWidget extends StatefulWidget {
@@ -22,7 +22,7 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
           opacity: animation,
-          child: const StoreScreenOption(),
+          child: const OrderDetails(),
         ),
       ),
     );
@@ -32,66 +32,69 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
   Widget build(BuildContext context) {
     var pages = List.generate(
         numberOfPages,
-        (index) => DataTable(
-              columnSpacing: MediaQuery.of(context).size.width / 10,
-              dataRowMaxHeight: 48,
-              decoration: BoxDecoration(
-                  border: Border.all(color: HexColor(bWhite90)),
-                  borderRadius: BorderRadius.circular(16)),
-              border: TableBorder.all(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12)),
-                  color: HexColor(bWhite90),
-                  style: BorderStyle.none),
-              headingTextStyle: const TextStyle(
-                color: Color(0xff42526d),
-                fontSize: 10,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
+        (index) => SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columnSpacing: MediaQuery.of(context).size.width / 10,
+                dataRowMaxHeight: 48,
+                decoration: BoxDecoration(
+                    border: Border.all(color: HexColor(bWhite90)),
+                    borderRadius: BorderRadius.circular(16)),
+                border: TableBorder.all(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12)),
+                    color: HexColor(bWhite90),
+                    style: BorderStyle.none),
+                headingTextStyle: const TextStyle(
+                  color: Color(0xff42526d),
+                  fontSize: 10,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                ),
+                headingRowColor:
+                    const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                columns: [
+                  const DataColumn(label: Text('ID')),
+                  const DataColumn(label: Text('From')),
+                  DataColumn(
+                    label: Row(
+                      children: [
+                        const Text('To'),
+                        const SizedBox(width: 10),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.sort_rounded)),
+                      ],
+                    ),
+                  ),
+                  DataColumn(
+                    label: Row(
+                      children: [
+                        const Text('Date'),
+                        const SizedBox(width: 10),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.sort_rounded)),
+                      ],
+                    ),
+                  ),
+                  DataColumn(
+                    label: Row(
+                      children: [
+                        const Text('State'),
+                        const SizedBox(width: 10),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.sort_rounded)),
+                      ],
+                    ),
+                  ),
+                  const DataColumn(label: Text('')),
+                ],
+                rows: List.generate(storeOrderDemoData.length,
+                    (index) => _dataRow(storeOrderDemoData[index])),
               ),
-              headingRowColor:
-                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
-              columns: [
-                const DataColumn(label: Text('ID')),
-                const DataColumn(label: Text('From')),
-                DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('To'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
-                    ],
-                  ),
-                ),
-                DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('Date'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
-                    ],
-                  ),
-                ),
-                DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('State'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
-                    ],
-                  ),
-                ),
-                const DataColumn(label: Text('')),
-              ],
-              rows: List.generate(storeOrderDemoData.length,
-                  (index) => _dataRow(storeOrderDemoData[index])),
             ));
 
     return Expanded(

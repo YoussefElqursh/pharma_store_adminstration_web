@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product/product_details/edit_product/edit_product_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
@@ -71,7 +72,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             child: MaterialButton(
                               height: 42,
                               minWidth: 129,
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        FadeTransition(
+                                      opacity: animation,
+                                      child: const EditProductScreen(),
+                                    ),
+                                  ),
+                                );
+                              },
                               child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,

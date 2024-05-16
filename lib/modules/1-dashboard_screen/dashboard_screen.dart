@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/models/chart_data.dart';
 import 'package:pharma_store_administration_web/models/data_card_model.dart';
-import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/models/pharmacies_card_model.dart';
 import 'package:pharma_store_administration_web/models/products_card_model.dart';
 import 'package:pharma_store_administration_web/models/sales_data.dart';
@@ -11,6 +10,7 @@ import 'package:pharma_store_administration_web/models/stores_card_model.dart';
 import 'package:pharma_store_administration_web/shared/components/constants.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
+import 'package:pharma_store_administration_web/shared/components/widget/table_widget/dashboard_table/dashboard_table_widget.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -457,7 +457,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Container(
-                      height: 530,
+                      height: 72 * 12.6,
                       padding: const EdgeInsets.all(35),
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -504,36 +504,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             ],
                           ),
                           const SizedBox(height: 35),
-                          DataTable(
-                            columnSpacing: 115,
-                            dataRowMaxHeight: 65,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: HexColor(bWhite90)),
-                                borderRadius: BorderRadius.circular(16)),
-                            border: TableBorder.all(
-                                borderRadius: BorderRadius.circular(16),
-                                color: HexColor(bWhite90),
-                                style: BorderStyle.none),
-                            headingTextStyle: const TextStyle(
-                              color: Color(0xff42526d),
-                              fontSize: 12,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                            headingRowColor: const MaterialStatePropertyAll(
-                              Color(0xffeaecf0),
-                            ),
-                            columns: const [
-                              DataColumn(label: Text('ID')),
-                              DataColumn(label: Text('From')),
-                              DataColumn(label: Text('To')),
-                              DataColumn(label: Text('Date & Time')),
-                              DataColumn(label: Text('State')),
-                              DataColumn(label: Text('')),
-                            ],
-                            rows: List.generate(
-                                5, (index) => _dataRow(demoData[index])),
-                          ),
+                          const DashboardTableWidget(),
                         ],
                       ),
                     ),
@@ -545,57 +516,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
     );
-  }
-
-  DataRow _dataRow(Data data) {
-    Color? bColor;
-    Color? fColor;
-    switch (data.state) {
-      case 'Delivered':
-        bColor = HexColor('#ECFDF3');
-        fColor = HexColor('#009881');
-      case 'On Hold':
-        bColor = HexColor('#FFFADF');
-        fColor = HexColor('#ECA600');
-      case 'On Way':
-        bColor = HexColor('#E9F3FF');
-        fColor = HexColor('#4A72FF');
-    }
-    return DataRow(cells: [
-      DataCell(Text('${data.id}')),
-      DataCell(Text(data.from)),
-      DataCell(Text(data.to)),
-      DataCell(Text(data.dateTime)),
-      DataCell(
-        Container(
-          width: 73,
-          height: 26,
-          decoration: BoxDecoration(
-            color: bColor,
-            borderRadius: BorderRadius.circular(14),
-          ),
-          child: Center(
-            child: Text(
-              data.state,
-              style: TextStyle(
-                color: fColor,
-                fontSize: 12,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        ),
-      ),
-      DataCell(
-        Row(
-          children: [
-            const Spacer(),
-            data.moreIcon,
-          ],
-        ),
-      ),
-    ]);
   }
 
   Widget buildDataCard(DataCardModel dataCardModel, int index) {
@@ -645,20 +565,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         'This Week',
                         style: TextStyle(
                           fontSize: 14,
-                          color: HexColor(bWhite90),
+                          fontFamily: 'Poppins',
+                          color: HexColor(white70),
                         ),
                       ),
                       items: itemList
-                          .map((String item) => DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: TextStyle(
-                                    color: HexColor(white70),
-                                    fontFamily: 'Poppins',
-                                  ),
+                          .map(
+                            (String item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                                style: TextStyle(
+                                  color: HexColor(white70),
+                                  fontFamily: 'Poppins',
                                 ),
-                              ))
+                              ),
+                            ),
+                          )
                           .toList(),
                       value: selectedItem,
                       iconStyleData:
@@ -672,9 +595,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         height: 40,
                         width: 125,
                       ),
-                      menuItemStyleData: const MenuItemStyleData(
-                        height: 40,
-                      ),
+                      menuItemStyleData: const MenuItemStyleData(height: 40),
                     ),
                   ),
                 ],

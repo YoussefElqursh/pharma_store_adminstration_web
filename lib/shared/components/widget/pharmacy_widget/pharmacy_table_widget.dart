@@ -22,65 +22,68 @@ class _PharmacyTableWidget extends State<PharmacyTableWidget> {
   Widget build(BuildContext context) {
     var pages = List.generate(
         numberOfPages,
-        (index) => DataTable(
-              columnSpacing: MediaQuery.of(context).size.width / 13,
-              dataRowMaxHeight: 48,
-              decoration: BoxDecoration(
-                  border: Border.all(color: HexColor(bWhite90)),
-                  borderRadius: BorderRadius.circular(16)),
-              border: TableBorder.all(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12)),
-                  color: HexColor(bWhite90),
-                  style: BorderStyle.none),
-              headingTextStyle: const TextStyle(
-                color: Color(0xff42526d),
-                fontSize: 10,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w600,
+        (index) => SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columnSpacing: MediaQuery.of(context).size.width / 15,
+                dataRowMaxHeight: 48,
+                decoration: BoxDecoration(
+                    border: Border.all(color: HexColor(bWhite90)),
+                    borderRadius: BorderRadius.circular(16)),
+                border: TableBorder.all(
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12)),
+                    color: HexColor(bWhite90),
+                    style: BorderStyle.none),
+                headingTextStyle: const TextStyle(
+                  color: Color(0xff42526d),
+                  fontSize: 10,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w600,
+                ),
+                headingRowColor:
+                    const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                columns: [
+                  const DataColumn(label: Text('ID')),
+                  const DataColumn(label: Text('Photo')),
+                  DataColumn(
+                    label: Row(
+                      children: [
+                        const Text('Name'),
+                        const SizedBox(width: 10),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.sort_rounded, size: 22)),
+                      ],
+                    ),
+                  ),
+                  const DataColumn(
+                    label: Row(
+                      children: [
+                        Text('Contact Number'),
+                      ],
+                    ),
+                  ),
+                  const DataColumn(
+                    label: Row(
+                      children: [
+                        Text('Address'),
+                      ],
+                    ),
+                  ),
+                  const DataColumn(
+                    label: Row(
+                      children: [
+                        Text('State'),
+                      ],
+                    ),
+                  ),
+                  const DataColumn(label: Text('')),
+                ],
+                rows: List.generate(pharmacyDemoData.length,
+                    (index) => _dataRow(pharmacyDemoData[index])),
               ),
-              headingRowColor:
-                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
-              columns: [
-                const DataColumn(label: Text('ID')),
-                const DataColumn(label: Text('Photo')),
-                DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('Name'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded, size: 22)),
-                    ],
-                  ),
-                ),
-                const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('Contact Number'),
-                    ],
-                  ),
-                ),
-                const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('Address'),
-                    ],
-                  ),
-                ),
-                const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('State'),
-                    ],
-                  ),
-                ),
-                const DataColumn(label: Text('')),
-              ],
-              rows: List.generate(pharmacyDemoData.length,
-                  (index) => _dataRow(pharmacyDemoData[index])),
             ));
 
     return Expanded(

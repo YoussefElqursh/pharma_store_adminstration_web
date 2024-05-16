@@ -201,7 +201,6 @@ class EditCategories extends StatelessWidget {
                                 context: context,
                                 builder: (context) => const ConfirmCategories(),
                               );
-                              Navigator.pop(context);
                             },
                             child: const Text(
                               'Save Changes ',
@@ -210,7 +209,6 @@ class EditCategories extends StatelessWidget {
                                 fontSize: 12,
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w600,
-                                height: 0,
                               ),
                             ),
                           ),

@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product/add_product_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product_categories_module/product_categories_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
-import 'package:pharma_store_administration_web/shared/components/widget/table_widget.dart';
+import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_tab/product_tab_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductTab extends StatefulWidget {
@@ -33,7 +33,7 @@ class _ProductTabState extends State<ProductTab> {
                       SizedBox(
                         height: 60,
                       ),
-                      TableWidget(),
+                      ProductTabTable(),
                     ],
                   ),
                   Row(

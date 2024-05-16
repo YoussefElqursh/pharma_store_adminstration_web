@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
@@ -11,93 +12,98 @@ class PharmacyTableWidget extends StatefulWidget {
   const PharmacyTableWidget({super.key, required this.openProfileScreen});
 
   @override
-  State<PharmacyTableWidget> createState() => _PharmacyTableWidget();
+  State<PharmacyTableWidget> createState() => _PharmacyTableWidgetState();
 }
 
-class _PharmacyTableWidget extends State<PharmacyTableWidget> {
-  int numberOfPages = 10;
+class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
+  int rowsPerPage = 10;
   int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
-    var pages = List.generate(
-        numberOfPages,
-        (index) => SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: DataTable(
-                columnSpacing: MediaQuery.of(context).size.width / 15,
-                dataRowMaxHeight: 48,
-                decoration: BoxDecoration(
-                    border: Border.all(color: HexColor(bWhite90)),
-                    borderRadius: BorderRadius.circular(16)),
-                border: TableBorder.all(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12)),
-                    color: HexColor(bWhite90),
-                    style: BorderStyle.none),
-                headingTextStyle: const TextStyle(
-                  color: Color(0xff42526d),
-                  fontSize: 10,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w600,
-                ),
-                headingRowColor:
-                    const MaterialStatePropertyAll(Color(0xfffbfafb)),
-                columns: [
-                  const DataColumn(label: Text('ID')),
-                  const DataColumn(label: Text('Photo')),
-                  DataColumn(
-                    label: Row(
-                      children: [
-                        const Text('Name'),
-                        const SizedBox(width: 10),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.sort_rounded, size: 22)),
-                      ],
-                    ),
-                  ),
-                  const DataColumn(
-                    label: Row(
-                      children: [
-                        Text('Contact Number'),
-                      ],
-                    ),
-                  ),
-                  const DataColumn(
-                    label: Row(
-                      children: [
-                        Text('Address'),
-                      ],
-                    ),
-                  ),
-                  const DataColumn(
-                    label: Row(
-                      children: [
-                        Text('State'),
-                      ],
-                    ),
-                  ),
-                  const DataColumn(label: Text('')),
-                ],
-                rows: List.generate(pharmacyDemoData.length,
-                    (index) => _dataRow(pharmacyDemoData[index])),
-              ),
-            ));
+    int numberOfPages = (pharmacyDemoData.length / rowsPerPage).ceil();
 
     return Expanded(
       child: Column(
         children: [
-          pages[currentPage],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              columnSpacing: MediaQuery.of(context).size.width / 13,
+              dataRowMaxHeight: 48,
+              decoration: BoxDecoration(
+                  border: Border.all(color: HexColor(bWhite90)),
+                  borderRadius: BorderRadius.circular(16)),
+              border: TableBorder.all(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12)),
+                  color: HexColor(bWhite90),
+                  style: BorderStyle.none),
+              headingTextStyle: const TextStyle(
+                color: Color(0xff42526d),
+                fontSize: 10,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w600,
+              ),
+              headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+              columns: [
+                const DataColumn(label: Text('ID')),
+                const DataColumn(label: Text('Photo')),
+                DataColumn(
+                  label: Row(
+                    children: [
+                      const Text('Name'),
+                      const SizedBox(width: 10),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.sort_rounded, size: 22)),
+                    ],
+                  ),
+                ),
+                const DataColumn(
+                  label: Row(
+                    children: [
+                      Text('Contact Number'),
+                    ],
+                  ),
+                ),
+                const DataColumn(
+                  label: Row(
+                    children: [
+                      Text('Address'),
+                    ],
+                  ),
+                ),
+                const DataColumn(
+                  label: Row(
+                    children: [
+                      Text('State'),
+                    ],
+                  ),
+                ),
+                const DataColumn(label: Text('')),
+              ],
+              rows: List.generate(
+                rowsPerPage,
+                    (index) {
+                  int dataIndex = currentPage * rowsPerPage + index;
+                  if (dataIndex >= pharmacyDemoData.length) {
+                    return null;
+                  }
+                  return _dataRow(pharmacyDemoData[dataIndex]);
+                },
+              ).whereType<DataRow>().toList(),
+            ),
+          ),
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                const Text(
-                  'Showing 1 to 5 of 10 categories',
-                  style: TextStyle(
+                Text(
+                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${pharmacyDemoData.length} entries',
+                  style: const TextStyle(
                     color: Color(0xFF6B788E),
                     fontSize: 10,
                     fontFamily: 'Poppins',

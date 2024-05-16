@@ -216,6 +216,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
         ),
         DataCell(
           PopupMenuButton<String>(
+
             icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => [
               PopupMenuItem<String>(

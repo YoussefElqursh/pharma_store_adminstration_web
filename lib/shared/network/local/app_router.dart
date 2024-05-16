@@ -7,7 +7,6 @@ import 'package:pharma_store_administration_web/modules/0-auth_module/2-forgot_p
 import 'package:pharma_store_administration_web/modules/0-auth_module/2-forgot_password/success_password_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen.dart';
-import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/modules/4-store_module/store_screen.dart';
 
 class AppRouter {
@@ -25,8 +24,6 @@ class AppRouter {
         return SuccessPasswordScreen.route();
       case 'HomeScreenRoute':
         return HomeScreen.route();
-      case 'PharmacyProfilesScreenRoute':
-        return PharmacyScreenOption.route();
       case 'PharmacyScreenRoute':
         return PharmacyScreen.route();
       case 'Store_ScreenRoute':

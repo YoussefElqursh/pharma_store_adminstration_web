@@ -124,7 +124,7 @@ class _StoreScreen extends State<StoreScreen> {
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: HexColor(white),
-                                      hintText: 'Search pharmacy by name',
+                                      hintText: 'Search store by name',
                                       hintStyle: const TextStyle(
                                         color: Color(0xffb2bac6),
                                         fontFamily: 'Poppins',

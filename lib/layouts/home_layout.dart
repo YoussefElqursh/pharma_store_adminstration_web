@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/1-dashboard_screen/dashboard_screen.dart';
+import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_options/product_inventory_details/product_inventory_details_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen.dart';
 import 'package:pharma_store_administration_web/modules/4-store_module/store_screen.dart';
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 1:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: const Key('product_navigator'),
+                                key: UniqueKey(),  // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const ProductsScreen(),
@@ -82,7 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 2:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: const Key('pharmacy_navigator'),
+                                key: UniqueKey(),  // Unique key to force rebuild
+
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const PharmacyScreen(),
@@ -91,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 3:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: const Key('store_navigator'),
+                                key: UniqueKey(),  // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const StoreScreen(),
@@ -100,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 4:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: const Key('order_navigator'),
+                                key: UniqueKey(),  // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const OrderScreen(),
@@ -109,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 5:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: const Key('statistics_navigator'),
+                                key: UniqueKey(),  // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const DashboardScreen(),

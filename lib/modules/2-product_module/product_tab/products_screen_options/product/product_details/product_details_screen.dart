@@ -5,8 +5,15 @@ import 'package:pharma_store_administration_web/shared/components/functions.dart
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
+  static const String routeName = 'ProductDetailsScreenRoute';
   const ProductDetailsScreen({super.key});
 
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const ProductDetailsScreen(),
+    );
+  }
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
 }
@@ -76,12 +83,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteBuilder(
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
+                                    pageBuilder:
+                                        (context, animation, secondaryAnimation) =>
                                         FadeTransition(
-                                      opacity: animation,
-                                      child: const EditProductScreen(),
-                                    ),
+                                          opacity: animation,
+                                          child: const EditProductScreen(),
+                                        ),
                                   ),
                                 );
                               },

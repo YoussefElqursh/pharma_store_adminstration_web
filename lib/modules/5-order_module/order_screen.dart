@@ -101,8 +101,7 @@ class _OrderScreenState extends State<OrderScreen> {
                             elevation: 0,
                             hoverColor: Colors.transparent,
                             shape: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: HexColor('#edf0fe')),
+                              borderSide: BorderSide(color: HexColor('#edf0fe')),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Center(
@@ -111,8 +110,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                 child: Row(
                                   children: [
                                     setPhoto(
-                                        kind: 1,
-                                        path: 'assets/icons/filter.svg'),
+                                        kind: 1, path: 'assets/icons/filter.svg'),
                                     const SizedBox(width: 10),
                                     Text(
                                       'Filter',

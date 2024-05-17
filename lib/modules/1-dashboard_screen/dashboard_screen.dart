@@ -44,6 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
   bool isClicked = false;
 
+
   @override
   void initState() {
     data = [
@@ -80,6 +81,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    DateTime now = DateTime.now();
+    int currentYear = now.year;
+
+    List<int> years = [];
+    for (int year = currentYear; year >= 1990; year--) {
+      years.add(year);
+    }
+
+   final List<String> months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+
     return Center(
       child: Column(
         children: [
@@ -164,20 +177,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 80.0, top: 60),
                         child: Container(
-                          height: 32,
+                          height: 45,
+                          width: 95,
                           decoration: BoxDecoration(
                             color: const Color(0x0c4a72ff),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          child: MaterialButton(
-                            onPressed: () {},
-                            child: Text(
-                              'View all',
-                              style: TextStyle(
-                                color: HexColor(primary),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
+                          child: Center(
+                            child: DropdownButtonFormField2<String>(
+                              value: currentYear.toString(),
+                              isExpanded: true,
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                border: InputBorder.none,
+                              ),
+                              items: years.map((item) => DropdownMenuItem<String>(
+                                value: item.toString(),
+                                child: Text(
+                                  item.toString(),
+                                  style: const TextStyle(
+                                    color: Color(0xFF4A71FF),
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),)
+                                  .toList(),
+                              onChanged: (value) {
+                                //Do something when selected item is changed.
+                              },
+                              onSaved: (value) {
+                               // selectedValue = value.toString();
+                              },
+                              buttonStyleData: const ButtonStyleData(
+                                padding: EdgeInsets.only(right: 8),
+                              ),
+                              iconStyleData: IconStyleData(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_outlined,
+                                  color: HexColor(primary),
+                                ),
+                                iconSize: 24,
+                              ),
+                              dropdownStyleData: const DropdownStyleData(
+                                maxHeight: 225,
+                              ),
+                              menuItemStyleData: const MenuItemStyleData(
+                                padding: EdgeInsets.symmetric(horizontal: 16),
                               ),
                             ),
                           ),
@@ -239,20 +286,54 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Padding(
                         padding: const EdgeInsets.only(right: 80.0, top: 80),
                         child: Container(
-                          height: 32,
+                          height: 45,
+                          width: 120,
                           decoration: BoxDecoration(
                             color: const Color(0x0c4a72ff),
                             borderRadius: BorderRadius.circular(5),
                           ),
-                          child: MaterialButton(
-                            onPressed: () {},
-                            child: Text(
-                              'View all',
-                              style: TextStyle(
-                                color: HexColor(primary),
-                                fontSize: 12,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
+                          child: Center(
+                            child: DropdownButtonFormField2<String>(
+                              value:months[now.month - 1 ],
+                              isExpanded: true,
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                border: InputBorder.none,
+                              ),
+                              items: months.map((item) => DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: const TextStyle(
+                                    color: Color(0xFF4A71FF),
+                                    fontSize: 12,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),)
+                                  .toList(),
+                              onChanged: (value) {
+                                //Do something when selected item is changed.
+                              },
+                              onSaved: (value) {
+                                // selectedValue = value.toString();
+                              },
+                              buttonStyleData: const ButtonStyleData(
+                                padding: EdgeInsets.only(right: 8),
+                              ),
+                              iconStyleData: IconStyleData(
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_outlined,
+                                  color: HexColor(primary),
+                                ),
+                                iconSize: 24,
+                              ),
+                              dropdownStyleData: const DropdownStyleData(
+                                maxHeight: 225
+                              ),
+                              menuItemStyleData: const MenuItemStyleData(
+                                padding: EdgeInsets.symmetric(horizontal: 16),
                               ),
                             ),
                           ),
@@ -260,11 +341,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                  Wrap(
+                    children:[
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                        padding: const EdgeInsets.only(left: 20.0 , bottom: 10),
                         child: Container(
                           padding: const EdgeInsets.only(
                               left: 35, right: 35, top: 35),
@@ -326,8 +406,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10, width: 30,),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                        padding: const EdgeInsets.only(left: 20.0, bottom: 10),
                         child: Container(
                           padding: const EdgeInsets.only(
                               left: 35, right: 35, top: 35),
@@ -389,8 +470,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10, width: 30,),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0, right: 15.0),
+                        padding: const EdgeInsets.only(left: 20.0, bottom: 10),
                         child: Container(
                           padding: const EdgeInsets.only(
                               left: 35, right: 35, top: 35),
@@ -452,7 +534,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ),
                       ),
-                    ],
+                    ]
                   ),
                   Padding(
                     padding: const EdgeInsets.all(20),

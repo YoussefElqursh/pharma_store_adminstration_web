@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product/add_product_screen.dart';
@@ -15,6 +16,15 @@ class ProductTab extends StatefulWidget {
 
 class _ProductTabState extends State<ProductTab> {
   bool filterVisibility = false;
+
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+  ];
+
+  List<String> selectedItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -196,44 +206,33 @@ class _ProductTabState extends State<ProductTab> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, right: 330),
+                    padding: const EdgeInsets.only(top: 50.0, right: 300),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Visibility(
+                          maintainSize: true,
+                          maintainAnimation: true,
+                          maintainInteractivity: true,
+                          maintainState: true,
+                          maintainSemantics: true,
                           visible: filterVisibility,
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                width: 270,
-                                height: 327,
-                                child: Stack(
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 5),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8.0)),
+                            width: 280,
+                            height: 335,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Positioned(
-                                      left: 0,
-                                      top: 0,
-                                      child: Container(
-                                        width: 270,
-                                        height: 327,
-                                        decoration: ShapeDecoration(
-                                          color: Colors.white,
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(3)),
-                                          shadows: const [
-                                            BoxShadow(
-                                              color: Color(0x19000000),
-                                              blurRadius: 30,
-                                              offset: Offset(0, 10),
-                                              spreadRadius: 0,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    const Positioned(
-                                      left: 20,
-                                      top: 20,
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 20.0, top: 20.0, right: 20.0),
                                       child: Text(
                                         'Filter Options',
                                         style: TextStyle(
@@ -245,125 +244,19 @@ class _ProductTabState extends State<ProductTab> {
                                         ),
                                       ),
                                     ),
-                                    Positioned(
-                                      left: 0,
-                                      top: 59,
-                                      child: Container(
-                                        width: 270,
-                                        decoration: const ShapeDecoration(
-                                          shape: RoundedRectangleBorder(
-                                            side: BorderSide(
-                                              width: 1,
-                                              strokeAlign:
-                                                  BorderSide.strokeAlignCenter,
-                                              color: Color(0xFFDDE1EB),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 143,
-                                      top: 111,
-                                      child: SizedBox(
-                                        width: 107,
-                                        height: 40,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Container(
-                                                width: 107,
-                                                height: 40,
-                                                decoration: ShapeDecoration(
-                                                  color: Colors.white,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: const BorderSide(
-                                                      width: 1,
-                                                      strokeAlign: BorderSide
-                                                          .strokeAlignCenter,
-                                                      color: Color(0xFFDDE1EB),
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            3),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            const Positioned(
-                                              left: 12,
-                                              top: 20,
-                                              child: Text(
-                                                'To',
-                                                style: TextStyle(
-                                                  color: Color(0xFFB2BAC6),
-                                                  fontSize: 12,
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w500,
-                                                  height: 0.14,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 20,
-                                      top: 203,
-                                      child: SizedBox(
-                                        width: 230,
-                                        height: 40,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Container(
-                                                width: 230,
-                                                height: 40,
-                                                decoration: ShapeDecoration(
-                                                  color: Colors.white,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: const BorderSide(
-                                                      width: 1,
-                                                      strokeAlign: BorderSide
-                                                          .strokeAlignCenter,
-                                                      color: Color(0xFFDDE1EB),
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            3),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            const Positioned(
-                                              left: 12.78,
-                                              top: 20,
-                                              child: SizedBox(
-                                                width: 101.16,
-                                                child: Text(
-                                                  'Select category ',
-                                                  style: TextStyle(
-                                                    color: Color(0xFFB2BAC6),
-                                                    fontSize: 12,
-                                                    fontFamily: 'Poppins',
-                                                    fontWeight: FontWeight.w500,
-                                                    height: 0.14,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    const Positioned(
-                                      left: 20,
-                                      top: 79,
+                                  ],
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 14.0),
+                                  child: Divider(
+                                    height: 1,
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
                                       child: Text(
                                         'Public Price:',
                                         style: TextStyle(
@@ -371,158 +264,124 @@ class _ProductTabState extends State<ProductTab> {
                                           fontSize: 14,
                                           fontFamily: 'Poppins',
                                           fontWeight: FontWeight.w500,
-                                          height: 0.10,
                                         ),
                                       ),
                                     ),
-                                    Positioned(
-                                      left: 20,
-                                      top: 111,
-                                      child: SizedBox(
-                                        width: 107,
-                                        height: 40,
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              left: 0,
-                                              top: 0,
-                                              child: Container(
-                                                width: 107,
-                                                height: 40,
-                                                decoration: ShapeDecoration(
-                                                  color: Colors.white,
-                                                  shape: RoundedRectangleBorder(
-                                                    side: const BorderSide(
-                                                      width: 1,
-                                                      strokeAlign: BorderSide
-                                                          .strokeAlignCenter,
-                                                      color: Color(0xFFDDE1EB),
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            3),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 12.0, left: 20.0),
+                                      child: Row(
+                                        children: [
+                                          SizedBox(
+                                            width: MediaQuery.of(context).size.width * 0.08,
+                                            height: 40,
+                                            child: TextField(
+                                              style: const TextStyle(fontSize: 12),
+                                              decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor: HexColor(white),
+                                                  hintText: 'EGP 150.000',
+                                                  hintStyle: const TextStyle(
+                                                    color: Color(0xFF23262A),
+                                                    fontSize: 12,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500,
                                                   ),
-                                                ),
-                                              ),
-                                            ),
-                                            const Positioned(
-                                              left: 12,
-                                              top: 20,
-                                              child: Text.rich(
-                                                TextSpan(
-                                                  children: [
-                                                    TextSpan(
-                                                      text: 'EGP',
-                                                      style: TextStyle(
-                                                        color:
-                                                            Color(0xFF23262A),
-                                                        fontSize: 12,
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        height: 0.14,
-                                                      ),
+                                                  border: const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12),
+                                                      topLeft:
+                                                          Radius.circular(12),
                                                     ),
-                                                    TextSpan(
-                                                      text: ' ',
-                                                      style: TextStyle(
+                                                  ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
                                                         color:
-                                                            Color(0xFFB2BAC6),
-                                                        fontSize: 12,
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        height: 0.14,
-                                                      ),
-                                                    ),
-                                                    TextSpan(
-                                                      text: '150.00',
-                                                      style: TextStyle(
+                                                            HexColor(bWhite90)),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
                                                         color:
-                                                            Color(0xFF23262A),
-                                                        fontSize: 12,
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        height: 0.14,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 190,
-                                      top: 273,
-                                      child: MaterialButton(
-                                        onPressed: () {},
-                                        child: Container(
-                                          height: 40,
-                                          padding: const EdgeInsets.all(12),
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: ShapeDecoration(
-                                            color: const Color(0xFF4A71FF),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(3)),
-                                          ),
-                                          child: const Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Apply ',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 12,
-                                                  fontFamily: 'Poppins',
-                                                  fontWeight: FontWeight.w600,
-                                                  height: 0,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      left: 114,
-                                      top: 273,
-                                      child: MaterialButton(
-                                        onPressed: () {},
-                                        child: Container(
-                                          height: 40,
-                                          padding: const EdgeInsets.all(12),
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: ShapeDecoration(
-                                            color: const Color(0xFFF5F6FA),
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(3)),
-                                          ),
-                                          child: const Text(
-                                            'Reset',
-                                            style: TextStyle(
-                                              color: Color(0xFF60656E),
-                                              fontSize: 12,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500,
-                                              height: 0,
+                                                            HexColor(primary)),
+                                                  ),
+                                                  contentPadding:
+                                                      const EdgeInsets.only(
+                                                          top: 10,
+                                                          bottom: 10,
+                                                          left: 10,
+                                                          right: 30)),
                                             ),
                                           ),
-                                        ),
+                                          const SizedBox(
+                                              width: 15,
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 2.0),
+                                                child: Divider(
+                                                  height: 1.5,
+                                                ),
+                                              )),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.08,
+                                            height: 40,
+                                            child: TextField(
+                                              style:
+                                                  const TextStyle(fontSize: 12),
+                                              decoration: InputDecoration(
+                                                  filled: true,
+                                                  fillColor: HexColor(white),
+                                                  hintText: 'To',
+                                                  hintStyle: TextStyle(
+                                                    fontSize: 11.5,
+                                                    color: HexColor("#42526d"),
+                                                    fontFamily: 'Poppins',
+                                                  ),
+                                                  border:
+                                                      const OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                      bottomLeft:
+                                                          Radius.circular(12),
+                                                      topLeft:
+                                                          Radius.circular(12),
+                                                    ),
+                                                  ),
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            HexColor(bWhite90)),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color:
+                                                            HexColor(primary)),
+                                                  ),
+                                                  contentPadding:
+                                                      const EdgeInsets.only(
+                                                          top: 10,
+                                                          bottom: 10,
+                                                          left: 10,
+                                                          right: 30)),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    const Positioned(
-                                      left: 20,
-                                      top: 171,
+                                    const Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 20,
+                                          top: 20,
+                                          right: 20,
+                                          bottom: 12),
                                       child: Text(
                                         'Category:',
                                         style: TextStyle(
@@ -534,10 +393,176 @@ class _ProductTabState extends State<ProductTab> {
                                         ),
                                       ),
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 20,
+                                          top: 20,
+                                          right: 20,
+                                          bottom: 12),
+                                      child: DropdownButtonHideUnderline(
+                                        child: DropdownButton2<String>(
+                                          isExpanded: true,
+                                          hint: Text(
+                                            'Select category',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              color:
+                                                  Theme.of(context).hintColor,
+                                            ),
+                                          ),
+                                          items: items.map((item) {
+                                            return DropdownMenuItem(
+                                              value: item,
+                                              enabled: false,
+                                              child: StatefulBuilder(
+                                                builder:
+                                                    (context, menuSetState) {
+                                                  final isSelected =
+                                                      selectedItems
+                                                          .contains(item);
+                                                  return InkWell(
+                                                    onTap: () {
+                                                      isSelected
+                                                          ? selectedItems.remove(item)
+                                                          : selectedItems.add(item);
+                                                      //This rebuilds the StatefulWidget to update the button's text
+                                                      setState(() {});
+                                                      //This rebuilds the dropdownMenu Widget to update the check mark
+                                                      menuSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      height: double.infinity,
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                          horizontal: 16.0),
+                                                      child: Row(
+                                                        children: [
+                                                          if (isSelected)
+                                                            Icon(Icons.check_box_outlined, color: HexColor(primary),)
+                                                          else
+                                                            Icon(Icons.check_box_outline_blank, color: HexColor(primary)),
+                                                          const SizedBox(width: 16),
+                                                          Expanded(
+                                                            child: Text(
+                                                              item,
+                                                              style: const TextStyle(
+                                                                color: Color(0xFF4A71FF),
+                                                                fontSize: 12,
+                                                                fontFamily: 'Poppins',
+                                                                fontWeight: FontWeight.w500,
+                                                                height: 0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            );
+                                          },
+                                          ).toList(),
+                                          value: selectedItems.isEmpty ? null : selectedItems.last,
+                                          onChanged: (value) {},
+                                          selectedItemBuilder: (context) {
+                                            return items.map((item) {
+                                                return Container(
+                                                  alignment: AlignmentDirectional.center,
+                                                  child: Container(
+                                                    height: 40,
+                                                    width: 230,
+                                                    decoration: ShapeDecoration(
+                                                      color: const Color(0x0C4A71FF),
+                                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+                                                    ),
+                                                    child: Center(
+                                                      child: Text(
+                                                        selectedItems.join(' '),
+                                                        style: const TextStyle(
+                                                          color: Color(0xFF4A71FF),
+                                                          fontSize: 12,
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight: FontWeight.w500,
+                                                          overflow: TextOverflow.ellipsis,
+                                                        ),
+                                                        maxLines: 1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).toList();
+                                          },
+                                          buttonStyleData: const ButtonStyleData(
+                                            padding: EdgeInsets.only(left: 16, right: 8),
+                                            height: 40,
+                                            width: 230,
+                                          ),
+                                          iconStyleData: const IconStyleData(icon: Icon(Icons.keyboard_arrow_down_rounded, color: Color(0xFFB2BAC6),),),
+                                          menuItemStyleData: const MenuItemStyleData(
+                                            height: 40,
+                                            padding: EdgeInsets.zero,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20.0),
+                                      child: Row(
+                                        children: [
+                                          const Spacer(),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 18, top: 34),
+                                            child: MaterialButton(
+                                              minWidth: 58,
+                                              height: 34,
+                                              elevation: 0.0,
+                                              color: HexColor("#f5f6fa"),
+                                              onPressed: () {
+                                                setState(
+                                                      () {
+                                                  },
+                                                );
+                                              },
+                                              child: Text(
+                                                "Reset",
+                                                style: TextStyle(
+                                                    fontFamily:
+                                                    "Poppins-SemiBold",
+                                                    fontSize: 12,
+                                                    color: HexColor("#60656e")),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0, bottom: 18, top: 34),
+                                            child: MaterialButton(
+                                              minWidth: 58,
+                                              height: 34,
+                                              elevation: 0.0,
+                                              color: HexColor(primary),
+                                              onPressed: () {},
+                                              child: Text(
+                                                "Apply",
+                                                style: TextStyle(
+                                                  fontFamily:
+                                                  "Poppins-SemiBold",
+                                                  fontSize: 12,
+                                                  color: HexColor("#ffffff"),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],

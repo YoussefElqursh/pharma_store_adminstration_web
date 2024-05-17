@@ -6,6 +6,8 @@ import 'package:pharma_store_administration_web/shared/components/functions.dart
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_tab/product_tab_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
+import '../../../models/data_table.dart';
+
 class ProductTab extends StatefulWidget {
   const ProductTab({super.key});
 
@@ -15,7 +17,14 @@ class ProductTab extends StatefulWidget {
 
 class _ProductTabState extends State<ProductTab> {
   bool filterVisibility = false;
-
+  late TextEditingController controllerOfSearch;
+  List<Data>? filterData;
+  @override
+  void initState() {
+    super.initState();
+    filterData = demoData;
+    controllerOfSearch = TextEditingController(); // Initialize here
+  }
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -42,6 +51,15 @@ class _ProductTabState extends State<ProductTab> {
                         width: 570,
                         height: 48,
                         child: TextFormField(
+                          controller: controllerOfSearch,
+                          onChanged: (value) {
+                            setState(() {
+                              demoData = filterData!
+                                  .where((element) => element.to
+                                  .contains(value.toUpperCase()))
+                                  .toList();
+                            });
+                          },
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: HexColor(white),
@@ -551,4 +569,5 @@ class _ProductTabState extends State<ProductTab> {
       ),
     );
   }
+
 }

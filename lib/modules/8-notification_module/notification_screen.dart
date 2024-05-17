@@ -703,18 +703,24 @@ class _NotificationScreen extends State<NotificationScreen> {
 
                                      visible: filterVisiblity2,
                                      child: Center(
-                                         child: Container(
+                                         child: InkWell(
+                                           hoverColor: Colors.grey,
+                                           splashColor: Colors.grey,
+                                           highlightColor: Colors.grey,
+                                           onTap: () {},
 
-                                           decoration: BoxDecoration(
-                                               color: Colors.white,
-                                               borderRadius:
-                                               BorderRadius.circular(8.0)),
-                                           child: InkWell(
-                                               onTap: () {},
-                                               child: const Padding(
-                                                 padding: EdgeInsets.all(18.0),
-                                                 child: Text("Mark all as read"),
-                                               )),
+                                           child: Container(
+
+
+                                             decoration: BoxDecoration(
+                                                 color: Colors.white,
+                                                 borderRadius:
+                                                 BorderRadius.circular(8.0)),
+                                             child: const Padding(
+                                               padding: EdgeInsets.all(18.0),
+                                               child: Text("Mark all as read"),
+                                             ),
+                                           ),
                                          )),
                                    ),
                                  )

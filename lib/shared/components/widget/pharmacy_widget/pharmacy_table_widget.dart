@@ -1,27 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
 import '../../../../models/pharmacy_data_table.dart';
 
 class PharmacyTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen
+  final List<PharmacyData> data; // List of PharmacyData
 
-  const PharmacyTableWidget({super.key, required this.openProfileScreen});
+  const PharmacyTableWidget({super.key, required this.openProfileScreen, required this.data});
 
   @override
   State<PharmacyTableWidget> createState() => _PharmacyTableWidgetState();
 }
 
 class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
+  late List<PharmacyData> filterData;
+
   int rowsPerPage = 10;
   int currentPage = 0;
+  bool sortAscending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(PharmacyTableWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    int numberOfPages = (pharmacyDemoData.length / rowsPerPage).ceil();
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
 
     return Expanded(
       child: Column(
@@ -32,55 +54,48 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
               columnSpacing: MediaQuery.of(context).size.width / 13,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
-                  border: Border.all(color: HexColor(bWhite90)),
-                  borderRadius: BorderRadius.circular(16)),
+                border: Border.all(color: HexColor(bWhite90)),
+                borderRadius: BorderRadius.circular(16),
+              ),
               border: TableBorder.all(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12)),
-                  color: HexColor(bWhite90),
-                  style: BorderStyle.none),
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12)),
+                color: HexColor(bWhite90),
+                style: BorderStyle.none,
+              ),
               headingTextStyle: const TextStyle(
                 color: Color(0xff42526d),
                 fontSize: 10,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
               ),
-              headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+              headingRowColor:
+              const MaterialStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
                 const DataColumn(label: Text('Photo')),
                 DataColumn(
-                  label: Row(
-                    children: [
-                      const Text('Name'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded, size: 22)),
-                    ],
-                  ),
+                  onSort: (columnIndex, ascending) {
+                    setState(() {
+                      sortAscending = !sortAscending;
+                      if (sortAscending) {
+                        filterData.sort((a, b) => a.name.compareTo(b.name));
+                      } else {
+                        filterData.sort((a, b) => b.name.compareTo(a.name));
+                      }
+                    });
+                  },
+                  label: const Text('Name'),
                 ),
                 const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('Contact Number'),
-                    ],
-                  ),
+                  label: Text('Contact Number'),
                 ),
                 const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('Address'),
-                    ],
-                  ),
+                  label: Text('Address'),
                 ),
                 const DataColumn(
-                  label: Row(
-                    children: [
-                      Text('State'),
-                    ],
-                  ),
+                  label: Text('State'),
                 ),
                 const DataColumn(label: Text('')),
               ],
@@ -88,10 +103,10 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
                 rowsPerPage,
                     (index) {
                   int dataIndex = currentPage * rowsPerPage + index;
-                  if (dataIndex >= pharmacyDemoData.length) {
+                  if (dataIndex >= filterData.length) {
                     return null;
                   }
-                  return _dataRow(pharmacyDemoData[dataIndex]);
+                  return _dataRow(filterData[dataIndex]);
                 },
               ).whereType<DataRow>().toList(),
             ),
@@ -102,7 +117,7 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
             child: Row(
               children: [
                 Text(
-                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${pharmacyDemoData.length} entries',
+                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                   style: const TextStyle(
                     color: Color(0xFF6B788E),
                     fontSize: 10,
@@ -144,11 +159,11 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
       case 'Activated':
         bColor = HexColor('#ecfdf3');
         fColor = HexColor('#009881');
-        break; // Add break statement
+        break;
       case 'Deactivated':
         bColor = HexColor('#fff2ea');
         fColor = HexColor('#f15046');
-        break; // Add break statement
+        break;
     }
 
     return DataRow(

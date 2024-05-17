@@ -14,7 +14,7 @@ class PharmacyData {
   final IconButton moreIcon;
 }
 
-List pharmacyDemoData = [
+List<PharmacyData> pharmacyDemo_Data = [
   PharmacyData(
       1,
       'Pharmaceuticals\nIbnsina',

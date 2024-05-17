@@ -5,6 +5,7 @@ import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_options/product_inventory_details/product_inventory_details_screen.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
+
 class SummarizeProductTable extends StatefulWidget {
   const SummarizeProductTable({super.key});
 
@@ -13,9 +14,15 @@ class SummarizeProductTable extends StatefulWidget {
 }
 
 class _SummarizeProductTableState extends State<SummarizeProductTable> {
-  int numberOfPages = 10;
+  List<Data>? filterData;
   int currentPage = 0;
-
+  int rowsPerPage = 10;
+  bool sortAscending = true;
+  @override
+  void initState() {
+    super.initState();
+    filterData = demoData;
+  }
   void _openProductInventoryScreen() {
     Navigator.push(
       context,
@@ -30,8 +37,10 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
 
   @override
   Widget build(BuildContext context) {
+    int numberOfPages = (filterData!.length / rowsPerPage).ceil();
+
     var pages = List.generate(
-      numberOfPages,
+      rowsPerPage,
       (index) => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: DataTable(
@@ -92,7 +101,15 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
             ),
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+            rowsPerPage,
+                (index) {
+              int dataIndex = currentPage * rowsPerPage + index;
+              if (dataIndex >= filterData!.length) {
+                return null;
+              }
+              return _dataRow(filterData![dataIndex]);
+            },
+          ).whereType<DataRow>().toList(),
         ),
       ),
     );
@@ -105,9 +122,9 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-              const Text(
-                'Showing 1 to 5 of 10 categories',
-                style: TextStyle(
+               Text(
+                'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData!.length} entries',
+                style: const TextStyle(
                   color: Color(0xFF6B788E),
                   fontSize: 10,
                   fontFamily: 'Poppins',

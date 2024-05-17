@@ -6,6 +6,8 @@ import 'package:pharma_store_administration_web/shared/components/widget/back_sc
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_inventory_tab/summarize_product_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
+import '../../../../models/data_table.dart';
+
 class ViewProductInventory extends StatefulWidget {
   const ViewProductInventory({super.key});
 
@@ -15,7 +17,14 @@ class ViewProductInventory extends StatefulWidget {
 
 class _ViewProductInventoryState extends State<ViewProductInventory> {
   bool filterVisibility = false;
-
+  late TextEditingController controllerOfSearch;
+  List<Data>? filterData;
+  @override
+  void initState() {
+    super.initState();
+    filterData = demoData;
+    controllerOfSearch = TextEditingController(); // Initialize here
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,6 +59,15 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                             width: 570,
                             height: 48,
                             child: TextFormField(
+                              controller: controllerOfSearch,
+                              onChanged: (value) {
+                                setState(() {
+                                  demoData = filterData!
+                                      .where((element) => element.to
+                                      .contains(value.toUpperCase()))
+                                      .toList();
+                                });
+                              },
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: HexColor(white),

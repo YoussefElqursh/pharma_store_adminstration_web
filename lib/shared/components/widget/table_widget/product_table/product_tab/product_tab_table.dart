@@ -13,9 +13,18 @@ class ProductTabTable extends StatefulWidget {
 }
 
 class _ProductTabTableState extends State<ProductTabTable> {
-  int numberOfPages = 10;
-  int currentPage = 0;
+  List<Data>? filterData;
 
+
+  int currentPage = 0;
+  int rowsPerPage = 10;
+  bool sortAscending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = demoData;
+  }
   void _openProductDetailsScreen() {
     Navigator.push(
       context,
@@ -30,6 +39,8 @@ class _ProductTabTableState extends State<ProductTabTable> {
 
   @override
   Widget build(BuildContext context) {
+    int numberOfPages = (filterData!.length / rowsPerPage).ceil();
+
     var pages = List.generate(
       numberOfPages,
       (index) => SingleChildScrollView(
@@ -55,13 +66,21 @@ class _ProductTabTableState extends State<ProductTabTable> {
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
-            DataColumn(
-              label: Row(
+             DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData?.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData?.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+              label: const Row(
                 children: [
-                  const Text('Name'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Name'),
+
                 ],
               ),
             ),
@@ -93,7 +112,15 @@ class _ProductTabTableState extends State<ProductTabTable> {
             ),
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+            rowsPerPage,
+                (index) {
+              int dataIndex = currentPage * rowsPerPage + index;
+              if (dataIndex >= filterData!.length) {
+                return null;
+              }
+              return _dataRow(filterData![dataIndex]);
+            },
+          ).whereType<DataRow>().toList(),
         ),
       ),
     );
@@ -106,9 +133,9 @@ class _ProductTabTableState extends State<ProductTabTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-              const Text(
-                'Showing 1 to 5 of 10 categories',
-                style: TextStyle(
+               Text(
+                'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData!.length} entries',
+                style: const TextStyle(
                   color: Color(0xFF6B788E),
                   fontSize: 10,
                   fontFamily: 'Poppins',

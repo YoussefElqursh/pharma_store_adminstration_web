@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pharma_store_administration_web/modules/8-notification_module/notification_screen.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/my_icons_icons.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class BackScreenHeader extends StatelessWidget {
   const BackScreenHeader(
-      {super.key, required this.backScreenName, required this.goBack});
+      {super.key, required this.backScreenName});
 
   final String backScreenName;
-  final void Function() goBack; // No return type
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +31,7 @@ class BackScreenHeader extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 6.0),
               child: IconButton(
-                onPressed: goBack,
+                onPressed: Navigator.of(context).pop,
                 icon: setPhoto(
                     kind: 1,
                     path: "assets/images/Arrow_alt_lright_alt.svg",
@@ -49,7 +49,15 @@ class BackScreenHeader extends StatelessWidget {
             ),
             const Spacer(),
             IconButton(
-              onPressed: () {},
+              onPressed: ()=>Navigator.push(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+                    opacity: animation,
+                    child: const NotificationScreen(),
+                  ),
+                ),
+              ),
               icon: const Icon(
                 MyIcons.notification,
                 size: 15,

@@ -6,7 +6,9 @@ import 'package:pharma_store_administration_web/modules/2-product_module/product
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductInventoryTabTable extends StatefulWidget {
-  const ProductInventoryTabTable({super.key});
+  final List<Data> data; // List of PharmacyData
+
+  const ProductInventoryTabTable({super.key, required this.data});
 
   @override
   State<ProductInventoryTabTable> createState() =>
@@ -15,7 +17,24 @@ class ProductInventoryTabTable extends StatefulWidget {
 
 class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
   int numberOfPages = 10;
+  bool sortAscending = true;
+  late List<Data> filterData;
+  int rowsPerPage = 10;
   int currentPage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(ProductInventoryTabTable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
 
   void _openProductInventoryScreen() {
     Navigator.push(
@@ -31,6 +50,13 @@ class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
 
   @override
   Widget build(BuildContext context) {
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
+
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
     var pages = List.generate(
       numberOfPages,
       (index) => SingleChildScrollView(
@@ -57,17 +83,38 @@ class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
             DataColumn(
-              label: Row(
-                children: [
-                  const Text('Name'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
-                ],
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+              label: const Row(
+                children: [Text('Name'), SizedBox(width: 10), Icon(Icons.sort)],
               ),
             ),
-            const DataColumn(
-              label: Text('Category'),
+            DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+              label: const Row(
+                children: [
+                  Text('Category'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
+                ],
+              ),
             ),
             const DataColumn(
               label: Text('Quantity Per Package'),
@@ -76,12 +123,21 @@ class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
               label: Text('Quantity'),
             ),
             DataColumn(
-              label: Row(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+              label: const Row(
                 children: [
-                  const Text('Public Price'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Public Price'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),
@@ -90,7 +146,15 @@ class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
             ),
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+            rowsPerPage,
+            (index) {
+              int dataIndex = currentPage * rowsPerPage + index;
+              if (dataIndex >= filterData.length) {
+                return null;
+              }
+              return _dataRow(filterData[dataIndex]);
+            },
+          ).whereType<DataRow>().toList(),
         ),
       ),
     );

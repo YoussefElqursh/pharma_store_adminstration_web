@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
+import 'package:pharma_store_administration_web/models/notification_data_table.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/notification_widget/notification_table_widget.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-import '../../models/store-data_table.dart';
 import '../../shared/components/functions.dart';
 import '../3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 
@@ -25,31 +25,9 @@ class NotificationScreen extends StatefulWidget {
   State<NotificationScreen> createState() => _NotificationScreen();
 }
 
-List<StoreData> pharmacyDemoData = [
-  StoreData(1, "", 'Dr. Osama El Tayeby', '01255', 'Alex',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(2, "", 'Ali', '355555', 'Suez',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(0, "", 'Hassan', '98888', 'Giza',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(4, "", 'Ibrahim', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(5, "", 'Karim', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(6, "", 'Mosad', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(7, "", 'Shosha', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(8, "", 'Momen Num 1', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(9, "", 'Shikho', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(10, "", 'Adallah Alsaid', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-];
+
 
 class _NotificationScreen extends State<NotificationScreen> {
-  List<StoreData>? filterData;
   TextEditingController dateTimeController_1 = TextEditingController();
   TextEditingController dateTimeController_2 = TextEditingController();
   bool activatedIsChecked = false;
@@ -57,8 +35,8 @@ class _NotificationScreen extends State<NotificationScreen> {
   bool filterVisiblity = false;
   bool filterVisiblity2 = false;
 
-  bool sort = true;
-  late TextEditingController controllerOfFilter;
+   late TextEditingController controllerOfSearch;
+  List<NotificationData>? filteredData;
   void toggleFirstWidget() {
     setState(() {
       filterVisiblity = !filterVisiblity;
@@ -72,6 +50,46 @@ class _NotificationScreen extends State<NotificationScreen> {
     });
   }
 
+
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = notificationDemoData;
+      } else {
+        filteredData = notificationDemoData
+            .where((element) =>
+            element.name.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
+  void _applyFilter() {
+    setState(() {
+      if (activatedIsChecked && deactivatedIsChecked) {
+        filteredData = notificationDemoData;
+      } else if (activatedIsChecked && !deactivatedIsChecked) {
+        filteredData = notificationDemoData
+            .where((element) => element.state == 'Activated')
+            .toList();
+      } else if (!activatedIsChecked && deactivatedIsChecked) {
+        filteredData = notificationDemoData
+            .where((element) => element.state == 'Deactivated')
+            .toList();
+      } else {
+        filteredData = notificationDemoData;
+      }
+    });
+  }
+
+  void _resetFilter() {
+    setState(() {
+      activatedIsChecked = false;
+      deactivatedIsChecked = false;
+      filteredData = notificationDemoData;
+    });
+  }
+
 // Function to navigate to profile screen
   void _openProfileScreen() {
     Navigator.push(
@@ -82,21 +100,12 @@ class _NotificationScreen extends State<NotificationScreen> {
     );
   }
 
-  onSortColumnName(int columnIndex, bool ascending) {
-    if (columnIndex == 2) {
-      if (ascending) {
-        filterData?.sort((a, b) => a.name.compareTo(b.name));
-      } else {
-        filterData?.sort((a, b) => b.name.compareTo(a.name));
-      }
-    }
-  }
 
   @override
   void initState() {
     super.initState();
-    filterData = pharmacyDemoData;
-    controllerOfFilter = TextEditingController(); // Initialize here
+    filteredData = notificationDemoData;
+    controllerOfSearch = TextEditingController(); // Initialize here
   }
 
   //int _rowPerPage = PaginatedDataTable.defaultRowsPerPage;
@@ -115,7 +124,8 @@ class _NotificationScreen extends State<NotificationScreen> {
                     padding:  const EdgeInsets.only(
                         top: 78.0, left: 40.0, right: 40.0),
                     child: Center(
-                      child: SingleChildScrollView(child: NotificationTableWidget(openProfileScreen: _openProfileScreen)),
+                      child: SingleChildScrollView(child: NotificationTableWidget(openProfileScreen: _openProfileScreen, data: filteredData!,
+                      )),
                     ),
                   ),
                   Expanded(
@@ -132,15 +142,8 @@ class _NotificationScreen extends State<NotificationScreen> {
                                       MediaQuery.of(context).size.width - 896.4,
                                   height: 40,
                                   child: TextFormField(
-                                    controller: controllerOfFilter,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        pharmacyDemoData = filterData!
-                                            .where((element) =>
-                                                element.name.contains(value))
-                                            .toList();
-                                      });
-                                    },
+                                    controller: controllerOfSearch,
+                                    onChanged: _filterSearchResults,
                                     decoration: InputDecoration(
                                         filled: true,
                                         fillColor: HexColor(white),
@@ -648,8 +651,8 @@ class _NotificationScreen extends State<NotificationScreen> {
                                                            false;
                                                            activatedIsChecked =
                                                            false;
-                                                           pharmacyDemoData =
-                                                           filterData!;
+                                                           notificationDemoData =
+                                                           filteredData!;
                                                          });
                                                        },
                                                        child: Text(

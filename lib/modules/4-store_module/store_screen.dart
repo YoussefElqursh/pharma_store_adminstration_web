@@ -23,37 +23,12 @@ class StoreScreen extends StatefulWidget {
   State<StoreScreen> createState() => _StoreScreen();
 }
 
-List<StoreData> pharmacyDemoData = [
-  StoreData(1, "", 'Dr. Osama El Tayeby', '01255', 'Alex',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(2, "", 'Ali', '355555', 'Suez',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(0, "", 'Hassan', '98888', 'Giza',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(4, "", 'Ibrahim', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(5, "", 'Karim', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(6, "", 'Mosad', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(7, "", 'Shosha', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(8, "", 'Momen Num 1', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(9, "", 'Shikho', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-  StoreData(10, "", 'Adallah Alsaid', '86122', 'Cairo',
-      IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))),
-];
-
 class _StoreScreen extends State<StoreScreen> {
-  List<StoreData>? filterData;
-
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
   bool filterVisiblity = false;
-  bool sort = true;
-  late TextEditingController controllerOfFilter;
+  late TextEditingController controllerOfSearch;
+  List<StoreData>? filteredData;
 
   void _openProfileScreen() {
     Navigator.push(
@@ -67,9 +42,9 @@ class _StoreScreen extends State<StoreScreen> {
   onSortColumnName(int columnIndex, bool ascending) {
     if (columnIndex == 2) {
       if (ascending) {
-        filterData?.sort((a, b) => a.name.compareTo(b.name));
+        filteredData?.sort((a, b) => a.name.compareTo(b.name));
       } else {
-        filterData?.sort((a, b) => b.name.compareTo(a.name));
+        filteredData?.sort((a, b) => b.name.compareTo(a.name));
       }
     }
   }
@@ -77,8 +52,47 @@ class _StoreScreen extends State<StoreScreen> {
   @override
   void initState() {
     super.initState();
-    filterData = pharmacyDemoData;
-    controllerOfFilter = TextEditingController(); // Initialize here
+    filteredData = storeDemoData;
+    controllerOfSearch = TextEditingController();
+  }
+
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = storeDemoData;
+      } else {
+        filteredData = storeDemoData
+            .where((element) =>
+                element.name.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
+  void _applyFilter() {
+    setState(() {
+      if (activatedIsChecked && deactivatedIsChecked) {
+        filteredData = storeDemoData;
+      } else if (activatedIsChecked && !deactivatedIsChecked) {
+        filteredData = storeDemoData
+            .where((element) => element.state == 'Activated')
+            .toList();
+      } else if (!activatedIsChecked && deactivatedIsChecked) {
+        filteredData = storeDemoData
+            .where((element) => element.state == 'Deactivated')
+            .toList();
+      } else {
+        filteredData = storeDemoData;
+      }
+    });
+  }
+
+  void _resetFilter() {
+    setState(() {
+      activatedIsChecked = false;
+      deactivatedIsChecked = false;
+      filteredData = storeDemoData;
+    });
   }
 
   @override
@@ -95,7 +109,9 @@ class _StoreScreen extends State<StoreScreen> {
                       const EdgeInsets.only(top: 78.0, left: 40.0, right: 40.0),
                   child: Expanded(
                       child: StoreTableWidget(
-                          openProfileScreen: _openProfileScreen)),
+                    openProfileScreen: _openProfileScreen,
+                    data: filteredData!,
+                  )),
                 ),
                 Expanded(
                   child: Padding(
@@ -112,15 +128,8 @@ class _StoreScreen extends State<StoreScreen> {
                                     MediaQuery.of(context).size.width - 896.4,
                                 height: 40,
                                 child: TextFormField(
-                                  controller: controllerOfFilter,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      pharmacyDemoData = filterData!
-                                          .where((element) =>
-                                              element.name.contains(value))
-                                          .toList();
-                                    });
-                                  },
+                                  controller: controllerOfSearch,
+                                  onChanged: _filterSearchResults,
                                   decoration: InputDecoration(
                                       filled: true,
                                       fillColor: HexColor(white),
@@ -257,12 +266,11 @@ class _StoreScreen extends State<StoreScreen> {
 
                                                 activeColor: HexColor(primary),
                                                 value: activatedIsChecked,
-                                                // Adjust initial value as needed
                                                 onChanged: (value) {
                                                   setState(() {
                                                     activatedIsChecked = value!;
                                                   });
-                                                }, // Pass the function reference
+                                                },
                                               ),
                                             ),
                                             Padding(
@@ -304,14 +312,12 @@ class _StoreScreen extends State<StoreScreen> {
                                                     width: 1.3),
                                                 activeColor: HexColor(primary),
                                                 value: deactivatedIsChecked,
-                                                // Adjust initial value as needed
                                                 onChanged: (value) {
                                                   setState(() {
-                                                    deactivatedIsChecked =
-                                                        value!;
+                                                    deactivatedIsChecked = value!;
                                                   });
-                                                }, // Pass the function reference
-                                              ),
+                                                }
+                                                ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
@@ -354,15 +360,7 @@ class _StoreScreen extends State<StoreScreen> {
                                                 height: 34,
                                                 elevation: 0.0,
                                                 color: HexColor("#f5f6fa"),
-                                                onPressed: () {
-                                                  setState(() {
-                                                    deactivatedIsChecked =
-                                                        false;
-                                                    activatedIsChecked = false;
-                                                    pharmacyDemoData =
-                                                        filterData!;
-                                                  });
-                                                },
+                                                onPressed: _resetFilter,
                                                 child: Text(
                                                   "Reset",
                                                   style: TextStyle(
@@ -381,7 +379,7 @@ class _StoreScreen extends State<StoreScreen> {
                                                 height: 34,
                                                 elevation: 0.0,
                                                 color: HexColor(primary),
-                                                onPressed: () {},
+                                                onPressed:  _applyFilter,
                                                 child: Text(
                                                   "Apply",
                                                   style: TextStyle(

@@ -1,10 +1,9 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
-
 import '../../../models/pharmacy_card_model.dart';
+import '../../../models/pharmacy_order_data_table.dart';
 import '../../../shared/components/constants.dart';
 import '../../../shared/components/functions.dart';
 import '../../../shared/components/widget/back_screen_header.dart';
@@ -28,46 +27,46 @@ class PharmacyScreenOption extends StatefulWidget {
   State<PharmacyScreenOption> createState() => _PharmacyScreenOptionState();
 }
 
-List<OrderDataModel> orderDemoData = [
-  OrderDataModel(1, "sina", 'alex', '22/7', 'On Way'),
-  OrderDataModel(2, "banha", 'amria', '25/6', 'Delivered'),
-  OrderDataModel(3, "tanta", 'cairo', '1/5', 'Delivered'),
-  OrderDataModel(4, "zifta", 'bhira', '8/1', 'On Hold'),
-  OrderDataModel(5, "bort said", 'asfra', '8/2', 'Canceled'),
-  OrderDataModel(6, "cairo", 'safa', '9/7', 'Delivered'),
-  OrderDataModel(7, "fayoum", 'sina', '2/7', 'On Hold'),
-  OrderDataModel(8, "sadat", 'tanta', '9/4', 'On Way'),
-  OrderDataModel(9, "smoha", 'zifta', '8/7', 'On Way'),
-  OrderDataModel(10, "asfra", 'matrouh', '4/7', 'Delivered'),
-];
 
 class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
-  List<OrderDataModel>? filterData;
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
 
   bool filterVisiblity = false;
   bool sort = true;
-  late TextEditingController controllerOfFilter;
   TextEditingController dateTimeController = TextEditingController();
   TextEditingController dateTimeController2 = TextEditingController();
-
+   late TextEditingController controllerOfSearch;
+  List<PharmacyOrderDataModel>? filteredData;
   @override
   void initState() {
     super.initState();
-    filterData = orderDemoData;
-    controllerOfFilter = TextEditingController(); // Initialize here
+    filteredData = pharmacyOrderDemoData;
+    controllerOfSearch = TextEditingController(); // Initialize here
+
   }
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = pharmacyOrderDemoData;
+      } else {
+        filteredData = pharmacyOrderDemoData
+            .where((element) =>
+            element.from.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size(double.infinity, 75),
+        appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, 75),
           child: BackScreenHeader(
-            goBack: () => Navigator.pop(context),
             backScreenName: 'Pharmacies',
           ),
         ),
@@ -108,10 +107,13 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
                           child: SingleChildScrollView(
                             child: Stack(
                               children: [
-                                const Expanded(
+                                 Expanded(
                                     child: Padding(
-                                  padding: EdgeInsets.only(top: 50.0),
-                                  child: PharmacyOrderTableWidget(),
+                                  padding: const EdgeInsets.only(top: 50.0),
+                                  child: PharmacyOrderTableWidget(
+                                    data: filteredData!,
+
+                                  ),
                                 )),
                                 Expanded(
                                   child: Expanded(
@@ -128,15 +130,13 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
                                                   896.4,
                                               height: 40,
                                               child: TextFormField(
-                                                controller: controllerOfFilter,
-                                                onChanged: (value) {
-                                                  setState(() {});
-                                                },
+                                                controller: controllerOfSearch,
+                                                onChanged: _filterSearchResults,
                                                 decoration: InputDecoration(
                                                     filled: true,
                                                     fillColor: HexColor(white),
                                                     hintText:
-                                                        'Search pharmacy by name',
+                                                        'Search order by date or store',
                                                     hintStyle: const TextStyle(
                                                       color: Color(0xffb2bac6),
                                                       fontFamily: 'Poppins',

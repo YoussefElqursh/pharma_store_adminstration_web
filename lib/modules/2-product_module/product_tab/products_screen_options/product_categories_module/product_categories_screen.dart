@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product_categories_module/product_categories_option/add_categories.dart';
-import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_tab/category_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
@@ -27,11 +26,8 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BackScreenHeader(
+        const BackScreenHeader(
           backScreenName: 'Products',
-          goBack: () {
-            Navigator.push(context, ProductsScreen.route());
-          },
         ),
         Expanded(
           child: SingleChildScrollView(

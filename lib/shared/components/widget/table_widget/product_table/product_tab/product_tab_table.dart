@@ -6,7 +6,8 @@ import 'package:pharma_store_administration_web/modules/2-product_module/product
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductTabTable extends StatefulWidget {
-  const ProductTabTable({super.key});
+  const ProductTabTable({super.key, required this.data});
+  final List<Data> data; // List of PharmacyData
 
   @override
   State<ProductTabTable> createState() => _ProductTabTableState();
@@ -15,7 +16,6 @@ class ProductTabTable extends StatefulWidget {
 class _ProductTabTableState extends State<ProductTabTable> {
   List<Data>? filterData;
 
-
   int currentPage = 0;
   int rowsPerPage = 10;
   bool sortAscending = true;
@@ -23,8 +23,28 @@ class _ProductTabTableState extends State<ProductTabTable> {
   @override
   void initState() {
     super.initState();
-    filterData = demoData;
+    filterData = widget.data;
   }
+
+  @override
+  void didUpdateWidget(ProductTabTable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
+
+  void onSort() {
+    setState(() {
+      sortAscending = !sortAscending;
+      if (sortAscending) {
+        filterData?.sort((a, b) => a.dateTime.compareTo(b.dateTime));
+      } else {
+        filterData?.sort((a, b) => b.dateTime.compareTo(a.dateTime));
+      }
+    });
+  }
+
   void _openProductDetailsScreen() {
     Navigator.push(
       context,
@@ -39,6 +59,11 @@ class _ProductTabTableState extends State<ProductTabTable> {
 
   @override
   Widget build(BuildContext context) {
+    if (filterData!.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
     int numberOfPages = (filterData!.length / rowsPerPage).ceil();
 
     var pages = List.generate(
@@ -66,7 +91,7 @@ class _ProductTabTableState extends State<ProductTabTable> {
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
-             DataColumn(
+            DataColumn(
               onSort: (columnIndex, ascending) {
                 setState(() {
                   sortAscending = !sortAscending;
@@ -78,32 +103,52 @@ class _ProductTabTableState extends State<ProductTabTable> {
                 });
               },
               label: const Row(
-                children: [
-                  Text('Name'),
-
-                ],
+                children: [Text('Name'), SizedBox(width: 10), Icon(Icons.sort)],
               ),
             ),
             DataColumn(
-              label: Row(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData
+                        ?.sort((a, b) => a.dateTime.compareTo(b.dateTime));
+                  } else {
+                    filterData
+                        ?.sort((a, b) => b.dateTime.compareTo(a.dateTime));
+                  }
+                });
+              },
+              label: const Row(
                 children: [
-                  const Text('Category'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Category'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),
             const DataColumn(
               label: Text('Quantity Per Package'),
             ),
-            DataColumn(
-              label: Row(
+             DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData
+                        ?.sort((a, b) => a.dateTime.compareTo(b.dateTime));
+                  } else {
+                    filterData
+                        ?.sort((a, b) => b.dateTime.compareTo(a.dateTime));
+                  }
+                });
+              },
+
+              label: const Row(
                 children: [
-                  const Text('Public Price'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Public Price'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),
@@ -113,7 +158,7 @@ class _ProductTabTableState extends State<ProductTabTable> {
           ],
           rows: List.generate(
             rowsPerPage,
-                (index) {
+            (index) {
               int dataIndex = currentPage * rowsPerPage + index;
               if (dataIndex >= filterData!.length) {
                 return null;
@@ -133,7 +178,7 @@ class _ProductTabTableState extends State<ProductTabTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-               Text(
+              Text(
                 'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData!.length} entries',
                 style: const TextStyle(
                   color: Color(0xFF6B788E),

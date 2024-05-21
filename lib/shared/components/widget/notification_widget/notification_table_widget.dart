@@ -7,70 +7,99 @@ import '../../../../models/notification_data_table.dart';
 
 class NotificationTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen
+  final List<NotificationData> data; // List of PharmacyData
 
-  const NotificationTableWidget({super.key, required this.openProfileScreen});
+  const NotificationTableWidget({super.key, required this.openProfileScreen, required this.data});
 
   @override
   State<NotificationTableWidget> createState() => _NotificationTableWidget();
 }
 
 class _NotificationTableWidget extends State<NotificationTableWidget> {
-  int numberOfPages = 10;
+  late List<NotificationData> filterData;
+
+  int rowsPerPage = 10;
   int currentPage = 0;
+  bool sortAscending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(NotificationTableWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
+
   final List<int> _selectedRows = [];
 
-  void _onRowSelect(bool? selected, int index) {
+  void _onRowSelect(bool? selected, int id) {
     setState(() {
       if (selected != null && selected) {
-        _selectedRows.add(index);
+        _selectedRows.add(id);
       } else {
-        _selectedRows.remove(index);
+        _selectedRows.remove(id);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
     var pages = List.generate(
-        numberOfPages,
-            (index) => DataTable(
-          showCheckboxColumn: true,
-          dataRowMaxHeight: 74,
-          decoration: BoxDecoration(
-              border: Border.all(color: HexColor(bWhite90)),
-              borderRadius: BorderRadius.circular(16)),
-          border: TableBorder.all(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12)),
-              color: HexColor(bWhite90),
-              style: BorderStyle.none),
-          headingTextStyle: const TextStyle(
-            color: Color(0xff42526d),
-            fontSize: 10,
-            fontFamily: 'Poppins',
-            fontWeight: FontWeight.w600,
+      numberOfPages,
+          (pageIndex) => DataTable(
+        showCheckboxColumn: true,
+        dataRowMaxHeight: 74,
+        decoration: BoxDecoration(
+          border: Border.all(color: HexColor(bWhite90)),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        border: TableBorder.all(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
           ),
-          headingRowColor:
-          const MaterialStatePropertyAll(Color(0xfffbfafb)),
-          columns: const [
-            DataColumn(label: Text('Select all')),
-            DataColumn(label: Text('')),
-            DataColumn(label: Text('')),
-
-            DataColumn(
-              label: Row(
-                children: [
-                  Text(''),
-
-                ],
-              ),
-            ),
-            DataColumn(label: Text('')),
-          ],
-          rows: List.generate(notificationDemoData.length,
-                  (index) => _dataRow(notificationDemoData[index], index)),
-        ));
+          color: HexColor(bWhite90),
+          style: BorderStyle.none,
+        ),
+        headingTextStyle: const TextStyle(
+          color: Color(0xff42526d),
+          fontSize: 10,
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w600,
+        ),
+        headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+        columns: const [
+          DataColumn(label: Text('Select all')),
+          DataColumn(label: Text('')),
+          DataColumn(label: Text('')),
+          DataColumn(label: Text('')),
+          DataColumn(label: Text('')),
+        ],
+        rows: List.generate(
+          rowsPerPage,
+              (rowIndex) {
+            int dataIndex = currentPage * rowsPerPage + rowIndex;
+            if (dataIndex >= filterData.length) {
+              return null;
+            }
+            return _dataRow(filterData[dataIndex]);
+          },
+        ).whereType<DataRow>().toList(),
+      ),
+    );
 
     return Expanded(
       child: Column(
@@ -81,9 +110,9 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                const Text(
-                  'Showing 1 to 5 of 10 categories',
-                  style: TextStyle(
+                Text(
+                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
+                  style: const TextStyle(
                     color: Color(0xFF6B788E),
                     fontSize: 10,
                     fontFamily: 'Poppins',
@@ -117,7 +146,7 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
     );
   }
 
-  DataRow _dataRow(NotificationData data, int index) {
+  DataRow _dataRow(NotificationData data) {
     Color? bColor;
     Color? fColor;
     switch (data.state) {
@@ -129,11 +158,14 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
         bColor = HexColor('#FFFADF');
         fColor = HexColor('#ECA600');
         break;
+      default:
+        bColor = Colors.transparent;
+        fColor = Colors.black;
     }
 
     return DataRow(
-      onSelectChanged: (selected) => _onRowSelect(selected, index),
-      selected: _selectedRows.contains(index),
+      onSelectChanged: (selected) => _onRowSelect(selected, data.id),
+      selected: _selectedRows.contains(data.id),
       cells: [
         DataCell(
           Row(
@@ -144,18 +176,22 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
                   width: 36,
                   height: 36,
                   color: Colors.cyan,
+                  child: data.photo.isNotEmpty
+                      ? Image.network(data.photo, fit: BoxFit.cover)
+                      : const Icon(Icons.image, color: Colors.white),
                 ),
               ),
               const SizedBox(width: 12),
-              const SizedBox(
+              SizedBox(
                 width: 300,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center ,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  Text(" Name Of Store and Pharmacy",style: TextStyle(overflow: TextOverflow.ellipsis)),
-                  Text("Message")
-                    ]),
+                    Text(data.name, style: const TextStyle(overflow: TextOverflow.ellipsis)),
+                    Text(data.address)
+                  ],
+                ),
               )
             ],
           ),
@@ -177,7 +213,6 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
             ),
           ),
         ),
-
         DataCell(
           Container(
             width: 80,
@@ -199,10 +234,10 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
             ),
           ),
         ),
-        const DataCell(
+        DataCell(
           Text(
-            "Time of message",
-            style: TextStyle(
+            data.address, // Assuming this is the time field in your data
+            style: const TextStyle(
               color: Color(0xFF23262A),
               fontSize: 10,
               fontFamily: 'Poppins',

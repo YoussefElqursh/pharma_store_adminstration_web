@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
-import 'package:pharma_store_administration_web/models/store_order_data_table_model.dart';
 import 'package:pharma_store_administration_web/modules/5-order_module/order_screen_options/order_details.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+import '../../../../../models/pharmacy_order_data_table.dart';
 
 class PharmacyOrderTableWidget extends StatefulWidget {
-  const PharmacyOrderTableWidget({super.key});
+  final List<PharmacyOrderDataModel> data; // List of PharmacyData
+
+  const PharmacyOrderTableWidget({super.key, required this.data});
 
   @override
   State<PharmacyOrderTableWidget> createState() => _PharmacyOrderTableWidget();
 }
 
 class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
-  int numberOfPages = 10;
+  int rowsPerPage = 10;
   int currentPage = 0;
+  bool sortAscending = true;
+  late List<PharmacyOrderDataModel> filterData;
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
 
+  @override
+  void didUpdateWidget(PharmacyOrderTableWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
   void _openProfileScreen() {
     Navigator.push(
       context,
@@ -30,9 +46,17 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
+
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
+
               columnSpacing: MediaQuery.of(context).size.width / 10,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
@@ -56,42 +80,67 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                 const DataColumn(label: Text('ID')),
                 const DataColumn(label: Text('From')),
                 DataColumn(
-                  label: Row(
+                  onSort: (columnIndex, ascending) {
+                    setState(() {
+                      sortAscending = !sortAscending;
+                      if (sortAscending) {
+                        filterData.sort((a, b) => a.to.compareTo(b.to));
+                      } else {
+                        filterData.sort((a, b) => b.to.compareTo(a.to));
+                      }
+                    });
+                  },
+
+                  label: const Row(
                     children: [
-                      const Text('To'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                      Text('To'),
+                      SizedBox(width: 10),
+                      Icon(Icons.sort)
                     ],
                   ),
                 ),
                 DataColumn(
-                  label: Row(
+                  onSort: (columnIndex, ascending) {
+                    setState(() {
+                      sortAscending = !sortAscending;
+                      if (sortAscending) {
+                        filterData.sort((a, b) => a.to.compareTo(b.to));
+                      } else {
+                        filterData.sort((a, b) => b.to.compareTo(a.to));
+                      }
+                    });
+                  },
+
+                  label: const Row(
                     children: [
-                      const Text('Date'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                      Text('Date'),
+                      SizedBox(width: 10),
+                      Icon(Icons.sort)
                     ],
                   ),
                 ),
-                DataColumn(
+                 const DataColumn(
+
+
                   label: Row(
                     children: [
-                      const Text('State'),
-                      const SizedBox(width: 10),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.sort_rounded)),
+                      Text('State'),
+
                     ],
                   ),
                 ),
                 const DataColumn(label: Text('')),
               ],
-              rows: List.generate(storeOrderDemoData.length,
-                  (index) => _dataRow(storeOrderDemoData[index])),
+          rows: List.generate(
+            rowsPerPage,
+                (index) {
+              int dataIndex = currentPage * rowsPerPage + index;
+              if (dataIndex >= filterData.length) {
+                return null;
+              }
+              return _dataRow(filterData[dataIndex]);
+            },
+          ).whereType<DataRow>().toList(),
             ));
 
     return Expanded(
@@ -103,9 +152,9 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                const Text(
-                  'Showing 1 to 5 of 10 categories',
-                  style: TextStyle(
+                 Text(
+                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
+                  style: const TextStyle(
                     color: Color(0xFF6B788E),
                     fontSize: 10,
                     fontFamily: 'Poppins',
@@ -139,10 +188,10 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
     );
   }
 
-  DataRow _dataRow(StoreOrderData data) {
+  DataRow _dataRow(PharmacyOrderDataModel data) {
     Color? bColor;
     Color? fColor;
-    switch (data.state) {
+    switch (data.status) {
       case 'Delivered':
         bColor = HexColor('#ECFDF3');
         fColor = HexColor('#009881');
@@ -217,7 +266,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
             ),
             child: Center(
               child: Text(
-                data.state,
+                data.status,
                 style: TextStyle(
                   color: fColor,
                   fontSize: 12,

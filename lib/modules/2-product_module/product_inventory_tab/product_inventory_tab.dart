@@ -5,6 +5,8 @@ import 'package:pharma_store_administration_web/shared/components/functions.dart
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_inventory_tab/product_inventory_tab_table.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
+import '../../../models/data_table.dart';
+
 class ProductInventoryTab extends StatefulWidget {
   const ProductInventoryTab({super.key});
 
@@ -14,6 +16,20 @@ class ProductInventoryTab extends StatefulWidget {
 
 class _ProductInventoryTabState extends State<ProductInventoryTab> {
   bool filterVisibility = false;
+  List<Data>? filteredData;
+  late TextEditingController controllerOfSearch;
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = demoData;
+      } else {
+        filteredData = demoData
+            .where((element) =>
+            element.to.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
 
   final List<String> items = [
     'Item1',
@@ -26,6 +42,12 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
 
 
   @override
+  void initState() {
+    super.initState();
+    filteredData = demoData;
+    controllerOfSearch = TextEditingController();
+  }
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
@@ -36,13 +58,15 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                   left: 30.0, right: 30, top: 30, bottom: 10),
               child: Stack(
                 children: [
-                  const Column(
+                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 60,
                       ),
-                      ProductInventoryTabTable(),
+                      ProductInventoryTabTable(
+                        data: filteredData!,
+                      ),
                     ],
                   ),
                   Row(
@@ -51,6 +75,8 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                         width: 570,
                         height: 48,
                         child: TextFormField(
+                          controller: controllerOfSearch,
+                          onChanged: _filterSearchResults,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: HexColor(white),

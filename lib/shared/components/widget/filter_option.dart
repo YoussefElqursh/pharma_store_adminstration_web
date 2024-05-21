@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
-import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen_option/pharmacies_screen_option.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class FilterOption extends StatefulWidget {
@@ -411,7 +410,7 @@ class _FilterOption extends State<FilterOption> {
 
                           orderDemoData = filterData!
                               .where((element) =>
-                                  selectedStates.contains(element.state))
+                                  selectedStates.contains(element.status))
                               .toList();
                         }
                       });

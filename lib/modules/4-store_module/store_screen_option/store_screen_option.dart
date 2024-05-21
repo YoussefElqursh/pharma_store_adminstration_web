@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
+import 'package:pharma_store_administration_web/models/store_order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 import '../../../models/pharmacy_card_model.dart';
@@ -28,29 +28,63 @@ class StoreScreenOption extends StatefulWidget {
   State<StoreScreenOption> createState() => _StoreScreenOption();
 }
 
-List<OrderDataModel> orderDemoData = [
-  OrderDataModel(1, "sina", 'alex', '22/7', 'On Way'),
-  OrderDataModel(2, "banha", 'amria', '25/6', 'Delivered'),
-  OrderDataModel(3, "tanta", 'cairo', '1/5', 'Delivered'),
-  OrderDataModel(4, "zifta", 'bhira', '8/1', 'On Hold'),
-  OrderDataModel(5, "bort said", 'asfra', '8/2', 'Canceled'),
-  OrderDataModel(6, "cairo", 'safa', '9/7', 'Delivered'),
-  OrderDataModel(7, "fayoum", 'sina', '2/7', 'On Hold'),
-  OrderDataModel(8, "sadat", 'tanta', '9/4', 'On Way'),
-  OrderDataModel(9, "smoha", 'zifta', '8/7', 'On Way'),
-  OrderDataModel(10, "asfra", 'matrouh', '4/7', 'Delivered'),
-];
 
 class _StoreScreenOption extends State<StoreScreenOption> {
-  List<OrderDataModel>? filterData;
+  List<StoreOrderData>? filterData;
   TextEditingController dateTimeController = TextEditingController();
   TextEditingController dateTimeController2 = TextEditingController();
 
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
-  bool sort = true;
-  late TextEditingController controllerOfFilter;
+  late TextEditingController controllerOfSearch;
+  List<StoreOrderData>? filteredData;
+  @override
+  void initState() {
+    super.initState();
+    filteredData = storeOrderDemoData;
+    controllerOfSearch = TextEditingController();
+    dateTimeController.text = "";
+    dateTimeController2.text = "";
+  }
 
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = storeOrderDemoData;
+      } else {
+        filteredData = storeOrderDemoData
+            .where((element) =>
+            element.to.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
+  void _applyFilter() {
+    setState(() {
+      if (activatedIsChecked && deactivatedIsChecked) {
+        filteredData = storeOrderDemoData;
+      } else if (activatedIsChecked && !deactivatedIsChecked) {
+        filteredData = storeOrderDemoData
+            .where((element) => element.state == 'Activated')
+            .toList();
+      } else if (!activatedIsChecked && deactivatedIsChecked) {
+        filteredData = storeOrderDemoData
+            .where((element) => element.state == 'Deactivated')
+            .toList();
+      } else {
+        filteredData = storeOrderDemoData;
+      }
+    });
+  }
+
+  void _resetFilter() {
+    setState(() {
+      activatedIsChecked = false;
+      deactivatedIsChecked = false;
+      filteredData = storeOrderDemoData;
+    });
+  }
   onSortColumnName(int columnIndex, bool ascending) {
     if (columnIndex == 2) {
       if (ascending) {
@@ -63,24 +97,15 @@ class _StoreScreenOption extends State<StoreScreenOption> {
 
   bool filterVisiblity = false;
 
-  @override
-  void initState() {
-    super.initState();
-    dateTimeController.text = "";
-    dateTimeController2.text = "";
-
-    controllerOfFilter = TextEditingController(); // Initialize here
-  }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size(double.infinity, 75),
+        appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, 75),
           child: BackScreenHeader(
-            goBack: () => Navigator.pop(context),
             backScreenName: 'Stores',
           ),
         ),
@@ -121,10 +146,13 @@ class _StoreScreenOption extends State<StoreScreenOption> {
                           child: SingleChildScrollView(
                             child: Stack(
                               children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 50.0),
+                                 Padding(
+                                  padding: const EdgeInsets.only(top: 50.0),
                                   child:
-                                      Expanded(child: StoreOrderTableWidget()),
+                                      Expanded(child: StoreOrderTableWidget(
+                                        data: filteredData!,
+
+                                      )),
                                 ),
                                 Expanded(
                                   child: Expanded(
@@ -141,10 +169,8 @@ class _StoreScreenOption extends State<StoreScreenOption> {
                                                   896.4,
                                               height: 40,
                                               child: TextFormField(
-                                                controller: controllerOfFilter,
-                                                onChanged: (value) {
-                                                  setState(() {});
-                                                },
+                                                controller: controllerOfSearch,
+                                                onChanged: _filterSearchResults,
                                                 decoration: InputDecoration(
                                                     filled: true,
                                                     fillColor: HexColor(white),

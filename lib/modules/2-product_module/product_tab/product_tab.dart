@@ -16,15 +16,29 @@ class ProductTab extends StatefulWidget {
 }
 
 class _ProductTabState extends State<ProductTab> {
+  List<Data>? filteredData;
+
   bool filterVisibility = false;
   late TextEditingController controllerOfSearch;
-  List<Data>? filterData;
   @override
   void initState() {
     super.initState();
-    filterData = demoData;
+    filteredData = demoData;
     controllerOfSearch = TextEditingController(); // Initialize here
   }
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = demoData;
+      } else {
+        filteredData = demoData
+            .where((element) =>
+            element.to.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -36,13 +50,14 @@ class _ProductTabState extends State<ProductTab> {
                   left: 30.0, right: 30, top: 30, bottom: 10),
               child: Stack(
                 children: [
-                  const Column(
+                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 60,
                       ),
-                      ProductTabTable(),
+                      ProductTabTable(data: filteredData!,
+                      ),
                     ],
                   ),
                   Row(
@@ -52,14 +67,7 @@ class _ProductTabState extends State<ProductTab> {
                         height: 48,
                         child: TextFormField(
                           controller: controllerOfSearch,
-                          onChanged: (value) {
-                            setState(() {
-                              demoData = filterData!
-                                  .where((element) => element.to
-                                  .contains(value.toUpperCase()))
-                                  .toList();
-                            });
-                          },
+                          onChanged: _filterSearchResults,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: HexColor(white),

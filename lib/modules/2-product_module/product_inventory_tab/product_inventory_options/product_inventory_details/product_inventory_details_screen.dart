@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
 
@@ -18,11 +17,8 @@ class _ProductInventoryDetailsScreenState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BackScreenHeader(
+        const BackScreenHeader(
           backScreenName: 'Products',
-          goBack: () {
-            Navigator.push(context, ProductsScreen.route());
-          },
         ),
         Expanded(
           child: SingleChildScrollView(

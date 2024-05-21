@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../../models/pharmacy_data_table.dart';
 
 class PharmacyTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen
   final List<PharmacyData> data; // List of PharmacyData
 
-  const PharmacyTableWidget({super.key, required this.openProfileScreen, required this.data});
+  const PharmacyTableWidget(
+      {super.key, required this.openProfileScreen, required this.data});
 
   @override
   State<PharmacyTableWidget> createState() => _PharmacyTableWidgetState();
 }
 
 class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
+
   late List<PharmacyData> filterData;
 
   int rowsPerPage = 10;
@@ -71,7 +74,7 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
                 fontWeight: FontWeight.w600,
               ),
               headingRowColor:
-              const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
                 const DataColumn(label: Text('Photo')),
@@ -86,7 +89,13 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
                       }
                     });
                   },
-                  label: const Text('Name'),
+                  label: const Row(
+                    children: [
+                      Text('Name'),
+                      SizedBox(width: 10),
+                      Icon(Icons.sort)
+                    ],
+                  ),
                 ),
                 const DataColumn(
                   label: Text('Contact Number'),
@@ -101,7 +110,7 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
               ],
               rows: List.generate(
                 rowsPerPage,
-                    (index) {
+                (index) {
                   int dataIndex = currentPage * rowsPerPage + index;
                   if (dataIndex >= filterData.length) {
                     return null;

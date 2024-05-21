@@ -7,21 +7,32 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 
 class SummarizeProductTable extends StatefulWidget {
-  const SummarizeProductTable({super.key});
+  final List<Data> data; // List of PharmacyData
+
+  const SummarizeProductTable({super.key, required this.data});
 
   @override
   State<SummarizeProductTable> createState() => _SummarizeProductTableState();
 }
 
 class _SummarizeProductTableState extends State<SummarizeProductTable> {
-  List<Data>? filterData;
+
+ late List<Data>? filterData;
   int currentPage = 0;
   int rowsPerPage = 10;
   bool sortAscending = true;
   @override
   void initState() {
     super.initState();
-    filterData = demoData;
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(SummarizeProductTable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
   }
   void _openProductInventoryScreen() {
     Navigator.push(
@@ -37,6 +48,12 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
 
   @override
   Widget build(BuildContext context) {
+    if (filterData!.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+
     int numberOfPages = (filterData!.length / rowsPerPage).ceil();
 
     var pages = List.generate(
@@ -64,13 +81,23 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
-            DataColumn(
-              label: Row(
+             DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData?.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData?.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+
+              label: const Row(
                 children: [
-                  const Text('Name'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Name'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),
@@ -86,13 +113,23 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
             const DataColumn(
               label: Text('Quantity'),
             ),
-            DataColumn(
-              label: Row(
+             DataColumn(
+               onSort: (columnIndex, ascending) {
+                 setState(() {
+                   sortAscending = !sortAscending;
+                   if (sortAscending) {
+                     filterData?.sort((a, b) => a.to.compareTo(b.to));
+                   } else {
+                     filterData?.sort((a, b) => b.to.compareTo(a.to));
+                   }
+                 });
+               },
+
+               label: const Row(
                 children: [
-                  const Text('Public Price'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Public Price'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),

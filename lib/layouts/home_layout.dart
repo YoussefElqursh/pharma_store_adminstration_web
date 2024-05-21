@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pharma_store_administration_web/modules/1-dashboard_screen/dashboard_screen.dart';
-import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_options/product_inventory_details/product_inventory_details_screen.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/products_module.dart';
 import 'package:pharma_store_administration_web/modules/3-pharmacy_module/pharmacy_screen.dart';
 import 'package:pharma_store_administration_web/modules/4-store_module/store_screen.dart';

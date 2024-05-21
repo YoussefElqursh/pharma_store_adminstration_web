@@ -6,16 +6,35 @@ import 'package:pharma_store_administration_web/modules/5-order_module/order_scr
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class StoreOrderTableWidget extends StatefulWidget {
-  const StoreOrderTableWidget({super.key});
+  final List<StoreOrderData> data; // List of PharmacyData
+
+  const StoreOrderTableWidget({super.key, required this.data});
 
   @override
   State<StoreOrderTableWidget> createState() => _StoreOrderTableWidget();
 }
 
 class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
-  int numberOfPages = 10;
-  int currentPage = 0;
 
+  late List<StoreOrderData> filterData;
+
+  int rowsPerPage = 10;
+  int currentPage = 0;
+  bool sortAscending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(StoreOrderTableWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
   void _openProfileScreen() {
     Navigator.push(
       context,
@@ -30,6 +49,13 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
+
     var pages = List.generate(
         numberOfPages,
         (index) => SingleChildScrollView(
@@ -56,44 +82,85 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                     const MaterialStatePropertyAll(Color(0xfffbfafb)),
                 columns: [
                   const DataColumn(label: Text('ID')),
-                  const DataColumn(label: Text('From')),
+                   DataColumn(
+                       onSort: (columnIndex, ascending) {
+                         setState(() {
+                           sortAscending = !sortAscending;
+                           if (sortAscending) {
+                             filterData.sort((a, b) => a.from.compareTo(b.from));
+                           } else {
+                             filterData.sort((a, b) => b.from.compareTo(a.from));
+                           }
+                         });
+                       },
+
+                      label: const Row(
+                        children: [
+                          Text('From'),
+                          SizedBox(width: 10),
+                          Icon(Icons.sort)
+                        ],
+                      )),
                   DataColumn(
-                    label: Row(
+                    onSort: (columnIndex, ascending) {
+                      setState(() {
+                        sortAscending = !sortAscending;
+                        if (sortAscending) {
+                          filterData.sort((a, b) => a.to.compareTo(b.to));
+                        } else {
+                          filterData.sort((a, b) => b.to.compareTo(a.to));
+                        }
+                      });
+                    },
+
+                    label: const Row(
                       children: [
-                        const Text('To'),
-                        const SizedBox(width: 10),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.sort_rounded)),
+                        Text('To'),
+                        SizedBox(width: 10),
+                        Icon(Icons.sort)
                       ],
                     ),
                   ),
                   DataColumn(
-                    label: Row(
+                    onSort: (columnIndex, ascending) {
+                      setState(() {
+                        sortAscending = !sortAscending;
+                        if (sortAscending) {
+                          filterData.sort((a, b) => a.date.compareTo(b.date));
+                        } else {
+                          filterData.sort((a, b) => b.date.compareTo(a.date));
+                        }
+                      });
+                    },
+
+                    label: const Row(
                       children: [
-                        const Text('Date'),
-                        const SizedBox(width: 10),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.sort_rounded)),
+                        Text('Date'),
+                        SizedBox(width: 10),
+                        Icon(Icons.sort)
                       ],
                     ),
                   ),
-                  DataColumn(
+                  const DataColumn(
                     label: Row(
                       children: [
-                        const Text('State'),
-                        const SizedBox(width: 10),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.sort_rounded)),
+                        Text('State'),
+
                       ],
                     ),
                   ),
                   const DataColumn(label: Text('')),
                 ],
-                rows: List.generate(storeOrderDemoData.length,
-                    (index) => _dataRow(storeOrderDemoData[index])),
+                rows: List.generate(
+                  rowsPerPage,
+                      (index) {
+                    int dataIndex = currentPage * rowsPerPage + index;
+                    if (dataIndex >= filterData.length) {
+                      return null;
+                    }
+                    return _dataRow(filterData[dataIndex]);
+                  },
+                ).whereType<DataRow>().toList(),
               ),
             ));
 
@@ -106,9 +173,9 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                const Text(
-                  'Showing 1 to 5 of 10 categories',
-                  style: TextStyle(
+                 Text(
+                  'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
+                  style: const TextStyle(
                     color: Color(0xFF6B788E),
                     fontSize: 10,
                     fontFamily: 'Poppins',

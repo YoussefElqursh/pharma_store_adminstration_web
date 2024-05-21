@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pharma_store_administration_web/models/order_data_table_model.dart';
 import 'package:pharma_store_administration_web/shared/components/functions.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/filter_option.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/screen_header.dart';
@@ -27,6 +28,28 @@ class _OrderScreenState extends State<OrderScreen> {
   late TextEditingController controllerOfFilter;
   TextEditingController dateTimeController = TextEditingController();
   TextEditingController dateTimeController2 = TextEditingController();
+  late TextEditingController controllerOfSearch;
+  List<OrderDataModel>? filteredData;
+
+  @override
+  void initState() {
+    super.initState();
+    filteredData = orderDemoData;
+    controllerOfSearch = TextEditingController();
+  }
+
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = orderDemoData;
+      } else {
+        filteredData = orderDemoData
+            .where((element) =>
+            element.dateAndTime.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +65,16 @@ class _OrderScreenState extends State<OrderScreen> {
                       left: 30.0, right: 30, top: 30, bottom: 10),
                   child: Stack(
                     children: [
-                      const Column(
+                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 60,
                           ),
-                          OrderTable(),
+                          OrderTable(
+                            data: filteredData!,
+
+                          ),
                         ],
                       ),
                       Row(
@@ -57,10 +83,12 @@ class _OrderScreenState extends State<OrderScreen> {
                             width: 570,
                             height: 48,
                             child: TextFormField(
+                              controller: controllerOfSearch,
+                              onChanged: _filterSearchResults,
                               decoration: InputDecoration(
                                   filled: true,
                                   fillColor: HexColor(white),
-                                  hintText: 'Search order by name',
+                                  hintText: 'Search order by ID or date',
                                   hintStyle: const TextStyle(
                                     color: Color(0xffb2bac6),
                                     fontFamily: 'Poppins',

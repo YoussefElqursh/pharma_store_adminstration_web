@@ -58,7 +58,7 @@ class _NotificationScreen extends State<NotificationScreen> {
       } else {
         filteredData = notificationDemoData
             .where((element) =>
-            element.name.toLowerCase().contains(query.toLowerCase()))
+            element.address.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });

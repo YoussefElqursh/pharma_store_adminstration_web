@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
-import 'package:pharma_store_administration_web/models/data_table.dart';
+import 'package:pharma_store_administration_web/models/category_data_table.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product_categories_module/product_categories_option/edit_categories.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product_categories_module/product_categories_option/view_categories.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class CategoryTable extends StatefulWidget {
-  const CategoryTable({super.key});
+  final List<CategoryData> data; // List of PharmacyData
+
+  const CategoryTable({super.key, required this.data});
 
   @override
   State<CategoryTable> createState() => _CategoryTableState();
 }
 
 class _CategoryTableState extends State<CategoryTable> {
-  int numberOfPages = 10;
+  late List<CategoryData> filterData;
+
+  int rowsPerPage = 10;
   int currentPage = 0;
+  bool sortAscending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    filterData = widget.data;
+  }
+
+  @override
+  void didUpdateWidget(CategoryTable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.data != oldWidget.data) {
+      filterData = widget.data;
+    }
+  }
 
   void _openViewCategoriesScreen() {
     showDialog(
@@ -33,6 +52,13 @@ class _CategoryTableState extends State<CategoryTable> {
 
   @override
   Widget build(BuildContext context) {
+    if (filterData.isEmpty) {
+      return const Center(
+        child: Text('No data available'),
+      );
+    }
+
+    int numberOfPages = (filterData.length / rowsPerPage).ceil();
     var pages = List.generate(
       numberOfPages,
       (index) => SingleChildScrollView(
@@ -60,12 +86,22 @@ class _CategoryTableState extends State<CategoryTable> {
               label: Text('ID'),
             ),
             DataColumn(
-              label: Row(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData.sort((a, b) => a.name.compareTo(b.name));
+                  } else {
+                    filterData.sort((a, b) => b.name.compareTo(a.name));
+                  }
+                });
+              },
+
+              label: const Row(
                 children: [
-                  const Text('Name'),
-                  const SizedBox(width: 10),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.sort_rounded)),
+                  Text('Name'),
+                  SizedBox(width: 10),
+                  Icon(Icons.sort)
                 ],
               ),
             ),
@@ -77,7 +113,15 @@ class _CategoryTableState extends State<CategoryTable> {
             ),
           ],
           rows: List.generate(
-              demoData.length, (index) => _dataRow(demoData[index])),
+            rowsPerPage,
+                (index) {
+              int dataIndex = currentPage * rowsPerPage + index;
+              if (dataIndex >= filterData.length) {
+                return null;
+              }
+              return _dataRow(filterData[dataIndex]);
+            },
+          ).whereType<DataRow>().toList(),
         ),
       ),
     );
@@ -90,9 +134,9 @@ class _CategoryTableState extends State<CategoryTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-              const Text(
-                'Showing 1 to 5 of 10 categories',
-                style: TextStyle(
+               Text(
+                'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
+                style: const TextStyle(
                   color: Color(0xFF6B788E),
                   fontSize: 10,
                   fontFamily: 'Poppins',
@@ -125,7 +169,7 @@ class _CategoryTableState extends State<CategoryTable> {
     );
   }
 
-  DataRow _dataRow(Data data) {
+  DataRow _dataRow(CategoryData data) {
     return DataRow(
       cells: [
         DataCell(
@@ -147,7 +191,7 @@ class _CategoryTableState extends State<CategoryTable> {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.125,
             child: Text(
-              data.from,
+              data.name,
               style: const TextStyle(
                 color: Color(0xFF23262A),
                 fontSize: 10,
@@ -162,7 +206,7 @@ class _CategoryTableState extends State<CategoryTable> {
           SizedBox(
             width: MediaQuery.of(context).size.width * 0.45,
             child: Text(
-              data.to,
+              data.description,
               style: const TextStyle(
                 color: Color(0xFF23262A),
                 fontSize: 10,

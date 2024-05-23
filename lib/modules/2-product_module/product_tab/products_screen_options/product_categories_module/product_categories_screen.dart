@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pharma_store_administration_web/models/category_data_table.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_tab/products_screen_options/product_categories_module/product_categories_option/add_categories.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/back_screen_header.dart';
 import 'package:pharma_store_administration_web/shared/components/widget/table_widget/product_table/product_tab/category_table.dart';
@@ -22,6 +23,28 @@ class ProductCategoryScreen extends StatefulWidget {
 }
 
 class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
+  late TextEditingController controllerOfSearch;
+  List<CategoryData>? filteredData;
+  @override
+  void initState() {
+    super.initState();
+    filteredData = categoryData;
+    controllerOfSearch = TextEditingController();
+  }
+
+  void _filterSearchResults(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredData = categoryData;
+      } else {
+        filteredData = categoryData
+            .where((element) =>
+            element.name.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -100,6 +123,8 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                     width: 645,
                     height: 42,
                     child: TextFormField(
+                      controller: controllerOfSearch,
+                      onChanged: _filterSearchResults,
                       decoration: InputDecoration(
                           filled: true,
                           fillColor: HexColor(white),
@@ -133,7 +158,10 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const CategoryTable(),
+                   CategoryTable(
+                    data: filteredData!,
+
+                  ),
                 ],
               ),
             ),

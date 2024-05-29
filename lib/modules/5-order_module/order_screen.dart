@@ -45,7 +45,7 @@ class _OrderScreenState extends State<OrderScreen> {
       } else {
         filteredData = orderDemoData
             .where((element) =>
-            element.dateAndTime.toLowerCase().contains(query.toLowerCase()))
+                element.dateAndTime.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -65,7 +65,7 @@ class _OrderScreenState extends State<OrderScreen> {
                       left: 30.0, right: 30, top: 30, bottom: 10),
                   child: Stack(
                     children: [
-                       Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
@@ -73,7 +73,6 @@ class _OrderScreenState extends State<OrderScreen> {
                           ),
                           OrderTable(
                             data: filteredData!,
-
                           ),
                         ],
                       ),
@@ -129,7 +128,8 @@ class _OrderScreenState extends State<OrderScreen> {
                             elevation: 0,
                             hoverColor: Colors.transparent,
                             shape: OutlineInputBorder(
-                              borderSide: BorderSide(color: HexColor('#edf0fe')),
+                              borderSide:
+                                  BorderSide(color: HexColor('#edf0fe')),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Center(
@@ -138,7 +138,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                 child: Row(
                                   children: [
                                     setPhoto(
-                                        kind: 1, path: 'assets/icons/filter.svg'),
+                                        kind: 1,
+                                        path: 'assets/icons/filter.svg'),
                                     const SizedBox(width: 10),
                                     Text(
                                       'Filter',

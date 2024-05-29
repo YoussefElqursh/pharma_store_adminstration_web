@@ -1,4 +1,3 @@
-
 class PharmacyOrderDataModel {
   PharmacyOrderDataModel(this.id, this.from, this.to, this.date, this.status);
 
@@ -8,6 +7,7 @@ class PharmacyOrderDataModel {
   final String date;
   final String status;
 }
+
 List<PharmacyOrderDataModel> pharmacyOrderDemoData = [
   PharmacyOrderDataModel(1, "sina", 'alex', '22/7', 'On Way'),
   PharmacyOrderDataModel(2, "banha", 'amria', '25/6', 'Delivered'),

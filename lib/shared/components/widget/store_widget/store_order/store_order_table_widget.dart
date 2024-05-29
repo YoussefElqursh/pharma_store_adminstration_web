@@ -15,7 +15,6 @@ class StoreOrderTableWidget extends StatefulWidget {
 }
 
 class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
-
   late List<StoreOrderData> filterData;
 
   int rowsPerPage = 10;
@@ -35,6 +34,7 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
       filterData = widget.data;
     }
   }
+
   void _openProfileScreen() {
     Navigator.push(
       context,
@@ -79,21 +79,20 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                   fontWeight: FontWeight.w600,
                 ),
                 headingRowColor:
-                    const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                    const WidgetStatePropertyAll(Color(0xfffbfafb)),
                 columns: [
                   const DataColumn(label: Text('ID')),
-                   DataColumn(
-                       onSort: (columnIndex, ascending) {
-                         setState(() {
-                           sortAscending = !sortAscending;
-                           if (sortAscending) {
-                             filterData.sort((a, b) => a.from.compareTo(b.from));
-                           } else {
-                             filterData.sort((a, b) => b.from.compareTo(a.from));
-                           }
-                         });
-                       },
-
+                  DataColumn(
+                      onSort: (columnIndex, ascending) {
+                        setState(() {
+                          sortAscending = !sortAscending;
+                          if (sortAscending) {
+                            filterData.sort((a, b) => a.from.compareTo(b.from));
+                          } else {
+                            filterData.sort((a, b) => b.from.compareTo(a.from));
+                          }
+                        });
+                      },
                       label: const Row(
                         children: [
                           Text('From'),
@@ -112,7 +111,6 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                         }
                       });
                     },
-
                     label: const Row(
                       children: [
                         Text('To'),
@@ -132,7 +130,6 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                         }
                       });
                     },
-
                     label: const Row(
                       children: [
                         Text('Date'),
@@ -145,7 +142,6 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                     label: Row(
                       children: [
                         Text('State'),
-
                       ],
                     ),
                   ),
@@ -153,7 +149,7 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
                 ],
                 rows: List.generate(
                   rowsPerPage,
-                      (index) {
+                  (index) {
                     int dataIndex = currentPage * rowsPerPage + index;
                     if (dataIndex >= filterData.length) {
                       return null;
@@ -173,7 +169,7 @@ class _StoreOrderTableWidget extends State<StoreOrderTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                 Text(
+                Text(
                   'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                   style: const TextStyle(
                     color: Color(0xFF6B788E),

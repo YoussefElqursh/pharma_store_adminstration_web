@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:number_paginator/number_paginator.dart';
 import 'package:pharma_store_administration_web/modules/5-order_module/order_screen_options/order_details.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../../../models/pharmacy_order_data_table.dart';
 
 class PharmacyOrderTableWidget extends StatefulWidget {
@@ -19,6 +20,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
   int currentPage = 0;
   bool sortAscending = true;
   late List<PharmacyOrderDataModel> filterData;
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +34,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
       filterData = widget.data;
     }
   }
+
   void _openProfileScreen() {
     Navigator.push(
       context,
@@ -56,7 +59,6 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
     var pages = List.generate(
         numberOfPages,
         (index) => DataTable(
-
               columnSpacing: MediaQuery.of(context).size.width / 10,
               dataRowMaxHeight: 48,
               decoration: BoxDecoration(
@@ -75,7 +77,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                 fontWeight: FontWeight.w600,
               ),
               headingRowColor:
-                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                  const WidgetStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
                 const DataColumn(label: Text('From')),
@@ -90,7 +92,6 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                       }
                     });
                   },
-
                   label: const Row(
                     children: [
                       Text('To'),
@@ -110,7 +111,6 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                       }
                     });
                   },
-
                   label: const Row(
                     children: [
                       Text('Date'),
@@ -119,28 +119,25 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
                     ],
                   ),
                 ),
-                 const DataColumn(
-
-
+                const DataColumn(
                   label: Row(
                     children: [
                       Text('State'),
-
                     ],
                   ),
                 ),
                 const DataColumn(label: Text('')),
               ],
-          rows: List.generate(
-            rowsPerPage,
+              rows: List.generate(
+                rowsPerPage,
                 (index) {
-              int dataIndex = currentPage * rowsPerPage + index;
-              if (dataIndex >= filterData.length) {
-                return null;
-              }
-              return _dataRow(filterData[dataIndex]);
-            },
-          ).whereType<DataRow>().toList(),
+                  int dataIndex = currentPage * rowsPerPage + index;
+                  if (dataIndex >= filterData.length) {
+                    return null;
+                  }
+                  return _dataRow(filterData[dataIndex]);
+                },
+              ).whereType<DataRow>().toList(),
             ));
 
     return Expanded(
@@ -152,7 +149,7 @@ class _PharmacyOrderTableWidget extends State<PharmacyOrderTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                 Text(
+                Text(
                   'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                   style: const TextStyle(
                     color: Color(0xFF6B788E),

@@ -25,6 +25,7 @@ class ProductCategoryScreen extends StatefulWidget {
 class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
   late TextEditingController controllerOfSearch;
   List<CategoryData>? filteredData;
+
   @override
   void initState() {
     super.initState();
@@ -39,7 +40,7 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
       } else {
         filteredData = categoryData
             .where((element) =>
-            element.name.toLowerCase().contains(query.toLowerCase()))
+                element.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -158,9 +159,8 @@ class _ProductCategoryScreenState extends State<ProductCategoryScreen> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                   CategoryTable(
+                  CategoryTable(
                     data: filteredData!,
-
                   ),
                 ],
               ),

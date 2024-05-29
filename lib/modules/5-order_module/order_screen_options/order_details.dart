@@ -336,7 +336,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w600,
                             ),
-                            headingRowColor: const MaterialStatePropertyAll(
+                            headingRowColor: const WidgetStatePropertyAll(
                                 Color(0xffffffff)),
                             columns: const [
                               DataColumn(label: Text('Product')),

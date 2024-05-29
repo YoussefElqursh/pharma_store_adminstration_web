@@ -5,6 +5,7 @@ import 'package:pharma_store_administration_web/shared/components/widget/back_sc
 
 class ProductDetailsScreen extends StatefulWidget {
   static const String routeName = 'ProductDetailsScreenRoute';
+
   const ProductDetailsScreen({super.key});
 
   static Route route() {
@@ -13,6 +14,7 @@ class ProductDetailsScreen extends StatefulWidget {
       builder: (context) => const ProductDetailsScreen(),
     );
   }
+
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
 }
@@ -79,12 +81,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 Navigator.push(
                                   context,
                                   PageRouteBuilder(
-                                    pageBuilder:
-                                        (context, animation, secondaryAnimation) =>
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
                                         FadeTransition(
-                                          opacity: animation,
-                                          child: const EditProductScreen(),
-                                        ),
+                                      opacity: animation,
+                                      child: const EditProductScreen(),
+                                    ),
                                   ),
                                 );
                               },

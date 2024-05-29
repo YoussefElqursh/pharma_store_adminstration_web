@@ -44,7 +44,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
   bool isClicked = false;
 
-
   @override
   void initState() {
     data = [
@@ -81,7 +80,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     DateTime now = DateTime.now();
     int currentYear = now.year;
 
@@ -90,8 +88,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
       years.add(year);
     }
 
-   final List<String> months = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"];
+    final List<String> months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
 
     return Center(
       child: Column(
@@ -188,27 +198,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               value: currentYear.toString(),
                               isExpanded: true,
                               decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 10),
                                 border: InputBorder.none,
                               ),
-                              items: years.map((item) => DropdownMenuItem<String>(
-                                value: item.toString(),
-                                child: Text(
-                                  item.toString(),
-                                  style: const TextStyle(
-                                    color: Color(0xFF4A71FF),
-                                    fontSize: 12,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),)
+                              items: years
+                                  .map(
+                                    (item) => DropdownMenuItem<String>(
+                                      value: item.toString(),
+                                      child: Text(
+                                        item.toString(),
+                                        style: const TextStyle(
+                                          color: Color(0xFF4A71FF),
+                                          fontSize: 12,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
                                   .toList(),
                               onChanged: (value) {
                                 //Do something when selected item is changed.
                               },
                               onSaved: (value) {
-                               // selectedValue = value.toString();
+                                // selectedValue = value.toString();
                               },
                               buttonStyleData: const ButtonStyleData(
                                 padding: EdgeInsets.only(right: 8),
@@ -294,24 +308,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                           child: Center(
                             child: DropdownButtonFormField2<String>(
-                              value:months[now.month - 1 ],
+                              value: months[now.month - 1],
                               isExpanded: true,
                               decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 10),
                                 border: InputBorder.none,
                               ),
-                              items: months.map((item) => DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: const TextStyle(
-                                    color: Color(0xFF4A71FF),
-                                    fontSize: 12,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),)
+                              items: months
+                                  .map(
+                                    (item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: const TextStyle(
+                                          color: Color(0xFF4A71FF),
+                                          fontSize: 12,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                  )
                                   .toList(),
                               onChanged: (value) {
                                 //Do something when selected item is changed.
@@ -329,9 +347,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 ),
                                 iconSize: 24,
                               ),
-                              dropdownStyleData: const DropdownStyleData(
-                                maxHeight: 225
-                              ),
+                              dropdownStyleData:
+                                  const DropdownStyleData(maxHeight: 225),
                               menuItemStyleData: const MenuItemStyleData(
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                               ),
@@ -341,201 +358,205 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ],
                   ),
-                  Wrap(
-                    children:[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0 , bottom: 10),
-                        child: Container(
-                          padding: const EdgeInsets.only(
-                              left: 35, right: 35, top: 35),
-                          height: 466,
-                          width: 350,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              color: const Color(0xffdde1eb),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(14),
+                  Wrap(children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+                      child: Container(
+                        padding:
+                            const EdgeInsets.only(left: 35, right: 35, top: 35),
+                        height: 466,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: const Color(0xffdde1eb),
+                            width: 1,
                           ),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'Top Pharmacies',
-                                    style: TextStyle(
-                                      color: HexColor(black),
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Top Pharmacies',
+                                  style: TextStyle(
+                                    color: HexColor(black),
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  const Spacer(),
-                                  Container(
-                                    height: 32,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x0c4a72ff),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'View all',
-                                        style: TextStyle(
-                                          color: HexColor(primary),
-                                          fontSize: 12,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                ),
+                                const Spacer(),
+                                Container(
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x0c4a72ff),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: MaterialButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'View all',
+                                      style: TextStyle(
+                                        color: HexColor(primary),
+                                        fontSize: 12,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                              const SizedBox(height: 45),
-                              SizedBox(
-                                height: 335,
-                                child: ListView.builder(
-                                  itemBuilder: (context, index) =>
-                                      _pharmaciesModel(pharmaciesList[index]),
-                                  itemCount: pharmaciesList.length,
                                 ),
+                              ],
+                            ),
+                            const SizedBox(height: 45),
+                            SizedBox(
+                              height: 335,
+                              child: ListView.builder(
+                                itemBuilder: (context, index) =>
+                                    _pharmaciesModel(pharmaciesList[index]),
+                                itemCount: pharmaciesList.length,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 10, width: 30,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0, bottom: 10),
-                        child: Container(
-                          padding: const EdgeInsets.only(
-                              left: 35, right: 35, top: 35),
-                          height: 466,
-                          width: 350,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              color: const Color(0xffdde1eb),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(14),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                      width: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+                      child: Container(
+                        padding:
+                            const EdgeInsets.only(left: 35, right: 35, top: 35),
+                        height: 466,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: const Color(0xffdde1eb),
+                            width: 1,
                           ),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'Top Stores',
-                                    style: TextStyle(
-                                      color: HexColor(black),
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Top Stores',
+                                  style: TextStyle(
+                                    color: HexColor(black),
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  const Spacer(),
-                                  Container(
-                                    height: 32,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x0c4a72ff),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'View all',
-                                        style: TextStyle(
-                                          color: HexColor(primary),
-                                          fontSize: 12,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                ),
+                                const Spacer(),
+                                Container(
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x0c4a72ff),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: MaterialButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'View all',
+                                      style: TextStyle(
+                                        color: HexColor(primary),
+                                        fontSize: 12,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                              const SizedBox(height: 45),
-                              SizedBox(
-                                height: 335,
-                                child: ListView.builder(
-                                  itemBuilder: (context, index) =>
-                                      _storesModel(storesList[index]),
-                                  itemCount: storesList.length,
                                 ),
+                              ],
+                            ),
+                            const SizedBox(height: 45),
+                            SizedBox(
+                              height: 335,
+                              child: ListView.builder(
+                                itemBuilder: (context, index) =>
+                                    _storesModel(storesList[index]),
+                                itemCount: storesList.length,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 10, width: 30,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0, bottom: 10),
-                        child: Container(
-                          padding: const EdgeInsets.only(
-                              left: 35, right: 35, top: 35),
-                          height: 466,
-                          width: 350,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              color: const Color(0xffdde1eb),
-                              width: 1,
-                            ),
-                            borderRadius: BorderRadius.circular(14),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                      width: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, bottom: 10),
+                      child: Container(
+                        padding:
+                            const EdgeInsets.only(left: 35, right: 35, top: 35),
+                        height: 466,
+                        width: 350,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: const Color(0xffdde1eb),
+                            width: 1,
                           ),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    'Top Products',
-                                    style: TextStyle(
-                                      color: HexColor(black),
-                                      fontSize: 20,
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  'Top Products',
+                                  style: TextStyle(
+                                    color: HexColor(black),
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
-                                  const Spacer(),
-                                  Container(
-                                    height: 32,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x0c4a72ff),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: MaterialButton(
-                                      onPressed: () {},
-                                      child: Text(
-                                        'View all',
-                                        style: TextStyle(
-                                          color: HexColor(primary),
-                                          fontSize: 12,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                ),
+                                const Spacer(),
+                                Container(
+                                  height: 32,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x0c4a72ff),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: MaterialButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'View all',
+                                      style: TextStyle(
+                                        color: HexColor(primary),
+                                        fontSize: 12,
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                              const SizedBox(height: 45),
-                              SizedBox(
-                                height: 335,
-                                child: ListView.builder(
-                                  itemBuilder: (context, index) =>
-                                      _productModel(productsList[index]),
-                                  itemCount: productsList.length,
                                 ),
+                              ],
+                            ),
+                            const SizedBox(height: 45),
+                            SizedBox(
+                              height: 335,
+                              child: ListView.builder(
+                                itemBuilder: (context, index) =>
+                                    _productModel(productsList[index]),
+                                itemCount: productsList.length,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                    ]
-                  ),
+                    ),
+                  ]),
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: Container(

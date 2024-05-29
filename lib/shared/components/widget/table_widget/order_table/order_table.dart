@@ -8,7 +8,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 class OrderTable extends StatefulWidget {
   final List<OrderDataModel> data; // List of PharmacyData
 
-  const OrderTable({super.key,  required this.data});
+  const OrderTable({super.key, required this.data});
 
   @override
   State<OrderTable> createState() => _OrderTableState();
@@ -77,9 +77,9 @@ class _OrderTableState extends State<OrderTable> {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
           ),
-          headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
           columns: [
-             DataColumn(
+            DataColumn(
                 onSort: (columnIndex, ascending) {
                   setState(() {
                     sortAscending = !sortAscending;
@@ -90,48 +90,42 @@ class _OrderTableState extends State<OrderTable> {
                     }
                   });
                 },
-
                 label: const Row(
-                  children: [
-                    Text('ID'),
-                    SizedBox(width: 10),
-                    Icon(Icons.sort)
-                  ],
-                )
-            ),
-             DataColumn(
+                  children: [Text('ID'), SizedBox(width: 10), Icon(Icons.sort)],
+                )),
+            DataColumn(
                 onSort: (columnIndex, ascending) {
                   setState(() {
                     sortAscending = !sortAscending;
                     if (sortAscending) {
-                      filterData.sort((a, b) => a.dateAndTime.compareTo(b.dateAndTime));
+                      filterData.sort(
+                          (a, b) => a.dateAndTime.compareTo(b.dateAndTime));
                     } else {
-                      filterData.sort((a, b) => b.dateAndTime.compareTo(a.dateAndTime));
+                      filterData.sort(
+                          (a, b) => b.dateAndTime.compareTo(a.dateAndTime));
                     }
                   });
                 },
-
                 label: const Row(
-
-              children: [
-                Text('Data & Time'),
-                SizedBox(width: 10),
-                Icon(Icons.sort)
-              ],
-            )
-            ),
+                  children: [
+                    Text('Data & Time'),
+                    SizedBox(width: 10),
+                    Icon(Icons.sort)
+                  ],
+                )),
             DataColumn(
               onSort: (columnIndex, ascending) {
                 setState(() {
                   sortAscending = !sortAscending;
                   if (sortAscending) {
-                    filterData.sort((a, b) => a.itemsQuantity.compareTo(b.itemsQuantity));
+                    filterData.sort(
+                        (a, b) => a.itemsQuantity.compareTo(b.itemsQuantity));
                   } else {
-                    filterData.sort((a, b) => b.itemsQuantity.compareTo(a.itemsQuantity));
+                    filterData.sort(
+                        (a, b) => b.itemsQuantity.compareTo(a.itemsQuantity));
                   }
                 });
               },
-
               label: const Row(
                 children: [
                   Text('items Quantity'),
@@ -140,18 +134,19 @@ class _OrderTableState extends State<OrderTable> {
                 ],
               ),
             ),
-              DataColumn(
-               onSort: (columnIndex, ascending) {
-                 setState(() {
-                   sortAscending = !sortAscending;
-                   if (sortAscending) {
-                     filterData.sort((a, b) => a.totalPrice.compareTo(b.totalPrice));
-                   } else {
-                     filterData.sort((a, b) => b.totalPrice.compareTo(a.totalPrice));
-                   }
-                 });
-               },
-
+            DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData
+                        .sort((a, b) => a.totalPrice.compareTo(b.totalPrice));
+                  } else {
+                    filterData
+                        .sort((a, b) => b.totalPrice.compareTo(a.totalPrice));
+                  }
+                });
+              },
               label: const Row(
                 children: [
                   Text('Total Price'),
@@ -160,7 +155,7 @@ class _OrderTableState extends State<OrderTable> {
                 ],
               ),
             ),
-             DataColumn(
+            DataColumn(
               onSort: (columnIndex, ascending) {
                 setState(() {
                   sortAscending = !sortAscending;
@@ -171,8 +166,7 @@ class _OrderTableState extends State<OrderTable> {
                   }
                 });
               },
-
-              label:  const Row(
+              label: const Row(
                 children: [
                   Text('Status'),
                   SizedBox(width: 10),
@@ -186,7 +180,7 @@ class _OrderTableState extends State<OrderTable> {
           ],
           rows: List.generate(
             rowsPerPage,
-                (index) {
+            (index) {
               int dataIndex = currentPage * rowsPerPage + index;
               if (dataIndex >= filterData.length) {
                 return null;
@@ -206,7 +200,7 @@ class _OrderTableState extends State<OrderTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-               Text(
+              Text(
                 'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                 style: const TextStyle(
                   color: Color(0xFF6B788E),

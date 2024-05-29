@@ -17,7 +17,6 @@ class PharmacyTableWidget extends StatefulWidget {
 }
 
 class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
-
   late List<PharmacyData> filterData;
 
   int rowsPerPage = 10;
@@ -74,7 +73,7 @@ class _PharmacyTableWidgetState extends State<PharmacyTableWidget> {
                 fontWeight: FontWeight.w600,
               ),
               headingRowColor:
-                  const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                  const WidgetStatePropertyAll(Color(0xfffbfafb)),
               columns: [
                 const DataColumn(label: Text('ID')),
                 const DataColumn(label: Text('Photo')),

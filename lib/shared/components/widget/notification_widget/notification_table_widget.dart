@@ -9,7 +9,8 @@ class NotificationTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen
   final List<NotificationData> data; // List of PharmacyData
 
-  const NotificationTableWidget({super.key, required this.openProfileScreen, required this.data});
+  const NotificationTableWidget(
+      {super.key, required this.openProfileScreen, required this.data});
 
   @override
   State<NotificationTableWidget> createState() => _NotificationTableWidget();
@@ -59,7 +60,7 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
     int numberOfPages = (filterData.length / rowsPerPage).ceil();
     var pages = List.generate(
       numberOfPages,
-          (pageIndex) => DataTable(
+      (pageIndex) => DataTable(
         showCheckboxColumn: true,
         dataRowMaxHeight: 74,
         decoration: BoxDecoration(
@@ -80,7 +81,7 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w600,
         ),
-        headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+        headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
         columns: const [
           DataColumn(label: Text('Select all')),
           DataColumn(label: Text('')),
@@ -90,7 +91,7 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
         ],
         rows: List.generate(
           rowsPerPage,
-              (rowIndex) {
+          (rowIndex) {
             int dataIndex = currentPage * rowsPerPage + rowIndex;
             if (dataIndex >= filterData.length) {
               return null;
@@ -188,7 +189,9 @@ class _NotificationTableWidget extends State<NotificationTableWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(data.name, style: const TextStyle(overflow: TextOverflow.ellipsis)),
+                    Text(data.name,
+                        style:
+                            const TextStyle(overflow: TextOverflow.ellipsis)),
                     Text(data.address)
                   ],
                 ),

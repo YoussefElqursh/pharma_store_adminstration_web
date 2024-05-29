@@ -38,7 +38,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: TabBar(
-                    overlayColor: MaterialStatePropertyAll(Colors.transparent),
+                    overlayColor: WidgetStatePropertyAll(Colors.transparent),
                     isScrollable: true,
                     tabAlignment: TabAlignment.start,
                     tabs: [

@@ -2,6 +2,7 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
+
 import '../../../models/pharmacy_card_model.dart';
 import '../../../models/pharmacy_order_data_table.dart';
 import '../../../shared/components/constants.dart';
@@ -27,7 +28,6 @@ class PharmacyScreenOption extends StatefulWidget {
   State<PharmacyScreenOption> createState() => _PharmacyScreenOptionState();
 }
 
-
 class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
   bool activatedIsChecked = false;
   bool deactivatedIsChecked = false;
@@ -36,15 +36,16 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
   bool sort = true;
   TextEditingController dateTimeController = TextEditingController();
   TextEditingController dateTimeController2 = TextEditingController();
-   late TextEditingController controllerOfSearch;
+  late TextEditingController controllerOfSearch;
   List<PharmacyOrderDataModel>? filteredData;
+
   @override
   void initState() {
     super.initState();
     filteredData = pharmacyOrderDemoData;
     controllerOfSearch = TextEditingController(); // Initialize here
-
   }
+
   void _filterSearchResults(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -52,12 +53,11 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
       } else {
         filteredData = pharmacyOrderDemoData
             .where((element) =>
-            element.from.toLowerCase().contains(query.toLowerCase()))
+                element.from.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -107,12 +107,11 @@ class _PharmacyScreenOptionState extends State<PharmacyScreenOption> {
                           child: SingleChildScrollView(
                             child: Stack(
                               children: [
-                                 Expanded(
+                                Expanded(
                                     child: Padding(
                                   padding: const EdgeInsets.only(top: 50.0),
                                   child: PharmacyOrderTableWidget(
                                     data: filteredData!,
-
                                   ),
                                 )),
                                 Expanded(

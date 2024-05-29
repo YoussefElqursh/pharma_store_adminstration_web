@@ -25,6 +25,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
     filteredData = demoData;
     controllerOfSearch = TextEditingController(); // Initialize here
   }
+
   void _filterSearchResults(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -32,7 +33,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
       } else {
         filteredData = demoData
             .where((element) =>
-            element.to.toLowerCase().contains(query.toLowerCase()))
+                element.to.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -54,7 +55,7 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                       left: 30.0, right: 30, top: 30, bottom: 10),
                   child: Stack(
                     children: [
-                       Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
@@ -163,11 +164,14 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
-                                              left: 20.0, top: 20.0, right: 20.0),
+                                              left: 20.0,
+                                              top: 20.0,
+                                              right: 20.0),
                                           child: Text(
                                             'Filter Options',
                                             style: TextStyle(
@@ -188,10 +192,14 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                       ),
                                     ),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         const Padding(
-                                          padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+                                          padding: EdgeInsets.only(
+                                              top: 20.0,
+                                              left: 20.0,
+                                              right: 20.0),
                                           child: Text(
                                             'Offer:',
                                             style: TextStyle(
@@ -208,111 +216,128 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                           child: Row(
                                             children: [
                                               SizedBox(
-                                                width: MediaQuery.of(context).size.width * 0.08,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.08,
                                                 height: 40,
                                                 child: TextField(
-                                                  style: const TextStyle(fontSize: 12),
+                                                  style: const TextStyle(
+                                                      fontSize: 12),
                                                   decoration: InputDecoration(
                                                       filled: true,
-                                                      fillColor: HexColor(white),
+                                                      fillColor:
+                                                          HexColor(white),
                                                       hintText: '10 %',
-                                                      hintStyle: const TextStyle(
-                                                        color: Color(0xFF23262A),
+                                                      hintStyle:
+                                                          const TextStyle(
+                                                        color:
+                                                            Color(0xFF23262A),
                                                         fontSize: 12,
                                                         fontFamily: 'Poppins',
-                                                        fontWeight: FontWeight.w500,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
-                                                      border: const OutlineInputBorder(
+                                                      border:
+                                                          const OutlineInputBorder(
                                                         borderRadius:
-                                                        BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
-                                                          Radius.circular(12),
+                                                              Radius.circular(
+                                                                  12),
                                                           topLeft:
-                                                          Radius.circular(12),
+                                                              Radius.circular(
+                                                                  12),
                                                         ),
                                                       ),
                                                       enabledBorder:
-                                                      OutlineInputBorder(
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                            color:
-                                                            HexColor(bWhite90)),
+                                                            color: HexColor(
+                                                                bWhite90)),
                                                       ),
                                                       focusedBorder:
-                                                      OutlineInputBorder(
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                            color:
-                                                            HexColor(primary)),
+                                                            color: HexColor(
+                                                                primary)),
                                                       ),
                                                       contentPadding:
-                                                      const EdgeInsets.only(
-                                                          top: 10,
-                                                          bottom: 10,
-                                                          left: 10,
-                                                          right: 30)),
+                                                          const EdgeInsets.only(
+                                                              top: 10,
+                                                              bottom: 10,
+                                                              left: 10,
+                                                              right: 30)),
                                                 ),
                                               ),
                                               const SizedBox(
                                                   width: 15,
                                                   child: Padding(
-                                                    padding: EdgeInsets.symmetric(
-                                                        horizontal: 2.0),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 2.0),
                                                     child: Divider(
                                                       height: 1.5,
                                                     ),
                                                   )),
                                               SizedBox(
                                                 width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
+                                                        .size
+                                                        .width *
                                                     0.08,
                                                 height: 40,
                                                 child: TextField(
-                                                  style:
-                                                  const TextStyle(fontSize: 12),
+                                                  style: const TextStyle(
+                                                      fontSize: 12),
                                                   decoration: InputDecoration(
                                                       filled: true,
-                                                      fillColor: HexColor(white),
+                                                      fillColor:
+                                                          HexColor(white),
                                                       hintText: 'To',
                                                       hintStyle: TextStyle(
                                                         fontSize: 11.5,
-                                                        color: HexColor("#42526d"),
+                                                        color:
+                                                            HexColor("#42526d"),
                                                         fontFamily: 'Poppins',
                                                       ),
                                                       border:
-                                                      const OutlineInputBorder(
+                                                          const OutlineInputBorder(
                                                         borderRadius:
-                                                        BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
-                                                          Radius.circular(12),
+                                                              Radius.circular(
+                                                                  12),
                                                           topLeft:
-                                                          Radius.circular(12),
+                                                              Radius.circular(
+                                                                  12),
                                                         ),
                                                       ),
                                                       enabledBorder:
-                                                      OutlineInputBorder(
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                            color:
-                                                            HexColor(bWhite90)),
+                                                            color: HexColor(
+                                                                bWhite90)),
                                                       ),
                                                       focusedBorder:
-                                                      OutlineInputBorder(
+                                                          OutlineInputBorder(
                                                         borderSide: BorderSide(
-                                                            color:
-                                                            HexColor(primary)),
+                                                            color: HexColor(
+                                                                primary)),
                                                       ),
                                                       contentPadding:
-                                                      const EdgeInsets.only(
-                                                          top: 10,
-                                                          bottom: 10,
-                                                          left: 10,
-                                                          right: 30)),
+                                                          const EdgeInsets.only(
+                                                              top: 10,
+                                                              bottom: 10,
+                                                              left: 10,
+                                                              right: 30)),
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(right: 20.0),
+                                          padding: const EdgeInsets.only(
+                                              right: 20.0),
                                           child: Row(
                                             children: [
                                               const Spacer(),
@@ -326,23 +351,25 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                   color: HexColor("#f5f6fa"),
                                                   onPressed: () {
                                                     setState(
-                                                          () {
-                                                      },
+                                                      () {},
                                                     );
                                                   },
                                                   child: Text(
                                                     "Reset",
                                                     style: TextStyle(
                                                         fontFamily:
-                                                        "Poppins-SemiBold",
+                                                            "Poppins-SemiBold",
                                                         fontSize: 12,
-                                                        color: HexColor("#60656e")),
+                                                        color: HexColor(
+                                                            "#60656e")),
                                                   ),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 8.0, bottom: 18, top: 34),
+                                                    left: 8.0,
+                                                    bottom: 18,
+                                                    top: 34),
                                                 child: MaterialButton(
                                                   minWidth: 58,
                                                   height: 34,
@@ -353,9 +380,10 @@ class _ViewProductInventoryState extends State<ViewProductInventory> {
                                                     "Apply",
                                                     style: TextStyle(
                                                       fontFamily:
-                                                      "Poppins-SemiBold",
+                                                          "Poppins-SemiBold",
                                                       fontSize: 12,
-                                                      color: HexColor("#ffffff"),
+                                                      color:
+                                                          HexColor("#ffffff"),
                                                     ),
                                                   ),
                                                 ),

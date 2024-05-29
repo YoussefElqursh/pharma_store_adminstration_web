@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 1:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: UniqueKey(),  // Unique key to force rebuild
+                                key: UniqueKey(), // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const ProductsScreen(),
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 2:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: UniqueKey(),  // Unique key to force rebuild
+                                key: UniqueKey(), // Unique key to force rebuild
 
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 3:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: UniqueKey(),  // Unique key to force rebuild
+                                key: UniqueKey(), // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const StoreScreen(),
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 4:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: UniqueKey(),  // Unique key to force rebuild
+                                key: UniqueKey(), // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const OrderScreen(),
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 5:
                               _key.currentState?.closeDrawer();
                               return Navigator(
-                                key: UniqueKey(),  // Unique key to force rebuild
+                                key: UniqueKey(), // Unique key to force rebuild
                                 onGenerateRoute: (settings) =>
                                     MaterialPageRoute(
                                   builder: (context) => const DashboardScreen(),

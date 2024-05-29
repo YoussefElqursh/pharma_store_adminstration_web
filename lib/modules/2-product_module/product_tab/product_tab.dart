@@ -20,12 +20,14 @@ class _ProductTabState extends State<ProductTab> {
 
   bool filterVisibility = false;
   late TextEditingController controllerOfSearch;
+
   @override
   void initState() {
     super.initState();
     filteredData = demoData;
     controllerOfSearch = TextEditingController(); // Initialize here
   }
+
   void _filterSearchResults(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -33,7 +35,7 @@ class _ProductTabState extends State<ProductTab> {
       } else {
         filteredData = demoData
             .where((element) =>
-            element.to.toLowerCase().contains(query.toLowerCase()))
+                element.to.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -50,13 +52,14 @@ class _ProductTabState extends State<ProductTab> {
                   left: 30.0, right: 30, top: 30, bottom: 10),
               child: Stack(
                 children: [
-                   Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
                         height: 60,
                       ),
-                      ProductTabTable(data: filteredData!,
+                      ProductTabTable(
+                        data: filteredData!,
                       ),
                     ],
                   ),
@@ -577,5 +580,4 @@ class _ProductTabState extends State<ProductTab> {
       ),
     );
   }
-
 }

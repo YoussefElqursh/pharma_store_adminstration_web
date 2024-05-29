@@ -78,7 +78,7 @@ class _ProductInventoryTabTableState extends State<ProductInventoryTabTable> {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
           ),
-          headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),

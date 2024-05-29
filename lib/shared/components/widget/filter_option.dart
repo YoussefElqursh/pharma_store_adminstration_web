@@ -189,7 +189,7 @@ class _FilterOption extends State<FilterOption> {
               padding: const EdgeInsets.only(left: 13.0, top: 14.0),
               child: Checkbox(
                 overlayColor:
-                    const MaterialStatePropertyAll(Colors.transparent),
+                    const WidgetStatePropertyAll(Colors.transparent),
 
                 side: BorderSide(color: HexColor(white70), width: 1.3),
 
@@ -229,7 +229,7 @@ class _FilterOption extends State<FilterOption> {
               padding: const EdgeInsets.only(left: 15.0, top: 14.0),
               child: Checkbox(
                 overlayColor:
-                    const MaterialStatePropertyAll(Colors.transparent),
+                    const WidgetStatePropertyAll(Colors.transparent),
                 focusColor: Colors.black,
                 side: BorderSide(color: HexColor(white70), width: 1.3),
                 activeColor: HexColor(primary),
@@ -271,7 +271,7 @@ class _FilterOption extends State<FilterOption> {
               padding: const EdgeInsets.only(left: 13.0, top: 14.0),
               child: Checkbox(
                 overlayColor:
-                    const MaterialStatePropertyAll(Colors.transparent),
+                    const WidgetStatePropertyAll(Colors.transparent),
 
                 side: BorderSide(color: HexColor(white70), width: 1.3),
 
@@ -311,7 +311,7 @@ class _FilterOption extends State<FilterOption> {
               padding: const EdgeInsets.only(left: 15.0, top: 14.0),
               child: Checkbox(
                 overlayColor:
-                    const MaterialStatePropertyAll(Colors.transparent),
+                    const WidgetStatePropertyAll(Colors.transparent),
                 focusColor: Colors.black,
                 side: BorderSide(color: HexColor(white70), width: 1.3),
                 activeColor: HexColor(primary),

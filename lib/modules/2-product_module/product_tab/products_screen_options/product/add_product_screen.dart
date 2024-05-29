@@ -593,14 +593,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                           color: Color(0xFFB1B9C5),
                                         ),
                                         style: ButtonStyle(
-                                          shape: MaterialStatePropertyAll(
+                                          shape: WidgetStatePropertyAll(
                                             ContinuousRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(6),
                                             ),
                                           ),
                                           padding:
-                                              const MaterialStatePropertyAll(
+                                              const WidgetStatePropertyAll(
                                             EdgeInsets.all(5),
                                           ),
                                         ),
@@ -701,14 +701,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
                                           color: Color(0xFFB1B9C5),
                                         ),
                                         style: ButtonStyle(
-                                          shape: MaterialStatePropertyAll(
+                                          shape: WidgetStatePropertyAll(
                                             ContinuousRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(6),
                                             ),
                                           ),
                                           padding:
-                                              const MaterialStatePropertyAll(
+                                              const WidgetStatePropertyAll(
                                             EdgeInsets.all(5),
                                           ),
                                         ),

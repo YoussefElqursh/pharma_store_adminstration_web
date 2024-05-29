@@ -7,6 +7,7 @@ import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class ProductTabTable extends StatefulWidget {
   const ProductTabTable({super.key, required this.data});
+
   final List<Data> data; // List of PharmacyData
 
   @override
@@ -87,7 +88,7 @@ class _ProductTabTableState extends State<ProductTabTable> {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
           ),
-          headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
@@ -130,7 +131,7 @@ class _ProductTabTableState extends State<ProductTabTable> {
             const DataColumn(
               label: Text('Quantity Per Package'),
             ),
-             DataColumn(
+            DataColumn(
               onSort: (columnIndex, ascending) {
                 setState(() {
                   sortAscending = !sortAscending;
@@ -143,7 +144,6 @@ class _ProductTabTableState extends State<ProductTabTable> {
                   }
                 });
               },
-
               label: const Row(
                 children: [
                   Text('Public Price'),

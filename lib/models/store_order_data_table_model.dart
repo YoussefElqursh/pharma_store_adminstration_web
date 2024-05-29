@@ -12,7 +12,7 @@ class StoreOrderData {
   final IconButton moreIcon;
 }
 
-List <StoreOrderData>storeOrderDemoData = [
+List<StoreOrderData> storeOrderDemoData = [
   StoreOrderData(
       1,
       'Pharmaceuticals\nIbnsina',

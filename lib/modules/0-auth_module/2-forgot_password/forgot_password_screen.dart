@@ -123,16 +123,6 @@ class ForgotPasswordScreen extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Container(
-                            height: 56,
-                            width: 2,
-                            margin: const EdgeInsets.only(
-                              left: 15,
-                            ),
-                            decoration: BoxDecoration(
-                              color: HexColor(bWhite90),
-                            ),
-                          ),
                           const SizedBox(
                             width: 16,
                           ),
@@ -140,15 +130,53 @@ class ForgotPasswordScreen extends StatelessWidget {
                             child: TextField(
                               keyboardType: TextInputType.phone,
                               decoration: InputDecoration(
-                                  hintText: '999-9999-999',
-                                  hintStyle: TextStyle(
-                                    color: HexColor(white70),
-                                    fontSize: 16,
-                                    fontFamily: 'Poppins',
-                                  ),
-                                  border: InputBorder.none),
+                                constraints: const BoxConstraints(
+                                    maxWidth: 380, maxHeight: 56),
+                                hintText: '999-9999-999',
+                                hintStyle: TextStyle(
+                                  color: HexColor(white70),
+                                  fontSize: 16,
+                                  fontFamily: 'Poppins',
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8),
+                                      topRight: Radius.circular(8)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFFDDE1EB),
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      width: 0),
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8),
+                                      topRight: Radius.circular(8)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFFDDE1EB),
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      width: 0),
+                                ),
+                                errorBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8),
+                                      topRight: Radius.circular(8)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFFDDE1EB),
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      width: 0),
+                                ),
+                                border: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8),
+                                      topRight: Radius.circular(8)),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFFDDE1EB),
+                                      strokeAlign: BorderSide.strokeAlignCenter,
+                                      width: 0),
+                                ),
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

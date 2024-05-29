@@ -41,10 +41,11 @@ class ScreenHeader extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: ()=>Navigator.push(
+                  onPressed: () => Navigator.push(
                     context,
                     PageRouteBuilder(
-                      pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          FadeTransition(
                         opacity: animation,
                         child: const NotificationScreen(),
                       ),

@@ -32,7 +32,7 @@ class _DashboardTableWidgetState extends State<DashboardTableWidget> {
           fontFamily: 'Poppins',
           fontWeight: FontWeight.w600,
         ),
-        headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+        headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
         columns: const [
           DataColumn(
             label: Text(
@@ -107,8 +107,7 @@ class _DashboardTableWidgetState extends State<DashboardTableWidget> {
             ),
           ),
         ],
-        rows: List.generate(
-            demoData.length, (index) => _dataRow(demoData[index])),
+        rows: List.generate(10, (index) => _dataRow(demoData[index])),
       ),
     );
   }

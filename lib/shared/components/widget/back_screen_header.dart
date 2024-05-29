@@ -6,10 +6,10 @@ import 'package:pharma_store_administration_web/shared/my_icons_icons.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
 class BackScreenHeader extends StatelessWidget {
-  const BackScreenHeader(
-      {super.key, required this.backScreenName});
+  const BackScreenHeader({super.key, required this.backScreenName});
 
   final String backScreenName;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,10 +49,11 @@ class BackScreenHeader extends StatelessWidget {
             ),
             const Spacer(),
             IconButton(
-              onPressed: ()=>Navigator.push(
+              onPressed: () => Navigator.push(
                 context,
                 PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+                  pageBuilder: (context, animation, secondaryAnimation) =>
+                      FadeTransition(
                     opacity: animation,
                     child: const NotificationScreen(),
                   ),

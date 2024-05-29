@@ -28,7 +28,6 @@ class StoreScreenOption extends StatefulWidget {
   State<StoreScreenOption> createState() => _StoreScreenOption();
 }
 
-
 class _StoreScreenOption extends State<StoreScreenOption> {
   List<StoreOrderData>? filterData;
   TextEditingController dateTimeController = TextEditingController();
@@ -38,6 +37,7 @@ class _StoreScreenOption extends State<StoreScreenOption> {
   bool deactivatedIsChecked = false;
   late TextEditingController controllerOfSearch;
   List<StoreOrderData>? filteredData;
+
   @override
   void initState() {
     super.initState();
@@ -54,7 +54,7 @@ class _StoreScreenOption extends State<StoreScreenOption> {
       } else {
         filteredData = storeOrderDemoData
             .where((element) =>
-            element.to.toLowerCase().contains(query.toLowerCase()))
+                element.to.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -85,6 +85,7 @@ class _StoreScreenOption extends State<StoreScreenOption> {
       filteredData = storeOrderDemoData;
     });
   }
+
   onSortColumnName(int columnIndex, bool ascending) {
     if (columnIndex == 2) {
       if (ascending) {
@@ -96,7 +97,6 @@ class _StoreScreenOption extends State<StoreScreenOption> {
   }
 
   bool filterVisiblity = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -146,13 +146,12 @@ class _StoreScreenOption extends State<StoreScreenOption> {
                           child: SingleChildScrollView(
                             child: Stack(
                               children: [
-                                 Padding(
+                                Padding(
                                   padding: const EdgeInsets.only(top: 50.0),
-                                  child:
-                                      Expanded(child: StoreOrderTableWidget(
-                                        data: filteredData!,
-
-                                      )),
+                                  child: Expanded(
+                                      child: StoreOrderTableWidget(
+                                    data: filteredData!,
+                                  )),
                                 ),
                                 Expanded(
                                   child: Expanded(

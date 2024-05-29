@@ -5,7 +5,6 @@ import 'package:pharma_store_administration_web/models/data_table.dart';
 import 'package:pharma_store_administration_web/modules/2-product_module/product_inventory_tab/product_inventory_options/product_inventory_details/product_inventory_details_screen.dart';
 import 'package:pharma_store_administration_web/shared/style/colors.dart';
 
-
 class SummarizeProductTable extends StatefulWidget {
   final List<Data> data; // List of PharmacyData
 
@@ -16,11 +15,11 @@ class SummarizeProductTable extends StatefulWidget {
 }
 
 class _SummarizeProductTableState extends State<SummarizeProductTable> {
-
- late List<Data>? filterData;
+  late List<Data>? filterData;
   int currentPage = 0;
   int rowsPerPage = 10;
   bool sortAscending = true;
+
   @override
   void initState() {
     super.initState();
@@ -34,6 +33,7 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
       filterData = widget.data;
     }
   }
+
   void _openProductInventoryScreen() {
     Navigator.push(
       context,
@@ -77,11 +77,11 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
           ),
-          headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
           columns: [
             const DataColumn(label: Text('ID')),
             const DataColumn(label: Text('Photo')),
-             DataColumn(
+            DataColumn(
               onSort: (columnIndex, ascending) {
                 setState(() {
                   sortAscending = !sortAscending;
@@ -92,13 +92,8 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
                   }
                 });
               },
-
               label: const Row(
-                children: [
-                  Text('Name'),
-                  SizedBox(width: 10),
-                  Icon(Icons.sort)
-                ],
+                children: [Text('Name'), SizedBox(width: 10), Icon(Icons.sort)],
               ),
             ),
             const DataColumn(
@@ -113,19 +108,18 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
             const DataColumn(
               label: Text('Quantity'),
             ),
-             DataColumn(
-               onSort: (columnIndex, ascending) {
-                 setState(() {
-                   sortAscending = !sortAscending;
-                   if (sortAscending) {
-                     filterData?.sort((a, b) => a.to.compareTo(b.to));
-                   } else {
-                     filterData?.sort((a, b) => b.to.compareTo(a.to));
-                   }
-                 });
-               },
-
-               label: const Row(
+            DataColumn(
+              onSort: (columnIndex, ascending) {
+                setState(() {
+                  sortAscending = !sortAscending;
+                  if (sortAscending) {
+                    filterData?.sort((a, b) => a.to.compareTo(b.to));
+                  } else {
+                    filterData?.sort((a, b) => b.to.compareTo(a.to));
+                  }
+                });
+              },
+              label: const Row(
                 children: [
                   Text('Public Price'),
                   SizedBox(width: 10),
@@ -139,7 +133,7 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
           ],
           rows: List.generate(
             rowsPerPage,
-                (index) {
+            (index) {
               int dataIndex = currentPage * rowsPerPage + index;
               if (dataIndex >= filterData!.length) {
                 return null;
@@ -159,7 +153,7 @@ class _SummarizeProductTableState extends State<SummarizeProductTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-               Text(
+              Text(
                 'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData!.length} entries',
                 style: const TextStyle(
                   color: Color(0xFF6B788E),

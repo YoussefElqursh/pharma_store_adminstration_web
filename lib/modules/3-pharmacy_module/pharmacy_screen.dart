@@ -54,7 +54,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
       } else {
         filteredData = pharmacyDemo_Data
             .where((element) =>
-            element.name.toLowerCase().contains(query.toLowerCase()))
+                element.name.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -139,14 +139,14 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide:
-                                    BorderSide(color: HexColor(bWhite90)),
+                                        BorderSide(color: HexColor(bWhite90)),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide:
-                                    BorderSide(color: HexColor(primary)),
+                                        BorderSide(color: HexColor(primary)),
                                   ),
                                   contentPadding:
-                                  const EdgeInsets.symmetric(vertical: 5),
+                                      const EdgeInsets.symmetric(vertical: 5),
                                 ),
                               ),
                             ),
@@ -164,7 +164,7 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                               hoverColor: Colors.transparent,
                               shape: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: HexColor('#edf0fe')),
+                                    BorderSide(color: HexColor('#edf0fe')),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: Center(
@@ -208,7 +208,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const Padding(
-                                    padding: EdgeInsets.only(left: 20.0, top: 20.0),
+                                    padding:
+                                        EdgeInsets.only(left: 20.0, top: 20.0),
                                     child: Text(
                                       "Filter Options",
                                       style: TextStyle(
@@ -223,7 +224,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                     child: Divider(height: 1),
                                   ),
                                   const Padding(
-                                    padding: EdgeInsets.only(top: 20.0, left: 20.0),
+                                    padding:
+                                        EdgeInsets.only(top: 20.0, left: 20.0),
                                     child: Text(
                                       "State:",
                                       style: TextStyle(
@@ -237,9 +239,11 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 13.0, top: 14.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 13.0, top: 14.0),
                                         child: Checkbox(
-                                          overlayColor: const MaterialStatePropertyAll(
+                                          overlayColor:
+                                              const WidgetStatePropertyAll(
                                             Colors.transparent,
                                           ),
                                           side: BorderSide(
@@ -256,13 +260,15 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 2.5, top: 14.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 2.5, top: 14.0),
                                         child: Container(
                                           width: 78,
                                           height: 26,
                                           decoration: BoxDecoration(
                                             color: HexColor('#ecfdf3'),
-                                            borderRadius: BorderRadius.circular(14),
+                                            borderRadius:
+                                                BorderRadius.circular(14),
                                           ),
                                           child: Center(
                                             child: Text(
@@ -278,9 +284,11 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 15.0, top: 14.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 15.0, top: 14.0),
                                         child: Checkbox(
-                                          overlayColor: const MaterialStatePropertyAll(
+                                          overlayColor:
+                                              const WidgetStatePropertyAll(
                                             Colors.transparent,
                                           ),
                                           focusColor: Colors.black,
@@ -298,14 +306,17 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 2.5, top: 14.0),
+                                        padding: const EdgeInsets.only(
+                                            left: 2.5, top: 14.0),
                                         child: Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 2.5),
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 2.5),
                                           width: 85,
                                           height: 26,
                                           decoration: BoxDecoration(
                                             color: HexColor('#fff2ea'),
-                                            borderRadius: BorderRadius.circular(14),
+                                            borderRadius:
+                                                BorderRadius.circular(14),
                                           ),
                                           child: Center(
                                             child: Text(
@@ -326,7 +337,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                     children: [
                                       const Spacer(),
                                       Padding(
-                                        padding: const EdgeInsets.only(bottom: 18, top: 34),
+                                        padding: const EdgeInsets.only(
+                                            bottom: 18, top: 34),
                                         child: MaterialButton(
                                           minWidth: 58,
                                           height: 34,
@@ -344,7 +356,8 @@ class _PharmacyScreen extends State<PharmacyScreen> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 8.0, bottom: 18, top: 34),
+                                        padding: const EdgeInsets.only(
+                                            left: 8.0, bottom: 18, top: 34),
                                         child: MaterialButton(
                                           minWidth: 58,
                                           height: 34,

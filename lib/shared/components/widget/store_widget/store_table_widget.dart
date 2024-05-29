@@ -9,7 +9,8 @@ class StoreTableWidget extends StatefulWidget {
   final void Function() openProfileScreen; // Function to open profile screen
   final List<StoreData> data; // List of PharmacyData
 
-  const StoreTableWidget({super.key, required this.openProfileScreen, required this.data});
+  const StoreTableWidget(
+      {super.key, required this.openProfileScreen, required this.data});
 
   @override
   State<StoreTableWidget> createState() => _StoreTableWidget();
@@ -35,6 +36,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
       filterData = widget.data;
     }
   }
+
   void _openProfileScreen() {
     Navigator.push(
       context,
@@ -79,7 +81,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                   fontWeight: FontWeight.w600,
                 ),
                 headingRowColor:
-                    const MaterialStatePropertyAll(Color(0xfffbfafb)),
+                    const WidgetStatePropertyAll(Color(0xfffbfafb)),
                 columns: [
                   const DataColumn(label: Text('ID')),
                   const DataColumn(label: Text('Photo')),
@@ -94,7 +96,6 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                         }
                       });
                     },
-
                     label: const Row(
                       children: [
                         Text('Name'),
@@ -107,16 +108,13 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                     label: Row(
                       children: [
                         Text('Contact Number'),
-
                       ],
                     ),
                   ),
-                   const DataColumn(
-
+                  const DataColumn(
                     label: Row(
                       children: [
                         Text('Address'),
-
                       ],
                     ),
                   ),
@@ -127,7 +125,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
                 ],
                 rows: List.generate(
                   rowsPerPage,
-                      (index) {
+                  (index) {
                     int dataIndex = currentPage * rowsPerPage + index;
                     if (dataIndex >= filterData.length) {
                       return null;
@@ -147,7 +145,7 @@ class _StoreTableWidget extends State<StoreTableWidget> {
             padding: const EdgeInsets.only(left: 30.0),
             child: Row(
               children: [
-                 Text(
+                Text(
                   'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                   style: const TextStyle(
                     color: Color(0xFF6B788E),
@@ -286,11 +284,8 @@ class _StoreTableWidget extends State<StoreTableWidget> {
             ),
           ),
         ),
-
-
         DataCell(
           PopupMenuButton<String>(
-
             icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => [
               PopupMenuItem<String>(

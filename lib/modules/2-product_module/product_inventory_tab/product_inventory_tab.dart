@@ -18,6 +18,7 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
   bool filterVisibility = false;
   List<Data>? filteredData;
   late TextEditingController controllerOfSearch;
+
   void _filterSearchResults(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -25,7 +26,7 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
       } else {
         filteredData = demoData
             .where((element) =>
-            element.to.toLowerCase().contains(query.toLowerCase()))
+                element.to.toLowerCase().contains(query.toLowerCase()))
             .toList();
       }
     });
@@ -40,13 +41,13 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
 
   List<String> selectedItems = [];
 
-
   @override
   void initState() {
     super.initState();
     filteredData = demoData;
     controllerOfSearch = TextEditingController();
   }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -58,7 +59,7 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                   left: 30.0, right: 30, top: 30, bottom: 10),
               child: Stack(
                 children: [
-                   Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(
@@ -193,7 +194,8 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     const Padding(
-                                      padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+                                      padding: EdgeInsets.only(
+                                          top: 20.0, left: 20.0, right: 20.0),
                                       child: Text(
                                         'Public Price:',
                                         style: TextStyle(
@@ -210,10 +212,14 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                       child: Row(
                                         children: [
                                           SizedBox(
-                                            width: MediaQuery.of(context).size.width * 0.08,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.08,
                                             height: 40,
                                             child: TextField(
-                                              style: const TextStyle(fontSize: 12),
+                                              style:
+                                                  const TextStyle(fontSize: 12),
                                               decoration: InputDecoration(
                                                   filled: true,
                                                   fillColor: HexColor(white),
@@ -224,33 +230,34 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                                     fontFamily: 'Poppins',
                                                     fontWeight: FontWeight.w500,
                                                   ),
-                                                  border: const OutlineInputBorder(
+                                                  border:
+                                                      const OutlineInputBorder(
                                                     borderRadius:
-                                                    BorderRadius.only(
+                                                        BorderRadius.only(
                                                       bottomLeft:
-                                                      Radius.circular(12),
+                                                          Radius.circular(12),
                                                       topLeft:
-                                                      Radius.circular(12),
+                                                          Radius.circular(12),
                                                     ),
                                                   ),
                                                   enabledBorder:
-                                                  OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                         color:
-                                                        HexColor(bWhite90)),
+                                                            HexColor(bWhite90)),
                                                   ),
                                                   focusedBorder:
-                                                  OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                         color:
-                                                        HexColor(primary)),
+                                                            HexColor(primary)),
                                                   ),
                                                   contentPadding:
-                                                  const EdgeInsets.only(
-                                                      top: 10,
-                                                      bottom: 10,
-                                                      left: 10,
-                                                      right: 30)),
+                                                      const EdgeInsets.only(
+                                                          top: 10,
+                                                          bottom: 10,
+                                                          left: 10,
+                                                          right: 30)),
                                             ),
                                           ),
                                           const SizedBox(
@@ -264,13 +271,13 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                               )),
                                           SizedBox(
                                             width: MediaQuery.of(context)
-                                                .size
-                                                .width *
+                                                    .size
+                                                    .width *
                                                 0.08,
                                             height: 40,
                                             child: TextField(
                                               style:
-                                              const TextStyle(fontSize: 12),
+                                                  const TextStyle(fontSize: 12),
                                               decoration: InputDecoration(
                                                   filled: true,
                                                   fillColor: HexColor(white),
@@ -281,33 +288,33 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                                     fontFamily: 'Poppins',
                                                   ),
                                                   border:
-                                                  const OutlineInputBorder(
+                                                      const OutlineInputBorder(
                                                     borderRadius:
-                                                    BorderRadius.only(
+                                                        BorderRadius.only(
                                                       bottomLeft:
-                                                      Radius.circular(12),
+                                                          Radius.circular(12),
                                                       topLeft:
-                                                      Radius.circular(12),
+                                                          Radius.circular(12),
                                                     ),
                                                   ),
                                                   enabledBorder:
-                                                  OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                         color:
-                                                        HexColor(bWhite90)),
+                                                            HexColor(bWhite90)),
                                                   ),
                                                   focusedBorder:
-                                                  OutlineInputBorder(
+                                                      OutlineInputBorder(
                                                     borderSide: BorderSide(
                                                         color:
-                                                        HexColor(primary)),
+                                                            HexColor(primary)),
                                                   ),
                                                   contentPadding:
-                                                  const EdgeInsets.only(
-                                                      top: 10,
-                                                      bottom: 10,
-                                                      left: 10,
-                                                      right: 30)),
+                                                      const EdgeInsets.only(
+                                                          top: 10,
+                                                          bottom: 10,
+                                                          left: 10,
+                                                          right: 30)),
                                             ),
                                           ),
                                         ],
@@ -344,100 +351,142 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                             style: TextStyle(
                                               fontSize: 14,
                                               color:
-                                              Theme.of(context).hintColor,
+                                                  Theme.of(context).hintColor,
                                             ),
                                           ),
-                                          items: items.map((item) {
-                                            return DropdownMenuItem(
-                                              value: item,
-                                              enabled: false,
-                                              child: StatefulBuilder(
-                                                builder:
-                                                    (context, menuSetState) {
-                                                  final isSelected =
-                                                  selectedItems
-                                                      .contains(item);
-                                                  return InkWell(
-                                                    onTap: () {
-                                                      isSelected
-                                                          ? selectedItems.remove(item)
-                                                          : selectedItems.add(item);
-                                                      //This rebuilds the StatefulWidget to update the button's text
-                                                      setState(() {});
-                                                      //This rebuilds the dropdownMenu Widget to update the check mark
-                                                      menuSetState(() {});
-                                                    },
-                                                    child: Container(
-                                                      height: double.infinity,
-                                                      padding: const EdgeInsets
-                                                          .symmetric(
-                                                          horizontal: 16.0),
-                                                      child: Row(
-                                                        children: [
-                                                          if (isSelected)
-                                                            Icon(Icons.check_box_outlined, color: HexColor(primary),)
-                                                          else
-                                                            Icon(Icons.check_box_outline_blank, color: HexColor(primary)),
-                                                          const SizedBox(width: 16),
-                                                          Expanded(
-                                                            child: Text(
-                                                              item,
-                                                              style: const TextStyle(
-                                                                color: Color(0xFF4A71FF),
-                                                                fontSize: 12,
-                                                                fontFamily: 'Poppins',
-                                                                fontWeight: FontWeight.w500,
-                                                                height: 0,
+                                          items: items.map(
+                                            (item) {
+                                              return DropdownMenuItem(
+                                                value: item,
+                                                enabled: false,
+                                                child: StatefulBuilder(
+                                                  builder:
+                                                      (context, menuSetState) {
+                                                    final isSelected =
+                                                        selectedItems
+                                                            .contains(item);
+                                                    return InkWell(
+                                                      onTap: () {
+                                                        isSelected
+                                                            ? selectedItems
+                                                                .remove(item)
+                                                            : selectedItems
+                                                                .add(item);
+                                                        //This rebuilds the StatefulWidget to update the button's text
+                                                        setState(() {});
+                                                        //This rebuilds the dropdownMenu Widget to update the check mark
+                                                        menuSetState(() {});
+                                                      },
+                                                      child: Container(
+                                                        height: double.infinity,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .symmetric(
+                                                                horizontal:
+                                                                    16.0),
+                                                        child: Row(
+                                                          children: [
+                                                            if (isSelected)
+                                                              Icon(
+                                                                Icons
+                                                                    .check_box_outlined,
+                                                                color: HexColor(
+                                                                    primary),
+                                                              )
+                                                            else
+                                                              Icon(
+                                                                  Icons
+                                                                      .check_box_outline_blank,
+                                                                  color: HexColor(
+                                                                      primary)),
+                                                            const SizedBox(
+                                                                width: 16),
+                                                            Expanded(
+                                                              child: Text(
+                                                                item,
+                                                                style:
+                                                                    const TextStyle(
+                                                                  color: Color(
+                                                                      0xFF4A71FF),
+                                                                  fontSize: 12,
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  height: 0,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            );
-                                          },
-                                          ).toList(),
-                                          value: selectedItems.isEmpty ? null : selectedItems.last,
-                                          onChanged: (value) {},
-                                          selectedItemBuilder: (context) {
-                                            return items.map((item) {
-                                              return Container(
-                                                alignment: AlignmentDirectional.center,
-                                                child: Container(
-                                                  height: 40,
-                                                  width: 230,
-                                                  decoration: ShapeDecoration(
-                                                    color: const Color(0x0C4A71FF),
-                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-                                                  ),
-                                                  child: Center(
-                                                    child: Text(
-                                                      selectedItems.join(' '),
-                                                      style: const TextStyle(
-                                                        color: Color(0xFF4A71FF),
-                                                        fontSize: 12,
-                                                        fontFamily: 'Poppins',
-                                                        fontWeight: FontWeight.w500,
-                                                        overflow: TextOverflow.ellipsis,
-                                                      ),
-                                                      maxLines: 1,
-                                                    ),
-                                                  ),
+                                                    );
+                                                  },
                                                 ),
                                               );
                                             },
+                                          ).toList(),
+                                          value: selectedItems.isEmpty
+                                              ? null
+                                              : selectedItems.last,
+                                          onChanged: (value) {},
+                                          selectedItemBuilder: (context) {
+                                            return items.map(
+                                              (item) {
+                                                return Container(
+                                                  alignment:
+                                                      AlignmentDirectional
+                                                          .center,
+                                                  child: Container(
+                                                    height: 40,
+                                                    width: 230,
+                                                    decoration: ShapeDecoration(
+                                                      color: const Color(
+                                                          0x0C4A71FF),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          3)),
+                                                    ),
+                                                    child: Center(
+                                                      child: Text(
+                                                        selectedItems.join(' '),
+                                                        style: const TextStyle(
+                                                          color:
+                                                              Color(0xFF4A71FF),
+                                                          fontSize: 12,
+                                                          fontFamily: 'Poppins',
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                        ),
+                                                        maxLines: 1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
                                             ).toList();
                                           },
-                                          buttonStyleData: const ButtonStyleData(
-                                            padding: EdgeInsets.only(left: 16, right: 8),
+                                          buttonStyleData:
+                                              const ButtonStyleData(
+                                            padding: EdgeInsets.only(
+                                                left: 16, right: 8),
                                             height: 40,
                                             width: 230,
                                           ),
-                                          iconStyleData: const IconStyleData(icon: Icon(Icons.keyboard_arrow_down_rounded, color: Color(0xFFB2BAC6),),),
-                                          menuItemStyleData: const MenuItemStyleData(
+                                          iconStyleData: const IconStyleData(
+                                            icon: Icon(
+                                              Icons.keyboard_arrow_down_rounded,
+                                              color: Color(0xFFB2BAC6),
+                                            ),
+                                          ),
+                                          menuItemStyleData:
+                                              const MenuItemStyleData(
                                             height: 40,
                                             padding: EdgeInsets.zero,
                                           ),
@@ -445,7 +494,8 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(right: 20.0),
+                                      padding:
+                                          const EdgeInsets.only(right: 20.0),
                                       child: Row(
                                         children: [
                                           const Spacer(),
@@ -459,15 +509,14 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                               color: HexColor("#f5f6fa"),
                                               onPressed: () {
                                                 setState(
-                                                      () {
-                                                  },
+                                                  () {},
                                                 );
                                               },
                                               child: Text(
                                                 "Reset",
                                                 style: TextStyle(
                                                     fontFamily:
-                                                    "Poppins-SemiBold",
+                                                        "Poppins-SemiBold",
                                                     fontSize: 12,
                                                     color: HexColor("#60656e")),
                                               ),
@@ -486,7 +535,7 @@ class _ProductInventoryTabState extends State<ProductInventoryTab> {
                                                 "Apply",
                                                 style: TextStyle(
                                                   fontFamily:
-                                                  "Poppins-SemiBold",
+                                                      "Poppins-SemiBold",
                                                   fontSize: 12,
                                                   color: HexColor("#ffffff"),
                                                 ),

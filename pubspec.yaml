@@ -47,7 +47,8 @@ dependencies:
   syncfusion_flutter_charts: ^25.1.38
   sidebarx: ^0.16.3
   number_paginator: ^0.4.1
-
+  http:
+  shared_preferences: ^2.2.3
 
 
 dev_dependencies:

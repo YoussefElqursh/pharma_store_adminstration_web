@@ -257,13 +257,11 @@ class _StoreScreen extends State<StoreScreen> {
                                                   left: 13.0, top: 14.0),
                                               child: Checkbox(
                                                 overlayColor:
-                                                    const MaterialStatePropertyAll(
+                                                    const WidgetStatePropertyAll(
                                                         Colors.transparent),
-
                                                 side: BorderSide(
                                                     color: HexColor(white70),
                                                     width: 1.3),
-
                                                 activeColor: HexColor(primary),
                                                 value: activatedIsChecked,
                                                 onChanged: (value) {
@@ -303,21 +301,22 @@ class _StoreScreen extends State<StoreScreen> {
                                               padding: const EdgeInsets.only(
                                                   left: 15.0, top: 14.0),
                                               child: Checkbox(
-                                                overlayColor:
-                                                    const MaterialStatePropertyAll(
-                                                        Colors.transparent),
-                                                focusColor: Colors.black,
-                                                side: BorderSide(
-                                                    color: HexColor(white70),
-                                                    width: 1.3),
-                                                activeColor: HexColor(primary),
-                                                value: deactivatedIsChecked,
-                                                onChanged: (value) {
-                                                  setState(() {
-                                                    deactivatedIsChecked = value!;
-                                                  });
-                                                }
-                                                ),
+                                                  overlayColor:
+                                                      const WidgetStatePropertyAll(
+                                                          Colors.transparent),
+                                                  focusColor: Colors.black,
+                                                  side: BorderSide(
+                                                      color: HexColor(white70),
+                                                      width: 1.3),
+                                                  activeColor:
+                                                      HexColor(primary),
+                                                  value: deactivatedIsChecked,
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      deactivatedIsChecked =
+                                                          value!;
+                                                    });
+                                                  }),
                                             ),
                                             Padding(
                                               padding: const EdgeInsets.only(
@@ -379,7 +378,7 @@ class _StoreScreen extends State<StoreScreen> {
                                                 height: 34,
                                                 elevation: 0.0,
                                                 color: HexColor(primary),
-                                                onPressed:  _applyFilter,
+                                                onPressed: _applyFilter,
                                                 child: Text(
                                                   "Apply",
                                                   style: TextStyle(

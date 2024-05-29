@@ -80,7 +80,7 @@ class _CategoryTableState extends State<CategoryTable> {
             fontFamily: 'Poppins',
             fontWeight: FontWeight.w600,
           ),
-          headingRowColor: const MaterialStatePropertyAll(Color(0xfffbfafb)),
+          headingRowColor: const WidgetStatePropertyAll(Color(0xfffbfafb)),
           columns: [
             const DataColumn(
               label: Text('ID'),
@@ -96,13 +96,8 @@ class _CategoryTableState extends State<CategoryTable> {
                   }
                 });
               },
-
               label: const Row(
-                children: [
-                  Text('Name'),
-                  SizedBox(width: 10),
-                  Icon(Icons.sort)
-                ],
+                children: [Text('Name'), SizedBox(width: 10), Icon(Icons.sort)],
               ),
             ),
             const DataColumn(
@@ -114,7 +109,7 @@ class _CategoryTableState extends State<CategoryTable> {
           ],
           rows: List.generate(
             rowsPerPage,
-                (index) {
+            (index) {
               int dataIndex = currentPage * rowsPerPage + index;
               if (dataIndex >= filterData.length) {
                 return null;
@@ -134,7 +129,7 @@ class _CategoryTableState extends State<CategoryTable> {
           padding: const EdgeInsets.only(left: 30.0),
           child: Row(
             children: [
-               Text(
+              Text(
                 'Showing ${currentPage * rowsPerPage + 1} to ${(currentPage + 1) * rowsPerPage} of ${filterData.length} entries',
                 style: const TextStyle(
                   color: Color(0xFF6B788E),

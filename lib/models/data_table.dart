@@ -8,7 +8,7 @@ class Data {
   final String state;
 }
 
-List <Data>demoData = [
+List<Data> demoData = [
   Data(
     1,
     'Pharmaceuticals\nIbnsina',

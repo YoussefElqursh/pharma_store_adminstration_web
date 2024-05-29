@@ -98,35 +98,50 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                     ),
                     const SizedBox(height: 4.0),
-                    Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: HexColor(bWhite90),
-                          width: 1.5,
+                    TextFormField(
+                      decoration: InputDecoration(
+                        constraints:
+                            const BoxConstraints(maxWidth: 380, maxHeight: 56),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(
+                          color: HexColor(white70),
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
                         ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                hintText: 'Password',
-                                hintStyle: TextStyle(
-                                  color: HexColor(white70),
-                                  fontSize: 16,
-                                  fontFamily: 'Poppins',
-                                ),
-                                border: InputBorder.none),
-                            onChanged: (value) {
-                              setState(() {
-                                password = value;
-                              });
-                            },
-                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
                         ),
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
                     ),
                     const SizedBox(height: 5.0),
                     Padding(
@@ -165,29 +180,43 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       ),
                     ),
                     const SizedBox(height: 4.0),
-                    Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: HexColor(bWhite90),
-                          width: 1.5,
+                    TextFormField(
+                      decoration: InputDecoration(
+                        constraints:
+                            const BoxConstraints(maxWidth: 380, maxHeight: 56),
+                        hintText: 'Confirm password',
+                        hintStyle: TextStyle(
+                          color: HexColor(white70),
+                          fontSize: 16,
+                          fontFamily: 'Poppins',
                         ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Center(
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Confirm password',
-                              hintStyle: TextStyle(
-                                color: HexColor(white70),
-                                fontSize: 16,
-                                fontFamily: 'Poppins',
-                              ),
-                              border: InputBorder.none,
-                            ),
-                          ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color(0xFFDDE1EB),
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              width: 1.5),
                         ),
                       ),
                     ),
